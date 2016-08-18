@@ -3,4 +3,8 @@ A lightweight weather site.
 
 
 ### Install Django with pip3 (or pip)
-`pip3 install Django==1.7.9`
+Remove any old django versions before installing
+```
+python3 -c "import django; print(django.__path__)"
+pip3 install Django==1.9.9
+```
