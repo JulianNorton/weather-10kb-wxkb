@@ -1,0 +1,55 @@
+html {
+    /* Prevent adjustments of font size after orientation changes in IE and iOS. */
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Helvetica Neue', helvetica, arial, san-serif;
+    margin: 0;
+    font-size: calc(1em + 1vw);
+}
+
+body * + * {
+    margin-top: 1.5rem;
+}
+
+.navigation-main {
+    padding: 0;
+}
+
+.navigation-main li {
+    display: inline-block;
+    padding: .2em;
+    vertical-align: middle;
+    margin: 0;
+}
+
+
+h1 {
+    font-weight: 700;
+}
+
+.grid {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.grid > * {
+    flex-basis: 10em;
+    flex-grow: 1;
+}
+
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
