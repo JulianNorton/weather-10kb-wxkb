@@ -1,43 +1,116 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Weather Feather</title>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="language" content="english">
-        <meta name="description" content="Weather Feather gives you the forecast[??]">
-        <meta property="og:email" content="julian@juliannorton.com">
-        <meta name="robots" content="Index, follow">
-    </head>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>☀ 40°F | 12:00pm</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="language" content="english">
+    <meta name="description" content="Weather Feather gives you the forecast[??]">
+    <meta property="og:email" content="julian@juliannorton.com">
+    <meta name="robots" content="Index, follow">
+</head>
 
-    <body>
-        <nav role="navigation">
-            <ul class="navigation-main">
-                <li>
-                    <a title="Weather Feather home" href="#"><img src="http://placekitten.com/g/75/50" alt="Weather Feather">
-                    <span aria-hidden="true" class="sr-only">Weather Feather Home</span></a>
-                </li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>
-        </nav>
-        
-        <section class="grid">
+<body>
+    <nav class="grid" role="navigation">
+        <ul class="navigation-main">
+            <li>
+                <a title="Weather Feather home" href="#">
+                    <img src="http://placekitten.com/g/75/50" alt="Weather Feather"/>
+                    <span aria-hidden="true" class="sr-only">Home</span>
+                </a>
+            </li>
+            <li><a href="#">Update my location</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li style="float: right;"><a href="#"><small>I want celsius</small></a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1><span style="color: orange">☀</span> <small aria-hidden="true" class="sr-only">Sunny</small> 80°<sub>f</sub></h1>
+    </header>
+
+    <section class="grid">
+        <dl>
+            <h2>Now</h2>
+            <h2>Feels like 80°<small>F</small>, mostly cloudy and breezy</h2>
+            <dd></dd>
+            <dt>Actual temp</dt>
+            <dd>90°<small>F</small></dd>
+            <dt>Wind</dt>
+            <dd>9<small>mph</small></dd>
+            <dt>Rain?</dt>
+            <dd>Heavy rain starting in 50 minutes</dd>
+        </dl>
+        <dl>
+            <h2>12:30pm</h2>
+            <h2>Feels like 80°<small>F</small>, mostly cloudy and breezy</h2>
+            <dt>Actual temp</dt>
+            <dd>90°<small>F</small></dd>
+            <dt>Wind</dt>
+            <dd>9<small>mph</small></dd>
+            <dt>Rain?</dt>
+            <dd>Heavy rain <small>100%</small></dd>
+        </dl>
+        <dl>
+            <h2>1pm</h2>
+            <h2>Feels like 80°<small>F</small>, mostly cloudy and breezy</h2>
+            <dd></dd>
+            <dt>Actual temp</dt>
+            <dd>90°<small>F</small></dd>
+            <dt>Wind</dt>
+            <dd>9<small>mph</small></dd>
+            <dt>Rain?</dt>
+            <dd>Heavy rain <small>100%</small></dd>
+        </dl>
+    </section>
+
+    <section class="grid">
+        <form action="/my-handling-form-page" method="post">
             <div>
-                <h1>Hello world</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <label for="change-location">Change location</label>
+                <input type="text" id="change-location" name="change-location" />
             </div>
-        </section>
-    </body>
+            <div class="button">
+                <button type="submit">Change location</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="grid">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <ul>
+            <li>🌞</li>
+            <li>☀</li>
+            <li>☼</li>
+            <li>☂</li>
+            <li>☔</li>
+            <li>⛈</li>
+            <li>⛆</li>
+            <li>☁</li>
+            <li>⛇</li>
+            <li>❄</li>
+            <li>🌡</li>
+            <li>🌤<span class="sr-only">WHITE SUN WITH SMALL CLOUD</span></li>
+            <li>🌥<span class="sr-only">WHITE SUN BEHIND CLOUD</span></li>
+            <li>🌦<span class="sr-only">WHITE SUN BEHIND CLOUD WITH RAIN</span></li>
+            <li>🌧<span class="sr-only">CLOUD WITH RAIN</span></li>
+            <li>🌨<span class="sr-only">CLOUD WITH SNOW</span></li>
+            <li>🌩<span class="sr-only">CLOUD WITH LIGHTNING</span></li>
+            <li>🌪<span class="sr-only">CLOUD WITH TORNADO</span></li>
+            <li>🌫<span class="sr-only">FOG</span></li>
+            <li>🌬<span class="sr-only">WIND BLOWING FACE</span></li>
+        </ul>
+    </section>
+</body>
 </html>
