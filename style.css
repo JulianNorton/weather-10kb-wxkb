@@ -17,6 +17,17 @@ body * + * {
     margin-top: 1.5rem;
 }
 
+.p-a-1 > * {
+    padding: 1em;
+}
+
+.m-a-0 {
+    margin: 0;
+}
+
+.m-a-1 {
+    margin: 1em;
+}
 .navigation-main {
     padding: 0;
 }
