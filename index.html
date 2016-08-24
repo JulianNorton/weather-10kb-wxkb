@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="grid" role="navigation">
+    <nav class="m-a-1" role="navigation">
         <ul class="navigation-main">
             <li>
                 <a title="Weather Feather home" href="#">
@@ -21,52 +21,44 @@
                     <span aria-hidden="true" class="sr-only">Home</span>
                 </a>
             </li>
-            <li><a href="#">Update my location</a></li>
-            <li style="float: right;">
+            <li>
+                <form action="/my-handling-form-page" method="post">
+                    <h5 id="change-location" class="m-a-0">Change location</h5>
+                    <label for="change-location">Enter a place, city, or zipcode.</label>
+                    <input type="text" id="change-location" name="change-location" placeholder="New York, NY" />
+                    <button type="submit">Change location</button>
+                </form>
+            </li>
+
+            <li>
                 <small>Fahrenheit (°<small class="temp-scale">F</small>)
                 <a href="#"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
             </small>
         </li>
     </ul>
+    
 </nav>
 
-<header style="margin: 1em">
+<section class="m-a-1">
+    <hr/>
+    <h4>Winter storm warning in effect until 10pm. <a href="">Read full warning.</a></h4>
+    <hr/>
+</section>
+<header class="m-a-1">
     <h1><span style="color: orange">☀</span> <small aria-hidden="true" class="sr-only">Sunny</small> <span class="temp">90°</span><small class="temp-scale">F</small></h1>
     <h2>Clear for an hour, feels like <span class="temp">110°</span><small class="temp-scale">F</small> with a slight breeze.</h2>
     <ul>
         <li>12:43pm</li>
         <li>New York, NY</li>
-        <dl>
-            <dt>Humidity</dt>
-            <dd>
-                <span class="temp">90°</span><small class="temp-scale">F</small>
-            </dd>
-            <dt>Wind</dt>
-            <dd>
-                <span>8<small>mph</small></span>
-            </dd>
-        </dl>
+        <li>95<small>%</small> humidity</li>
     </ul>
 </header>
 <hr/>
-<section style="margin: 1em">
-    Mostly cloudy until tomorrow morning.    
-    <dl>
-        <dt>High</dt>
-        <dd>
-            <span class="temp">90°</span><small class="temp-scale">F</small>
-        </dd>
-        <dt>Low</dt>
-        <dd>
-            <span class="temp">40°</span><small class="temp-scale">F</small>
-        </dd>
-    </dl>
-</section>
-<hr/>
-
 <section class="m-a-1">
-    <p>Title</p>
-    <table>
+    <h4 class="m-a-0">
+        Mostly cloudy until tomorrow morning with a high of <span class="temp">80°</span><small class="temp-scale">F</small> and a low of <span class="temp">-4°</span><small class="temp-scale">F</small>.
+    </h4>
+    <table class="m-a-0">
         <thead>
             <tr class="p-a-1">
                 <th>Time</th>
@@ -93,7 +85,7 @@
                 </td>
                 <td>Mostly Cloudy</td>
                 <td>8<small>mph</small></td>
-                <td>0%</td>
+                <td>Light Rain</td>
             </tr>
             <tr class="p-a-1">
                 <td>3pm</td>
@@ -102,20 +94,13 @@
                 </td>
                 <td>Mostly Cloudy</td>
                 <td>8<small>mph</small></td>
-                <td>0%</td>
+                <td>50% Snow</td>
             </tr>
         </tbody>
     </table>
 </section>
 <hr/>
-<section class="grid">
-    <form action="/my-handling-form-page" method="post">
-        <h5 class="m-a-0">Change location</h5>
-        <label for="change-location">Enter a place, city, or zipcode.</label>
-        <input type="text" id="change-location" name="change-location" />
-        <button type="submit">Change location</button>
-    </form>
-</section>
+
 <hr/><hr/>
 <section class="grid">
     <p>
