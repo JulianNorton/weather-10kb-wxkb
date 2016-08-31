@@ -160,6 +160,8 @@ ul.forecast-secondary li:last-child {
 
 .card {
     background-color: white;
+    /* remove border and add another box shadow ? */
+    /* box-shadow: 0 1px 1px rgba(77,77,77, .5), 0 0 1px rgba(77,77,77, .5) */
     border: 1px solid lightgray;
     padding: .66em;
     border-radius: 2px;
@@ -169,11 +171,12 @@ ul.forecast-secondary li:last-child {
 .data-secondary {
     font-size: .8em;
     color: #555;
-}
-
-.data-secondary {
     margin-right: .2rem;
     display: inline-block
+}
+
+.time {
+  min-width: 4em;
 }
 
 .pull-right {

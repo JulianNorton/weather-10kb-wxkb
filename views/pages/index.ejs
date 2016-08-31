@@ -5,120 +5,111 @@
 </head>
 
 <body>
-<% include ../partials/nav.ejs %>
+  <% include ../partials/nav.ejs %>
 
-<section class="m-a-1 card">
-  <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
-  <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
-</section>
+  <section class="m-a-1 card">
+    <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
+    <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
+    <!-- specifically for lynx -->
+    <hr style="display: none;"/>
+  </section>
 
-<section class="m-a-1 card">
-  <article>
-    <header class="forecast-primary">
-      <span class="status-primary m-b-1" style="color: #2399F5"><span aria-hidden="true" class="sr-only">Snowing</span>❄</span>
-      <img style="background: goldenrod" src="/images/sunny-illustrator-24.png">
-      <img style="background: goldenrod" src="/images/sunny-illustrator.png">
-      <img style="background: goldenrod" src="/images/sunny-sketch.png">
-      <span class="status-primary">-35°F</span>
-      <span class="data-secondary pull-right">Updated: 3:33pm</span>
-      <p class="status-subtitle">Heavy snow starting tonight, continuing until tomorrow afternoon.</p>
-    </header>
-    <ul class="forecast-secondary">
-      <li>
-        <dl>
-          <dt class="data-inline data-secondary" style="min-width: 4em;">4:00pm</dt>
-          <dd class="data-inline">80°</dd>
-          <dd class="data-inline">Clear</dd>
-          <dd class="status-subtitle">Feels like 70° with a slight breeze.</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt class="data-inline data-secondary" style="min-width: 4em;">5:00pm</dt>
-          <dd class="data-inline">101°</dd>
-          <dd class="data-inline">Rain</dd>
-          <dd class="status-subtitle">50% chance of heavy rain. Feels like 95° with 90% humidity and a 20mph wind.</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt class="data-inline data-secondary" style="min-width: 4em;">6:00pm</dt>
-          <dd class="data-inline">-40°</dd>
-          <dd class="data-inline">Clear</dd>
-          <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt class="data-inline data-secondary" style="min-width: 4em;">6:33pm</dt>
-          <dd class="data-inline">Sunset</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt class="data-inline data-secondary" style="min-width: 4em;">7:00pm</dt>
-          <dd class="data-inline">-40°</dd>
-          <dd class="data-inline">Clear</dd>
-          <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt class="data-inline data-secondary" style="min-width: 4em;">8:00pm</dt>
-          <dd class="data-inline">-40°</dd>
-          <dd class="data-inline">Clear</dd>
-          <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt class="data-inline data-secondary" style="min-width: 4em;">8:33pm</dt>
-          <dd class="data-inline">Heavy snow ends</dd>
-        </dl>
-      </li>
-    </ul>
-  </article>
-</section>
-<section style="padding:3rem;">
-  <hr/><hr/><hr/>
-  <p>Dummy, sandbox content</p>
-  <hr/><hr/><hr/>
-  <header class="m-a-1">
-    <h1><span style="color: orange">☀</span> <small aria-hidden="true" class="sr-only">Sunny</small> <span class="temp">90°</span><small class="temp-scale">F</small></h1>
-    <h2>Clear for an hour, feels like <span class="temp">110°</span><small class="temp-scale">F</small> with a slight breeze.</h2>
+  <section class="m-a-1 card">
+    <article>
+      <header class="forecast-primary">
+        <img
+          class="status-primary"
+          style="height: 64px; vertical-align: -10%;"
+          src="/images/cloud-drizzle-lightning-sun-2.svg"
+          alt="cloud drizzle lightning sun"
+          title="cloud drizzle lightning sun"
+        >
+        <span class="status-primary">-35°F</span>
+        <span class="data-secondary pull-right">Updated: 3:33pm</span>
+        <p class="status-subtitle">Heavy snow starting tonight, continuing until tomorrow afternoon.</p>
+      </header>
+      <ul class="forecast-secondary">
+        <li>
+          <dl>
+            <dt class="data-inline data-secondary time">4:00pm</dt>
+            <dd class="data-inline">80°</dd>
+            <dd class="data-inline">Clear</dd>
+            <dd class="status-subtitle">Feels like 70° with a slight breeze.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt class="data-inline data-secondary time">5:00pm</dt>
+            <dd class="data-inline">101°</dd>
+            <dd class="data-inline">Rain</dd>
+            <dd class="status-subtitle">50% chance of heavy rain. Feels like 95° with 90% humidity and a 20mph wind.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt class="data-inline data-secondary time">6:00pm</dt>
+            <dd class="data-inline">-40°</dd>
+            <dd class="data-inline">Clear</dd>
+            <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt class="data-inline data-secondary time">6:33pm</dt>
+            <dd class="data-inline">Sunset</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt class="data-inline data-secondary time">7:00pm</dt>
+            <dd class="data-inline">-40°</dd>
+            <dd class="data-inline">Clear</dd>
+            <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt class="data-inline data-secondary time">8:00pm</dt>
+            <dd class="data-inline">-40°</dd>
+            <dd class="data-inline">Clear</dd>
+            <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt class="data-inline data-secondary time">8:33pm</dt>
+            <dd class="data-inline">Heavy snow ends</dd>
+          </dl>
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section style="padding: 3rem">
+    <hr/><hr/><hr/>
+    <p>Dummy, sandbox content</p>
+    <hr/><hr/><hr/>
     <ul>
-      <li>12:43pm</li>
-      <li>New York, NY</li>
-      <li>95<small>%</small> humidity</li>
-    </ul>
-  </header>
-
-  <ul>
+      <li>
+        <small>Fahrenheit (°<small class="temp-scale">F</small>)
+        <a href="#"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
+      </small>
+    </li>
     <li>
-      <small>Fahrenheit (°<small class="temp-scale">F</small>)
-      <a href="#"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
-    </small>
-  </li>
-  <li>
-    <form action="/my-handling-form-page" method="post">
-      <h5 id="change-location" class="m-a-0">Change location</h5>
-      <label for="change-location">Enter a place, city, or zipcode.</label>
-      <input type="text" id="change-location" name="change-location" placeholder="New York, NY" />
-      <button type="submit">Change location</button>
-    </form>
-  </li>
-  <li>
-    <select>
-      <option>Fahrenheit (°F)</option>
-      <option>Celsius (°C)</option>
-    </select>
-  </li>
-  <p>unicode support</p>
-  <li>weather, clear 2600 (☀) <small>97%</small></li>
-  <li>weather, cloudy 2601 (☁) <small>97%</small></li>
-  <li>weather, rainy 2602 (☂) <small>96%</small></li>
-  <li>Snowflake Dingbats 2744 (❄) <small>97%</small></li>
-</ul>
+      <form action="/my-handling-form-page" method="post">
+        <h5 id="change-location" class="m-a-0">Change location</h5>
+        <label for="change-location">Enter a place, city, or zipcode.</label>
+        <input type="text" id="change-location" name="change-location" placeholder="New York, NY" />
+        <button type="submit">Change location</button>
+      </form>
+    </li>
+  </ul>
 </section>
+<footer class="p-a-1">
+  <ul>
+    <li><a href="#">Dripicons credit</a></li>
+    <li><a href="#">API credit</a></li>
+    <li><a href="#">About this</a></li>
+  </ul>
+</footer>
 </body>
 </html>
