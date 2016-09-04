@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <% include ../partials/header.ejs %>
 </head>
@@ -19,11 +19,10 @@
       <header class="forecast-primary">
         <p class="data-secondary">Updated: 3:33pm</p>
         <img
-          class="status-primary"
-          style="height: 64px; vertical-align: -10%;"
-          src="/images/cloud-drizzle-lightning-sun-2.svg"
-          alt="cloud drizzle lightning sun"
-          title="cloud drizzle lightning sun"
+        class="status-primary status-icon"
+        src="/images/cloud-drizzle-lightning-sun-2.svg"
+        alt="cloud drizzle lightning sun"
+        title="cloud drizzle lightning sun"
         >
         <span class="status-primary">-35°F</span>
         <p class="status-subtitle">Heavy snow starting tonight, continuing until tomorrow afternoon.</p>
@@ -68,34 +67,34 @@
         <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
         <dt class="data-inline data-secondary time">8:33pm</dt>
         <dd class="data-inline">Heavy snow ends</dd> -->
-    </article>
-  </section>
-  <section style="padding: 3rem">
-    <hr/><hr/><hr/>
-    <p>Dummy, sandbox content</p>
-    <hr/><hr/><hr/>
-    <ul>
+      </article>
+    </section>
+    <section style="padding: 3rem">
+      <hr/><hr/><hr/>
+      <p>Dummy, sandbox content</p>
+      <hr/><hr/><hr/>
+      <ul>
+        <li>
+          <small>Fahrenheit (°<small class="temp-scale">F</small>)
+          <a href="#"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
+        </small>
+      </li>
       <li>
-        <small>Fahrenheit (°<small class="temp-scale">F</small>)
-        <a href="#"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
-      </small>
-    </li>
-    <li>
-      <form action="/my-handling-form-page" method="post">
-        <h5 id="change-location" class="m-a-0">Change location</h5>
-        <label for="change-location">Enter a place, city, or zipcode.</label>
-        <input type="text" id="change-location" name="change-location" placeholder="New York, NY" />
-        <button type="submit">Change location</button>
-      </form>
-    </li>
-  </ul>
-</section>
-<footer class="p-a-1">
-  <ul>
-    <li><a href="#">Dripicons credit</a></li>
-    <li><a href="#">API credit</a></li>
-    <li><a href="#">About this</a></li>
-  </ul>
-</footer>
+        <form action="/my-handling-form-page" method="post">
+          <h5 class="m-a-0">Change location</h5>
+          <label for="change-location">Enter a place, city, or zipcode.</label>
+          <input type="text" id="change-location" name="change-location" placeholder="New York, NY" />
+          <button type="submit">Change location</button>
+        </form>
+      </li>
+    </ul>
+  </section>
+  <footer class="navigation m-a-1">
+    <ul>
+      <li><a href="#">Dripicons credit</a></li>
+      <li><a href="#">API credit</a></li>
+      <li><a href="#">About this</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
