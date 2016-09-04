@@ -23,8 +23,8 @@ app.locals.moment = moment; // this makes moment available as a variable in ever
 app.get('/:lat?/:lon?/:scale?', function(request, response) {
   var geo = geoip.lookup(request.ip);
 
-  var lat = request.params.lat || geo.ll[0];
-  var lon = request.params.lon || geo.ll[1];
+  var lat = request.params.lat || (typeof geo === 'object') ? geo.ll[0] : '0';
+  var lon = request.params.lon || (typeof geo === 'object') ? geo.ll[1] : '0';
 
   var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us';
 
