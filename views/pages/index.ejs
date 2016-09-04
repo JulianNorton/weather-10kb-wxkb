@@ -65,8 +65,14 @@
     <section style="padding: 3rem">
       <ul>
         <li>
-          <small>Fahrenheit (°<small class="temp-scale">F</small>)
-            <a href="#"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
+          <small>
+            <% if (scale === 'F') { %>
+              Fahrenheit (°<small class="temp-scale">F</small>)
+              <a href="/<%= lat %>/<%= lon %>/C"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
+            <% } else {%>
+              Celsius (°<small class="temp-scale">C</small>)
+              <a href="/<%= lat %>/<%= lon %>/F"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
+            <% } %>
           </small>
         </li>
         <li>
