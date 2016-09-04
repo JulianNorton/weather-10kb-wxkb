@@ -1,5 +1,4 @@
 var express = require('express');
-var fs = require('fs');
 var geoip = require('geoip-lite');
 var moment = require('moment');
 var objectMerge = require('object-merge');
