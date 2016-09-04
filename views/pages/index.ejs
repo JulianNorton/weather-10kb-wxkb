@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= currently.temperature %></title>
+    <title><%= Math.round(currently.temperature) %>º <%= scale %></title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,16 +47,16 @@
              alt="<%= currently.icon %>"
              title="<%= currently.summary %>"
              >
-             <span class="status-primary"><%= currently.temperature %>º <%= scale %></span>
+             <span class="status-primary"><%= Math.round(currently.temperature) %>º <%= scale %></span>
              <p class="status-subtitle"><%= currently.summary %></p>
         </header>
         <ol class="forecast-secondary">
           <% hourly.data.forEach(function(hour){ %>
             <li>
-              <span class="data-inline data-secondary time"><%= moment.unix(hour.time).format('h:mmA') %></span>
-              <span class="data-inline"><%= hour.temperature %>º <%= scale %></span>
+              <span class="data-inline data-secondary time"><%= moment.unix(hour.time).calendar() %></span>
+              <span class="data-inline"><%= Math.round(hour.temperature) %>º <%= scale %></span>
               <span class="data-inline"><%= hour.summary %></span>
-              <p class="status-subtitle"><%= hour.summary %></p>
+              <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
             </li>
           <% }) %>
         </ol>
@@ -68,10 +68,10 @@
           <small>
             <% if (scale === 'F') { %>
               Fahrenheit (°<small class="temp-scale">F</small>)
-              <a href="/<%= lat %>/<%= lon %>/C"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
+              <a href="/<%= latitude %>/<%= longitude %>/C"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
             <% } else {%>
               Celsius (°<small class="temp-scale">C</small>)
-              <a href="/<%= lat %>/<%= lon %>/F"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
+              <a href="/<%= latitude %>/<%= longitude %>"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
             <% } %>
           </small>
         </li>

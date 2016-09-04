@@ -14,6 +14,7 @@
     "ejs": "^2.5.1",
     "express": "^4.13.3",
     "forecast-io": "^1.0.2",
+    "geoip-lite": "^1.1.8",
     "object-merge": "^2.5.1"
   },
   "repository": {

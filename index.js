@@ -1,5 +1,6 @@
 var express = require('express');
 var fs = require('fs');
+var geoip = require('geoip-lite');
 var moment = require('moment');
 var objectMerge = require('object-merge');
 
@@ -20,31 +21,24 @@ app.set('view engine', 'ejs');
 
 app.locals.moment = moment; // this makes moment available as a variable in every EJS page
 
-app.get('/:lat/:lon/:scale?', function(request, response) {
-  var units = 'us';
-  var scale = 'F';
+app.get('/:lat?/:lon?/:scale?', function(request, response) {
+  var geo = geoip.lookup(request.ip);
 
-  // switch to celsius if required
-  if (typeof request.params.scale !== 'undefined') {
-    if (request.params.scale === 'c') {
-      units = 'si';
-      scale = 'C';
-    }
-  }
+  var lat = request.params.lat || geo.ll[0];
+  var lon = request.params.lon || geo.ll[1];
 
-  console.log(request.params);
+  var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us';
+
   forecast
-    .latitude(request.params.lat)
-    .longitude(request.params.lon)
+    .latitude(lat)
+    .longitude(lon)
     .units(units)
     .get()
     .then(res => {
       response.render('pages/index', objectMerge(
         JSON.parse(res),
         {
-          lat: request.params.lat,
-          lon: request.params.lon,
-          scale: scale
+          scale: request.params.scale || 'F'
         }
       ));
     })
