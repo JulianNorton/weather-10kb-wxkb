@@ -6,6 +6,9 @@ html {
 
 * {
     box-sizing: border-box;
+}
+
+a {
     transition: opacity 125ms ease-in-out;
 }
 
@@ -59,11 +62,11 @@ content: '';
 content: none;
 }*/
 
-table {
+/*table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
+*/
 body {
     line-height: 1.2;
     font-family: -apple-system, BlinkMacSystemFont, 
@@ -80,28 +83,12 @@ body {
 margin-top: 1.5rem;
 }*/
 
-.p-a-1 {
-    padding: 1em;
-}
 
-.m-a-0 {
-    margin: 0;
-}
-
-.nav-item {
-    padding: .125em;
-    margin: .125em;
-}
-
-.m-a-1 {
-    margin: 1em;
-}
-
-.navigation-main {
+.navigation {
     padding: 0;
 }
 
-.navigation-main li {
+.navigation li {
     display: inline-block;
     padding: .2em;
     vertical-align: middle;
@@ -163,11 +150,16 @@ h1,h2,h3,h4,h5,h6, p {
     margin: 0;
 }
 
-
 .status-primary {
     font-size: 3em;
     font-weight: 200;
     display: inline-block;
+}
+
+.status-icon {
+    height: 64px;
+    width: auto;
+    vertical-align: -10%;
 }
 
 .status-subtitle {
@@ -178,6 +170,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .card {
+    max-width: 60rem;
     background-color: white;
     /* remove border and add another box shadow ? */
     /* box-shadow: 0 1px 1px rgba(77,77,77, .5), 0 0 1px rgba(77,77,77, .5) */
@@ -198,8 +191,25 @@ h1,h2,h3,h4,h5,h6, p {
     min-width: 4em;
 }
 
-.pull-right {
-    float: right;
+/* ---------------------------------------- */
+/* Utilities */
+
+
+.p-a-1 {
+    padding: 1em;
+}
+
+.m-a-0 {
+    margin: 0;
+}
+
+.nav-item {
+    padding: .125em;
+    margin: .125em;
+}
+
+.m-a-1 {
+    margin: 1em;
 }
 
 .sr-only {
