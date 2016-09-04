@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "ejs": "2.4.1",
-    "express": "4.13.3"
+    "express": "^4.13.3",
+    "forecast-io": "^1.0.2",
+    "ntl": "^1.1.3"
   },
   "repository": {
     "type": "git",
