@@ -1,2 +1,2 @@
-# [weather-feather](juliannorton.herokuapp.com)
+# http://juliannorton.herokuapp.com
 A lightweight weather site.
