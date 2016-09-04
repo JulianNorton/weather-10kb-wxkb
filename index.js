@@ -3,11 +3,8 @@ var fs = require('fs');
 var moment = require('moment');
 var objectMerge = require('object-merge');
 
-<<<<<<< HEAD
-=======
 var app = express();
 
->>>>>>> origin/master
 'use strict';
 
 const ForecastIO = require('forecast-io')
