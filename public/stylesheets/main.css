@@ -191,7 +191,7 @@ h1,h2,h3,h4,h5,h6, p {
     font-size: .8em;
     color: #555;
     margin-right: .2rem;
-    display: inline-block
+    /*display: inline-block*/
 }
 
 .time {
