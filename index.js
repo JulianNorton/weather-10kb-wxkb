@@ -8,13 +8,13 @@ var Weather = require('./node_modules/weather.js');
 'use strict';
 
 const ForecastIO = require('forecast-io')
-const forecast = new ForecastIO('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+const forecast = new ForecastIO('a7a98d30ab67b8ab1f8fa84273883d98')
 
 app.engine('ntl', function (filePath, options, callback) { // define the template engine
   fs.readFile(filePath, function (err, content) {
     if (err) return callback(new Error(err));
     // this is an extremely simple template engine
-    var rendered = content.toString().replace(/#([^#]+)#/, function( prop_tag, prop_str ) {
+    var rendered = content.toString().replace(/{([^}]+)}/g, function( prop_tag, prop_str ) {
       console.log('options.' + prop_str);
       console.log(eval('options.' + prop_str));
       return eval('options.' + prop_str);

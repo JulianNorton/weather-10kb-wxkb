@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>#currently.temperature#</title>
+    <title>{currently.temperature}</title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,6 @@
     </nav>
 
     <section class="m-a-1 card">
-      <h1>#title#</h1>
       <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
       <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
       <!-- specifically for lynx -->
@@ -37,56 +36,24 @@
     <section class="m-a-1 card">
       <article>
         <header class="forecast-primary">
-          <p class="data-secondary">Updated: 3:33pm</p>
+          <p class="data-secondary">Updated: {currently.time}</p>
           <img
              class="status-primary status-icon"
-             src="/images/cloud-drizzle-lightning-sun-2.svg"
-             alt="cloud drizzle lightning sun"
-             title="cloud drizzle lightning sun"
+             src="/images/{currently.icon}.svg"
+             alt="{currently.icon}"
+             title="{currently.summary}"
              >
-             <span class="status-primary">-35°F</span>
-             <p class="status-subtitle">Heavy snow starting tonight, continuing until tomorrow afternoon.</p>
+             <span class="status-primary">{currently.temperature}</span>
+             <p class="status-subtitle">{currently.summary}</p>
         </header>
         <ol class="forecast-secondary">
           <li>
-            <span class="data-inline data-secondary time">4:00pm</span>
-            <span class="data-inline">-20°</span>
-            <span class="data-inline">Clear</span>
-            <p class="status-subtitle">Feels like -50° with gusts up to 30mph.</p>
-          </li>
-          <li>
-            <span class="data-inline data-secondary time">5:00pm</span>
-            <span class="data-inline">90°</span>
-            <span class="data-inline">Cloudy</span>
-            <p class="status-subtitle">50% chance of heavy rain. Feels like 95° with 90% humidity and a 20mph wind.</p>
-          </li>
-          <li>
-            <span class="data-inline data-secondary time">6:00pm</span>
-            <span class="data-inline">27°</span>
-            <span class="data-inline">Heavy snow</span>
-            <p class="status-subtitle">90% chance of heavy snow, feels like 23 with a light breeze (5mph).</p>
+            <span class="data-inline data-secondary time">{hourly.data[0].time}</span>
+            <span class="data-inline">{hourly.data[0].temperature}</span>
+            <span class="data-inline">{hourly.data[0].summary}</span>
+            <p class="status-subtitle">{hourly.data[0].summary}</p>
           </li>
         </ol>
-        <!-- <dt class="data-inline data-secondary time">5:00pm</dt>
-          <dd class="data-inline">101°</dd>
-          <dd class="data-inline">Rain</dd>
-          <dd class="status-subtitle">50% chance of heavy rain. Feels like 95° with 90% humidity and a 20mph wind.</dd>
-          <dt class="data-inline data-secondary time">6:00pm</dt>
-          <dd class="data-inline">-40°</dd>
-          <dd class="data-inline">Clear</dd>
-          <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
-          <dt class="data-inline data-secondary time">6:33pm</dt>
-          <dd class="data-inline">Sunset</dd>
-          <dt class="data-inline data-secondary time">7:00pm</dt>
-          <dd class="data-inline">-40°</dd>
-          <dd class="data-inline">Clear</dd>
-          <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
-          <dt class="data-inline data-secondary time">8:00pm</dt>
-          <dd class="data-inline">-40°</dd>
-          <dd class="data-inline">Clear</dd>
-          <dd class="status-subtitle">Feels like -50° with gusts up to 30mph.</dd>
-          <dt class="data-inline data-secondary time">8:33pm</dt>
-          <dd class="data-inline">Heavy snow ends</dd> -->
       </article>
     </section>
     <section style="padding: 3rem">
