@@ -38,7 +38,7 @@ app.get('/:lat?/:lon?/:scale?', function(request, response) {
       response.render('pages/index', objectMerge(
         JSON.parse(res),
         {
-          scale: (units === 'si') ? 'C' : 'F';
+          scale: (units === 'si') ? 'C' : 'F'
         }
       ));
     })
