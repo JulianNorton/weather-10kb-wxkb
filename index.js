@@ -3,8 +3,6 @@ var app = express();
 
 var fs = require('fs'); // this engine requires the fs module
 
-var Weather = require('./node_modules/weather.js');
-
 'use strict';
 
 const ForecastIO = require('forecast-io')
