@@ -8,7 +8,7 @@ var app = express();
 'use strict';
 
 const ForecastIO = require('forecast-io')
-const forecast = new ForecastIO('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+const forecast = new ForecastIO(process.env.FORECAST_IO_API_KEY)
 
 app.set('port', (process.env.PORT || 5000));
 
