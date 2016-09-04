@@ -1,2 +1,2 @@
-# [weather-feather](https://juliannorton.github.io/weather-feather/)
+# [weather-feather](juliannorton.herokuapp.com)
 A lightweight weather site.
