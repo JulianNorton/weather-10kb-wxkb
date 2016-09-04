@@ -14,7 +14,11 @@ app.engine('ntl', function (filePath, options, callback) { // define the templat
   fs.readFile(filePath, function (err, content) {
     if (err) return callback(new Error(err));
     // this is an extremely simple template engine
-    var rendered = content.toString().replace(/#([^#]+)#/, '$1');
+    var rendered = content.toString().replace(/#([^#]+)#/, function( prop_tag, prop_str ) {
+      console.log('options.' + prop_str);
+      console.log(eval('options.' + prop_str));
+      return eval('options.' + prop_str);
+    });
     return callback(null, rendered);
   });
 });
