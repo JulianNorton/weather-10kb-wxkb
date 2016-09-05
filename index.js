@@ -11,7 +11,6 @@ var app = express();
 
 var locateCtrl = function(request, response, next) {
   var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress;
-  ip = '74.73.231.129';
   var geo = freegeoip.getLocation(ip, function(err, location) {
     if (err) {
       console.log(err);
