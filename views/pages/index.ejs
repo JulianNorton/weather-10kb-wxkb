@@ -51,14 +51,14 @@
              <p class="status-subtitle"><%= currently.summary %></p>
         </header>
         <ol class="forecast-secondary">
-          <% hourly.data.forEach(function(hour){ %>
+          <% for (var i = 0; i < 12; i++) { %>
             <li>
-              <span class="data-inline data-secondary time"><%= moment.unix(hour.time).calendar() %></span>
-              <span class="data-inline"><%= Math.round(hour.temperature) %>º <%= scale %></span>
-              <span class="data-inline"><%= hour.summary %></span>
+              <span class="data-inline data-secondary time"><%= moment.unix(hourly.data[i].time).calendar() %></span>
+              <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º <%= scale %></span>
+              <span class="data-inline"><%= hourly.data[i].summary %></span>
               <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
             </li>
-          <% }) %>
+          <% } %>
         </ol>
       </article>
     </section>
