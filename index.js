@@ -1,11 +1,11 @@
 var express = require('express');
+var favicon = require('serve-favicon');
+var forecastIO = require('forecast-io')
 var freegeoip = require('node-freegeoip');
 var moment = require('moment-timezone');
 var objectMerge = require('object-merge');
-var forecastIO = require('forecast-io')
 
 var forecast = new forecastIO(process.env.FORECAST_IO_API_KEY)
-// var favicon = require('serve-favicon');
 
 var app = express();
 
@@ -57,9 +57,8 @@ var forecastCtrl = function(request, response) {
 
 app.locals.moment = moment;
 
-// trying to get favicon served
-// app.use(favicon(__dirname + 'public/favicon.ico'));
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.set('port', (process.env.PORT || 5000));
 app.set('views', __dirname + '/views');
