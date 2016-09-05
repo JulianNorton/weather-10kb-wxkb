@@ -24,9 +24,9 @@ function Weather10kbRequest(request) {
             return reject(err);
           })
       } else {
-        var ip = this.headers['x-forwarded-for'] ? this.headers['x-forwarded-for'].split(',')[0] : this.connection.remoteAddress
+        var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress
 
-        freegeoip.getLocation(ip, function(err, location) {
+        nodeFreegeoip.getLocation(ip, function(err, location) {
           if (err) return reject(err);
           request.params.latitude = location.latitude
           request.params.longitude = location.longitude
