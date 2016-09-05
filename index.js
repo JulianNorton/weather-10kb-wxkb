@@ -13,6 +13,11 @@ var app = express()
 
 var locateCtrl = function(request, response, next) {
 
+  // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
+  if (typeof request.query.location === 'string') {
+    request.params.location = request.query.location
+  }
+
   // if we receieved a location, geocode coordinates from it
   if (typeof request.params.location === 'string') {
 
