@@ -2,8 +2,12 @@ var express = require('express');
 var geoip = require('geoip-lite');
 var moment = require('moment');
 var objectMerge = require('object-merge');
+var favicon = require('serve-favicon');
 
 var app = express();
+
+// trying to get favicon served
+app.use(favicon(__dirname + 'public/favicon.ico'));
 
 'use strict';
 
@@ -24,11 +28,11 @@ app.locals.moment = moment; // this makes moment available as a variable in ever
 app.get('/', function(request, response) {
   var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress;
   var geo = geoip.lookup(ip);
+  var geo = geoip.lookup('74.73.231.129')
 
   if (geo && 'll' in geo) {
     var lat = geo.ll[0];
     var lon = geo.ll[1];
-
     response.redirect('/' + lat + '/' + lon);
   } else {
     response.status(500).send('Could not determine your location based on your IP (' + ip + ').');
