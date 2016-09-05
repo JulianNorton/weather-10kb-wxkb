@@ -7,7 +7,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "dependencies": {
     "compression": "^1.6.2",
@@ -35,6 +37,7 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "node-sass": "^3.9.0",
     "nodemon": "^1.10.2"
   }
 }
