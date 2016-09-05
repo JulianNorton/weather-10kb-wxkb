@@ -1,45 +1,40 @@
 var express = require('express');
-var geoip = require('geoip-lite');
-var moment = require('moment');
+var freegeoip = require('node-freegeoip');
+var moment = require('moment-timezone');
 var objectMerge = require('object-merge');
+var ForecastIO = require('forecast-io')
+
+var forecast = new ForecastIO(process.env.FORECAST_IO_API_KEY)
 
 var app = express();
 
-'use strict';
-
-const ForecastIO = require('forecast-io')
-const forecast = new ForecastIO(process.env.FORECAST_IO_API_KEY)
-
-app.set('port', (process.env.PORT || 5000));
-
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.locals.moment = moment; // this makes moment available as a variable in every EJS page
-
-// if we were not provided coordinates, geolocate based on ip & redirect
-app.get('/', function(request, response) {
+var locateCtrl = function(request, response, next) {
   var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress;
-  var geo = geoip.lookup(ip);
+  var geo = freegeoip.getLocation(ip, function(err, location) {
+    if (err) {
+      console.log(err);
+      response.status(500).send('Could not determine your location based on your IP (' + ip + ').');
+    } else {
+      console.log(location);
+      request.params.lat = location.latitude;
+      request.params.lon = location.longitude;
+      request.params.tz = location.time_zone;
 
-  if (geo && 'll' in geo) {
-    var lat = geo.ll[0];
-    var lon = geo.ll[1];
+      //response.redirect('/' + lat + '/' + lon);
+      return next();
+    }
+  });
 
-    response.redirect('/' + lat + '/' + lon);
-  } else {
-    response.status(500).send('Could not determine your location based on your IP (' + ip + ').');
-  }
-});
+}
 
-// if we got coordinates, fetch & render the forecast
-app.get('/:lat/:lon/:scale?', function(request, response) {
+var forecastCtrl = function(request, response) {
+  console.log(request.params);
   var lat = request.params.lat;
   var lon = request.params.lon;
   var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us';
+
+  moment.tz.setDefault(request.params.tz);
+  console.log(request.params.tz);
 
   forecast
     .latitude(lat)
@@ -50,7 +45,8 @@ app.get('/:lat/:lon/:scale?', function(request, response) {
       response.render('pages/index', objectMerge(
         JSON.parse(res),
         {
-          scale: (units === 'si') ? 'C' : 'F'
+          scale: (units === 'si') ? 'C' : 'F',
+          timezone: request.params.tz
         }
       ));
     })
@@ -58,7 +54,18 @@ app.get('/:lat/:lon/:scale?', function(request, response) {
       console.log(err)
     })
 
-});
+}
+
+app.locals.moment = moment;
+
+app.use(express.static(__dirname + '/public'));
+
+app.set('port', (process.env.PORT || 5000));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+app.get('/', locateCtrl, forecastCtrl);
+app.get('/:lat/:lon/:scale?', forecastCtrl);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
