@@ -79,6 +79,12 @@ router.get('/:location?/:scale?', function(request, response) {
     delete request.params.location;
   }
 
+  // TODO validation
+  // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
+  if (typeof request.query.location === 'string') {
+    request.params.location = request.query.location
+  }
+
   // TODO yet more validation
   if (typeof request.params.scale === 'string') {
     request.params.scale = request.params.scale.toUpperCase();
