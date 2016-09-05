@@ -15,8 +15,10 @@
     "express": "^4.13.3",
     "forecast-io": "^1.0.2",
     "geoip-lite": "^1.1.8",
+    "google-timezone-api": "^1.0.1",
     "moment-timezone": "^0.5.5",
     "node-freegeoip": "0.0.1",
+    "node-geocoder": "^3.14.0",
     "object-merge": "^2.5.1",
     "serve-favicon": "^2.3.0"
   },
