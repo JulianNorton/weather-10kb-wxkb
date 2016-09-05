@@ -30,7 +30,7 @@ app.get('/', function(request, response) {
 
     response.redirect('/' + lat + '/' + lon);
   } else {
-    response.status(500).send('Could not determine your location based on your IP.');
+    response.status(500).send('Could not determine your location based on your IP (' + request.ip + ').');
   }
 });
 
