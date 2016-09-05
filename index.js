@@ -20,12 +20,24 @@ app.set('view engine', 'ejs');
 
 app.locals.moment = moment; // this makes moment available as a variable in every EJS page
 
-app.get('/:lat?/:lon?/:scale?', function(request, response) {
+// if we were not provided coordinates, geolocate based on ip & redirect
+app.get('/', function(request, response) {
   var geo = geoip.lookup(request.ip);
 
-  var lat = request.params.lat || (typeof geo === 'object') ? geo.ll[0] : '0';
-  var lon = request.params.lon || (typeof geo === 'object') ? geo.ll[1] : '0';
+  if (geo && 'll' in geo) {
+    var lat = geo.ll[0];
+    var lon = geo.ll[1];
 
+    response.redirect('/' + lat + '/' + lon);
+  } else {
+    response.status(500).send('Could not determine your location based on your IP.');
+  }
+});
+
+// if we got coordinates, fetch & render the forecast
+app.get('/:lat/:lon/:scale?', function(request, response) {
+  var lat = request.params.lat;
+  var lon = request.params.lon;
   var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us';
 
   forecast
