@@ -16,9 +16,15 @@ function Weather10kbRequest(request) {
 
         geocoder.geocode(request.params.location)
           .then(function(res) {
-            request.params.latitude = res[0].latitude
-            request.params.longitude = res[0].longitude
-            resolve(request.params);
+            if (res.length) {
+              request.params.latitude = res[0].latitude
+              request.params.longitude = res[0].longitude
+            } else {
+              // TODO throw exception?
+              request.params.latitude = 0;
+              request.params.longitude = 0;
+            }
+            resolve();
           })
           .catch(function(err) {
             return reject(err);
@@ -30,6 +36,10 @@ function Weather10kbRequest(request) {
           if (err) return reject(err);
           request.params.latitude = location.latitude
           request.params.longitude = location.longitude
+
+          // set the location to coordinates since that's all we have
+          request.params.location = request.params.latitude + ',' + request.params.longitude;
+
           resolve();
         })
       }
@@ -68,34 +78,30 @@ function Weather10kbRequest(request) {
         });
     });
   }
-
 }
 
 router.get('/:location?/:scale?', function(request, response) {
-  // if we got a scale and not a location for the first param, adjust params accordingly
-  // TODO this should probably live in a validation function
-  if (typeof request.params.location === 'string' && request.params.location.toUpperCase() in ['C', 'F']) {
-    request.params.scale = request.params.location;
-    delete request.params.location;
-  }
+  // validate
+  (function() {
+    // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
+    if (typeof request.query.location === 'string') {
+      response.redirect('/' + request.query.location);
+    }
 
-  // TODO validation
-  // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
-  if (typeof request.query.location === 'string') {
-    //request.params.location = request.query.location
-    // TODO bleh. be nice to both have a nice url & not require a redirect if possible
-    response.redirect('/' + request.query.location);
-  }
+    // if we got a scale and not a location for the first param, adjust params accordingly
+    if (typeof request.params.location === 'string' && request.params.location.toUpperCase() in ['C', 'F']) {
+      request.params.scale = request.params.location;
+      delete request.params.location;
+    }
 
-  // TODO yet more validation
-  if (typeof request.params.scale === 'string') {
-    request.params.scale = request.params.scale.toUpperCase();
-  } else {
-    request.params.scale = 'F';
-  }
+    if (typeof request.params.scale === 'string') {
+      request.params.scale = request.params.scale.toUpperCase();
+    } else {
+      request.params.scale = 'F';
+    }
 
-  // TODO more validation to consolidate
-  request.params.units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
+    request.params.units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
+  })();
 
   var wr = new Weather10kbRequest(request);
 
