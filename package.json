@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "weather-10kb",
   "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "description": "weather in 10kb",
   "engines": {
     "node": "5.9.1"
   },
@@ -15,16 +15,17 @@
     "express": "^4.13.3",
     "forecast-io": "^1.0.2",
     "geoip-lite": "^1.1.8",
-    "object-merge": "^2.5.1"
+    "object-merge": "^2.5.1",
+    "serve-favicon": "^2.3.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/JulianNorton/weather-10kb"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express"
+    "weather",
+    "hourly",
+    "10kb"
   ],
   "license": "MIT",
   "devDependencies": {
