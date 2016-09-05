@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= Math.round(currently.temperature) %>º <%= scale %></title>
+    <title><%= Math.round(currently.temperature) %>º <%= params.scale %></title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +17,7 @@
     <pre>
       <%= JSON.stringify(params) %>
     </pre>
+
     <%#
     <nav class="m-a-1" role="navigation">
       <ul class="navigation">
@@ -51,14 +52,14 @@
              alt="<%= currently.icon %>"
              title="<%= currently.summary %>"
              >
-             <span class="status-primary"><%= Math.round(currently.temperature) %>º <%= scale %></span>
+             <span class="status-primary"><%= Math.round(currently.temperature) %>º <%= params.scale %></span>
              <p class="status-subtitle"><%= currently.summary %></p>
         </header>
         <ol class="forecast-secondary">
           <% for (var i = 0; i < 12; i++) { %>
             <li>
               <span class="data-inline data-secondary time"><%= moment.unix(hourly.data[i].time).calendar() %></span>
-              <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º <%= scale %></span>
+              <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º <%= params.scale %></span>
               <span class="data-inline"><%= hourly.data[i].summary %></span>
               <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
             </li>
@@ -70,12 +71,12 @@
       <ul>
         <li>
           <small>
-            <% if (scale === 'F') { %>
+            <% if (params.scale === 'F') { %>
               Fahrenheit (°<small class="temp-scale">F</small>)
-              <a href="/<%= latitude %>/<%= longitude %>/C"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
+              <a href="/<%= params.location %>/c"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
             <% } else {%>
               Celsius (°<small class="temp-scale">C</small>)
-              <a href="/<%= latitude %>/<%= longitude %>"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
+              <a href="/<%= params.location %>"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
             <% } %>
           </small>
         </li>
