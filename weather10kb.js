@@ -74,7 +74,7 @@ function Weather10kbRequest(request) {
 router.get('/:location?/:scale?', function(request, response) {
   // if we got a scale and not a location for the first param, adjust params accordingly
   // TODO this should probably live in a validation function
-  if (request.params.location.toUpperCase() in ['C', 'F']) {
+  if (typeof request.params.location === 'string' && request.params.location.toUpperCase() in ['C', 'F']) {
     request.params.scale = request.params.location;
     delete request.params.location;
   }
