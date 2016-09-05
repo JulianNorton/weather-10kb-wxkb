@@ -22,7 +22,7 @@ app.locals.moment = moment; // this makes moment available as a variable in ever
 
 // if we were not provided coordinates, geolocate based on ip & redirect
 app.get('/', function(request, response) {
-  var ip = request.ip.replace('::fff:', '');
+  var ip = request.ip.replace('::ffff:', '');
   var geo = geoip.lookup(ip);
 
   if (geo && 'll' in geo) {
