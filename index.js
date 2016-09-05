@@ -101,7 +101,6 @@ app.locals.moment = moment
 
 app.use(compression())
 app.use(express.static(__dirname + '/public'))
-app.use(favicon(__dirname + '/public/favicon.ico'))
 
 app.set('port', (process.env.PORT || 5000))
 app.set('views', __dirname + '/views')
