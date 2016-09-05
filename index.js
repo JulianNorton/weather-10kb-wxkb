@@ -22,7 +22,8 @@ app.locals.moment = moment; // this makes moment available as a variable in ever
 
 // if we were not provided coordinates, geolocate based on ip & redirect
 app.get('/', function(request, response) {
-  var geo = geoip.lookup(request.ip);
+  var ip = request.ip.replace('::fff:', '');
+  var geo = geoip.lookup(ip);
 
   if (geo && 'll' in geo) {
     var lat = geo.ll[0];
@@ -30,7 +31,7 @@ app.get('/', function(request, response) {
 
     response.redirect('/' + lat + '/' + lon);
   } else {
-    response.status(500).send('Could not determine your location based on your IP (' + request.ip + ').');
+    response.status(500).send('Could not determine your location based on your IP (' + ip + ').');
   }
 });
 
