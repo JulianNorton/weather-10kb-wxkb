@@ -100,7 +100,7 @@ router.get('/:location?/:scale?', function(request, response) {
     .catch(function(err){
       // TODO pretty clientside error handling
       console.log(err);
-      response.send(err);
+      response.send(JSON.stringify(err));
     });
 });
 
