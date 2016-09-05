@@ -2,14 +2,16 @@ var express = require('express');
 var freegeoip = require('node-freegeoip');
 var moment = require('moment-timezone');
 var objectMerge = require('object-merge');
-var ForecastIO = require('forecast-io')
+var forecastIO = require('forecast-io')
 
-var forecast = new ForecastIO(process.env.FORECAST_IO_API_KEY)
+var forecast = new forecastIO(process.env.FORECAST_IO_API_KEY)
+// var favicon = require('serve-favicon');
 
 var app = express();
 
 var locateCtrl = function(request, response, next) {
   var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress;
+  ip = '74.73.231.129';
   var geo = freegeoip.getLocation(ip, function(err, location) {
     if (err) {
       console.log(err);
@@ -28,13 +30,11 @@ var locateCtrl = function(request, response, next) {
 }
 
 var forecastCtrl = function(request, response) {
-  console.log(request.params);
   var lat = request.params.lat;
   var lon = request.params.lon;
   var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us';
 
   moment.tz.setDefault(request.params.tz);
-  console.log(request.params.tz);
 
   forecast
     .latitude(lat)
@@ -58,6 +58,8 @@ var forecastCtrl = function(request, response) {
 
 app.locals.moment = moment;
 
+// trying to get favicon served
+// app.use(favicon(__dirname + 'public/favicon.ico'));
 app.use(express.static(__dirname + '/public'));
 
 app.set('port', (process.env.PORT || 5000));
@@ -70,5 +72,3 @@ app.get('/:lat/:lon/:scale?', forecastCtrl);
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
-
