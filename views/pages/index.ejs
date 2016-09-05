@@ -13,87 +13,91 @@
     <link rel="stylesheet" type="text/css" href="/style/main.css" />
   </head>
 
-  <body>
-    <%= JSON.stringify(params) %>
-
-    <%#
-    <nav class="m-a-1" role="navigation">
-      <ul class="navigation">
-        <li>New York, NY</li>
-        <li>
-          <small><a href="#">Change location</a></small>
-        </li>
-        <li>
-          <strong class="nav-item" title="Current degree units">°F</strong>
-          <a href="#" class="nav-item" title="Change units Celsius">°C</a>
-        </li>
-      </ul>
-    </nav>
-    %>
-
-    <%#
-    <section class="m-a-1 card">
-      <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
-      <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
-      <!-- specifically for lynx -->
-      <hr style="display: none;"/>
-    </section>
-    %>
-
-    <section class="m-a-1 card">
-      <article>
-        <header class="forecast-primary">
-          <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mmA') %></p>
-          <img
-             class="status-primary status-icon"
-             src="/images/<%= currently.icon %>.svg"
-             alt="<%= currently.icon %>"
-             title="<%= currently.summary %>"
-             >
-             <span class="status-primary"><%= Math.round(currently.temperature) %>º <%= params.scale %></span>
-             <p class="status-subtitle"><%= currently.summary %></p>
-        </header>
-        <ol class="forecast-secondary">
-          <% for (var i = 0; i < 12; i++) { %>
-            <li>
-              <span class="data-inline data-secondary time"><%= moment.unix(hourly.data[i].time).calendar() %></span>
-              <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º <%= params.scale %></span>
-              <span class="data-inline"><%= hourly.data[i].summary %></span>
-              <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
-            </li>
-          <% } %>
-        </ol>
-      </article>
-    </section>
-    <section style="padding: 3rem">
-      <ul>
-        <li>
-          <small>
-            <% if (params.scale === 'F') { %>
-              Fahrenheit (°<small class="temp-scale">F</small>)
-              <a href="/<%= params.location %>/c"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
-            <% } else {%>
-              Celsius (°<small class="temp-scale">C</small>)
-              <a href="/<%= params.location %>"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
+  <body class="test-container">
+    <div class="container">
+      <samp class="samp">
+        <%= JSON.stringify(params) %>
+      </samp>
+      
+      <%#
+      <nav class="m-a-1" role="navigation">
+        <ul class="navigation">
+          <li>New York, NY</li>
+          <li>
+            <small><a href="#">Change location</a></small>
+          </li>
+          <li>
+            <strong class="nav-item" title="Current degree units">°F</strong>
+            <a href="#" class="nav-item" title="Change units Celsius">°C</a>
+          </li>
+        </ul>
+      </nav>
+      %>
+      
+      <%#
+      <section class="m-a-1 card">
+        <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
+        <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
+        <!-- specifically for lynx -->
+        <hr style="display: none;"/>
+      </section>
+      %>
+      
+      <section class="m-a-1 card">
+        <article>
+          <header class="forecast-primary">
+            <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mmA') %></p>
+            <img
+               class="status-primary status-icon"
+               src="/images/<%= currently.icon %>.svg"
+               alt="<%= currently.icon %>"
+               title="<%= currently.summary %>"
+               >
+               <span class="status-primary"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
+               <p class="status-subtitle"><%= currently.summary %></p>
+          </header>
+          <ol class="forecast-secondary">
+            <% for (var i = 0; i < 12; i++) { %>
+              <li>
+                <span class="data-inline data-secondary time"><%= moment.unix(hourly.data[i].time).calendar() %></span>
+                <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º<%= params.scale %></span>
+                <span class="data-inline"><%= hourly.data[i].summary %></span>
+                <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
+              </li>
             <% } %>
-          </small>
-        </li>
-        <li>
-          <form action="/" method="get">
-            <h5 class="m-a-0">Change location</h5>
-            <label for="change-location">Enter a place, city, or zipcode.</label>
-            <input type="text" id="change-location" name="location" placeholder="New York, NY" />
-            <button type="submit">Change location</button>
-          </form>
-        </li>
-      </ul>
-    </section>
-    <footer class="navigation m-a-1">
-      <ul>
-        <li><a href="#">Dripicons credit</a></li>
-        <li><a href="#">API credit</a></li>
-        <li><a href="#">About this</a></li>
-      </ul>
-    </footer>
+          </ol>
+        </article>
+      </section>
+      <section class="m-a-1">
+        <ul>
+          <li>
+            <small>
+              <% if (params.scale === 'F') { %>
+                Fahrenheit (°<small class="temp-scale">F</small>)
+                <a href="/<%= params.location %>/c"><small>Switch to Celsius (°<small class="temp-scale">C</small>)</small></a>
+              <% } else {%>
+                Celsius (°<small class="temp-scale">C</small>)
+                <a href="/<%= params.location %>"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
+              <% } %>
+            </small>
+          </li>
+          <li>
+            <form action="/" method="get">
+              <h5 class="m-a-0">Change location</h5>
+              <label for="change-location">Enter a place, city, or zipcode.</label>
+              <input type="text" id="change-location" name="location" placeholder="New York, NY" />
+              <button type="submit">Change location</button>
+            </form>
+          </li>
+        </ul>
+      </section>
+      <footer class="navigation m-a-1">
+        <ul>
+          <li><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener" target="_blank">Icons credit</a></li>
+          <li><a href="https://developer.forecast.io/" rel="noopener" target="_blank">Weather API credit</a></li>
+          <!-- <li><a href="#">About this</a></li> -->
+        </ul>
+      </footer>
+    </div>
   </body>
 </html>
