@@ -1,3 +1,4 @@
+var compression = require('compression')
 var express = require('express')
 var favicon = require('serve-favicon')
 var forecastIO = require('forecast-io')        // coordinate-based forecast
@@ -98,6 +99,7 @@ var forecastCtrl = function(request, response) {
 
 app.locals.moment = moment
 
+app.use(compression())
 app.use(express.static(__dirname + '/public'))
 app.use(favicon(__dirname + '/public/favicon.ico'))
 

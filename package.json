@@ -10,6 +10,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "compression": "^1.6.2",
     "dateformat": "^1.0.12",
     "ejs": "^2.5.1",
     "express": "^4.13.3",
