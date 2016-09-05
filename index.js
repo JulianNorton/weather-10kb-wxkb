@@ -103,7 +103,6 @@ app.use(compression())
 app.use(express.static(__dirname + '/public'))
 
 app.set('port', (process.env.PORT || 5000))
-app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 
 app.get('/:location?', locateCtrl, forecastCtrl)
