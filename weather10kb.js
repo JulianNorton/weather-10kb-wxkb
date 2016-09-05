@@ -82,7 +82,9 @@ router.get('/:location?/:scale?', function(request, response) {
   // TODO validation
   // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
   if (typeof request.query.location === 'string') {
-    request.params.location = request.query.location
+    //request.params.location = request.query.location
+    // TODO bleh. be nice to both have a nice url & not require a redirect if possible
+    response.redirect('/' + request.query.location);
   }
 
   // TODO yet more validation
