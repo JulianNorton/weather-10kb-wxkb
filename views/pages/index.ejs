@@ -60,7 +60,7 @@
             <% for (var i = 0; i < 12; i++) { %>
               <li>
                 <span class="data-inline data-secondary time"><%= moment.unix(hourly.data[i].time).calendar() %></span>
-                <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º<%= params.scale %></span>
+                <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º</span>
                 <span class="data-inline"><%= hourly.data[i].summary %></span>
                 <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
               </li>
