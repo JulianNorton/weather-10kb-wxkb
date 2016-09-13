@@ -19,21 +19,15 @@
       <samp class="samp">
         <%= JSON.stringify(params) %>
       </samp>
-      
-      <%#
       <nav class="m-a-1" role="navigation">
+        <p>We tried to guess your location</p>
         <ul class="navigation">
-          <li>New York, NY</li>
+        <li>New York, NY, (10025)</li>
           <li>
-            <small><a href="#">Change location</a></small>
-          </li>
-          <li>
-            <strong class="nav-item" title="Current degree units">°F</strong>
-            <a href="#" class="nav-item" title="Change units Celsius">°C</a>
+            <small><a href="#change-location">Change location</a></small>
           </li>
         </ul>
       </nav>
-      %>
       
       <%#
       <section class="m-a-1 card">
@@ -55,6 +49,7 @@
                title="<%= currently.summary %>"
                >
                <span class="status-primary"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
+               <!-- TEMPLATIZE ME -->
                <p class="status-subtitle">
                   <span><%= currently.summary %>,</span>
                   <!-- If feels like is within 3°, omit? -->
@@ -83,8 +78,8 @@
                   0.4 in./hr. ~== to heavy precipitation.
                   -->
                   <span><%= currently.precipIntensity %> [very light/light/moderate/heavy] [<%= currently.precipType %>].</span>
+               </p><!-- end template -->
 
-               </p>
           </header>
           <ol class="forecast-secondary">
           <!-- i = 0 will print current hour too. i.e. 10:40am… 10am 11am… -->
@@ -94,13 +89,41 @@
                 <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º</span>
                 <span class="data-inline"><%= hourly.data[i].summary %></span>
                 <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
+
+                <!-- TEMPLATIZE ME, duped from above -->
+                <p class="status-subtitle" style="font-size: .8em">
+                   <span>
+                     feels like 
+                     <%= Math.round(hourly.data[i].apparentTemperature) %>°
+                   </span>
+                   <span>with <%= Math.round(hourly.data[i].windSpeed) %>mph winds.</span>
+                   <span><%= Math.round(100 * hourly.data[i].precipProbability) %>% chance of</span>
+                   <span><%= hourly.data[i].precipIntensity %> [very light/light/moderate/heavy] [<%= hourly.data[i].precipType %>].</span>
+                 </p><!-- end template -->
+
               </li>
             <% } %>
           </ol>
         </article>
       </section>
-      <section class="m-a-1">
+      <section class="m-a-1 card">
+        <article>
+          <header class="forecast-secondary">
+            <p class="data-secondary">This week</p>
+            <p class="status-subtitle">
+              <%= daily.summary %>
+            </p>
+        </article>
+      </section>
+      <section class="navigation m-a-1">
         <ul>
+          <li style="margin-right: 1em">
+            <form action="/" method="get">
+              <label for="change-location">Enter a place, city, or zipcode.</label>
+              <input type="text" id="change-location" name="location" placeholder="New York, NY" />
+              <button type="submit">Change location</button>
+            </form>
+          </li>
           <li>
             <small>
               <% if (params.scale === 'F') { %>
@@ -111,14 +134,6 @@
                 <a href="/<%= params.location %>"><small>Switch to Fahrenheit (°<small class="temp-scale">F</small>)</small></a>
               <% } %>
             </small>
-          </li>
-          <li>
-            <form action="/" method="get">
-              <h5 class="m-a-0">Change location</h5>
-              <label for="change-location">Enter a place, city, or zipcode.</label>
-              <input type="text" id="change-location" name="location" placeholder="New York, NY" />
-              <button type="submit">Change location</button>
-            </form>
           </li>
         </ul>
       </section>
