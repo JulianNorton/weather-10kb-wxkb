@@ -1,5 +1,5 @@
-# http://weather-10kb.herokuapp.com
-A lightweight weather site.
+# http://wxkb.io/
+Weather forecast in under 10kb.
 
 
 
