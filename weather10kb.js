@@ -6,7 +6,7 @@ var moment        = require('moment-timezone')
 var objectMerge   = require('object-merge')
 var timezone      = require('google-timezone-api')
 
-/* trying out opbeat */
+/* opbeat test commit */
 var opbeat = require('opbeat').start({
   appId: 'b7e850139c',
   organizationId: 'f247396b8206495081b3ee68cd26deff',
