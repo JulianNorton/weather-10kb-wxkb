@@ -6,6 +6,13 @@ var moment        = require('moment-timezone')
 var objectMerge   = require('object-merge')
 var timezone      = require('google-timezone-api')
 
+/* trying out opbeat */
+var opbeat = require('opbeat').start({
+  appId: 'b7e850139c',
+  organizationId: 'f247396b8206495081b3ee68cd26deff',
+  secretToken: 'fd17a0a75d8fcab560de39bfceb8c75d80d2ceaf'
+})
+            
 var router = express.Router();
 
 function Weather10kbRequest(request) {

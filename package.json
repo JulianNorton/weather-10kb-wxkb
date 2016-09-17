@@ -23,6 +23,7 @@
     "node-freegeoip": "0.0.1",
     "node-geocoder": "^3.14.0",
     "object-merge": "^2.5.1",
+    "opbeat": "^3.17.2",
     "serve-favicon": "^2.3.0"
   },
   "repository": {
