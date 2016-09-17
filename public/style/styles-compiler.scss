@@ -38,18 +38,17 @@ License: none (public domain)
 */
 
 // removed small, strong, applet, object, iframe, canvas, embed, ruby, audio, video
-html, body, div, span,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp, strike, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, details,
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, section, summary,
-time, mark {
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+// a, abbr, acronym, address, big, cite, code,
+// del, dfn, em, img, ins, kbd, q, s, samp, strike, sub, sup, tt, var,
+// b, u, i, center,
+// dl, dt, dd, ol, ul, li,
+// fieldset, form, label, legend,
+// table, caption, tbody, tfoot, thead, tr, th, td,
+// article, aside, details,
+// figure, figcaption, footer, header, hgroup, 
+// menu, nav, output, section, summary,
+html, body, div, span, article, header, footer, ol, ul, li, p {
     margin: 0;
     padding: 0;
     border: 0;
@@ -57,6 +56,7 @@ time, mark {
     // font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -96,9 +96,9 @@ body {
 /* ---------------------------------------- */
 /* type */
 
-h1,h2,h3,h4,h5,h6, .active {
-    font-weight: 700;
-}
+// h1,h2,h3,h4,h5,h6, .active {
+//     font-weight: 700;
+// }
 
 h1,h2,h3,h4,h5,h6, p {
     margin-bottom: .3em;
@@ -143,8 +143,9 @@ h1,h2,h3,h4,h5,h6, p {
     margin: 0 auto;
 }
 
-.navigation {
-    padding: 0;
+.flex {
+    display: flex;
+    align-items: center;
 }
 
 /* ---------------------------------------- */
@@ -197,7 +198,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .status-icon {
-    height: 64px;
+    max-height: 2em;
     width: auto;
     vertical-align: -10%;
 }
@@ -229,16 +230,17 @@ h1,h2,h3,h4,h5,h6, p {
     margin: 0;
 }
 
+
 /* ---------------------------------------- */
 /* Utilities */
 
-.p-a-1 {
-    padding: 1em;
-}
+// .p-a-1 {
+//     padding: 1em;
+// }
 
-.m-a-0 {
-    margin: 0;
-}
+// .m-a-0 {
+//     margin: 0;
+// }
 
 .nav-item {
     padding: .125em;
@@ -249,16 +251,16 @@ h1,h2,h3,h4,h5,h6, p {
     margin: 1em $horizontal-spacing;
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
+// .sr-only {
+//     position: absolute;
+//     width: 1px;
+//     height: 1px;
+//     padding: 0;
+//     margin: -1px;
+//     overflow: hidden;
+//     clip: rect(0,0,0,0);
+//     border: 0;
+// }
 
 /* ---------------------------------------- */
 /* Unusued */
