@@ -222,19 +222,14 @@ h1,h2,h3,h4,h5,h6, p {
 //     margin: 0;
 // }
 
-.nav-item {
-    padding: .125em;
-    margin: .125em;
-}
-
 .m-a-1 {
     margin: 1em $horizontal-spacing;
 }
 
-.m-y-1 {
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
+// .m-y-1 {
+//     margin-top: 1em;
+//     margin-bottom: 1em;
+// }
 
 .m-x-1 {
     margin: $horizontal-spacing
