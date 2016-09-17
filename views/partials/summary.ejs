@@ -1,0 +1,55 @@
+<p class="status-subtitle">
+
+	<span><%= currently.summary %>,</span>
+	<!-- If feels like is within 3°, omit? -->
+	<% if (Math.abs(currently.temperature - currently.apparentTemperature) > 3 ) { %>
+		<span>
+			feels like 
+			<%= Math.round(currently.apparentTemperature) %>°
+		</span>
+	<% } %>
+
+	<!-- https://en.wikipedia.org/wiki/Beaufort_scale#Modern_scale ??-->
+	<!-- if 1mph or 0mph wind AND windSpeedError is low, say no wind -->
+	<% console.log(currently.windSpeed) %>
+	<% if (currently.windSpeed < 2) { %>
+		<span>with no wind.</span>
+	<% } else { %>
+		<span>with a <%= Math.round(currently.windSpeed) %>mph breeze.</span>
+	<% } %>
+	<!-- <span>with <%= Math.round(currently.windSpeed) %>mph winds.</span> -->
+	<!-- <span>with <%= Math.round(currently.windSpeed) %>mph heavy winds</span> -->
+	<!-- <span>with <%= Math.round(currently.windSpeed) %>mph severe winds</span> -->
+
+	<!-- If % chance less than 5%(?), omit from summary? -->
+	<% if (currently.precipProbability > 5) { %>
+		<span><%= Math.round(100 * currently.precipProbability) %>% chance of</span>
+	<% } %>
+
+	<!-- currently.precipIntensity -->
+	<!-- in inches of liquid water per hour) of precipitation occurring at the given time conditional on probability -->
+	<!-- Assuming any precipitation occurs at all) -->
+	<!--
+		0 in./hr. ~== to no precipitation
+		0.002 in./hr. ~== to very light precipitation
+		0.017 in./hr. ~== to light precipitation
+		0.1 in./hr. ~== to moderate precipitation
+		0.4 in./hr. ~== to heavy precipitation.
+	-->
+	<% if (currently.precipIntensity > 0) { %>
+		<span>
+			<% if (currently.precipIntensity < 0.002) { %>
+				Very light
+			<% } else if (currently.precipIntensity < 0.017) { %>
+				Light
+			<% } else if (currently.precipIntensity < 0.1) { %>
+				Moderate
+			<% } else if (currently.precipIntensity < 0.4) { %>
+				Heavy
+			<% } %>
+
+			<%= currently.precipType %>.
+		</span>
+	<% } %>
+
+</p><!-- end template -->

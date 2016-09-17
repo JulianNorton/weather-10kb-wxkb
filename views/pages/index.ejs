@@ -49,59 +49,16 @@
                title="<%= currently.summary %>"
                >
                <span class="status-primary"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
-               <!-- TEMPLATIZE ME -->
-               <p class="status-subtitle">
-                  <span><%= currently.summary %>,</span>
-                  <!-- If feels like is within 3°, omit? -->
-                  <span>
-                    feels like 
-                    <%= Math.round(currently.apparentTemperature) %>°
-                  </span>
-                  <!-- https://en.wikipedia.org/wiki/Beaufort_scale#Modern_scale ??-->
-                  <!-- if 1mph or 0mph wind AND windSpeedError is low, say no wind -->
-                  <!-- <span>with no wind.</span> -->
-                  <!-- <span>with a <%= Math.round(currently.windSpeed) %>mph breeze.</span> -->
-                  <span>with <%= Math.round(currently.windSpeed) %>mph winds.</span>
-                  <!-- <span>with <%= Math.round(currently.windSpeed) %>mph heavy winds</span> -->
-                  <!-- <span>with <%= Math.round(currently.windSpeed) %>mph severe winds</span> -->
-
-                  <!-- If % chance less than 5%(?), omit from summary? -->
-                  <span><%= Math.round(100 * currently.precipProbability) %>% chance of</span>
-                  <!-- currently.precipIntensity -->
-                  <!-- in inches of liquid water per hour) of precipitation occurring at the given time conditional on probability -->
-                  <!-- Assuming any precipitation occurs at all) -->
-                  <!--
-                  0 in./hr. ~== to no precipitation
-                  0.002 in./hr. ~== to very light precipitation
-                  0.017 in./hr. ~== to light precipitation
-                  0.1 in./hr. ~== to moderate precipitation
-                  0.4 in./hr. ~== to heavy precipitation.
-                  -->
-                  <span><%= currently.precipIntensity %> [very light/light/moderate/heavy] [<%= currently.precipType %>].</span>
-               </p><!-- end template -->
-
+               <% include ../partials/summary.ejs %>
           </header>
           <ol class="forecast-secondary">
-          <!-- i = 0 will print current hour too. i.e. 10:40am… 10am 11am… -->
-            <% for (var i = 1; i < 12; i++) { %>
-              <li>
-                <span class="data-inline data-secondary time"><%= moment.unix(hourly.data[i].time).calendar() %></span>
-                <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º</span>
-                <span class="data-inline"><%= hourly.data[i].summary %></span>
-                <%# fix the syntax error (< %=) when uncommenting <p class="status-subtitle">< %= hour.summary %></p> %>
-
-                <!-- TEMPLATIZE ME, duped from above -->
-                <p class="status-subtitle" style="font-size: .8em">
-                   <span>
-                     feels like 
-                     <%= Math.round(hourly.data[i].apparentTemperature) %>°
-                   </span>
-                   <span>with <%= Math.round(hourly.data[i].windSpeed) %>mph winds.</span>
-                   <span><%= Math.round(100 * hourly.data[i].precipProbability) %>% chance of</span>
-                   <span><%= hourly.data[i].precipIntensity %> [very light/light/moderate/heavy] [<%= hourly.data[i].precipType %>].</span>
-                 </p><!-- end template -->
-
-              </li>
+            <!-- i = 0 will print current hour too. i.e. 10:40am… 10am 11am… -->
+            <% for (var i = 1; i < 49; i++) { %>
+            <li>
+              <span class="data-inline data-secondary time"><%= moment.unix(hourly.data[i].time).format('h:mmA') %></span>
+              <span class="data-inline"><%= Math.round(hourly.data[i].temperature) %>º</span>
+              <span class="data-inline"><%= hourly.data[i].summary %></span>
+            </li>
             <% } %>
           </ol>
         </article>
