@@ -26,6 +26,7 @@ function Weather10kbRequest(request) {
             if (res.length) {
               request.params.latitude = res[0].latitude
               request.params.longitude = res[0].longitude
+              request.params.formatted_location = res[0].formattedAddress
             } else {
               // TODO throw exception?
               request.params.latitude = 0;
@@ -46,6 +47,9 @@ function Weather10kbRequest(request) {
 
           // set the location to coordinates since that's all we have
           request.params.location = request.params.latitude + ',' + request.params.longitude;
+
+          // something readable to display to the user
+          request.params.formatted_location = location.region_name + ', ' + location.region_code
 
           resolve();
         })

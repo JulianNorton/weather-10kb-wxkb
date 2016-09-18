@@ -16,13 +16,10 @@
 
   <body class="test-container">
     <div class="container">
-      <samp class="samp">
-        <%= JSON.stringify(params) %>
-      </samp>
       <nav class="m-a-1" role="navigation">
         <p>We tried to guess your location</p>
         <ul class="navigation">
-          <li>New York, NY, (10025)</li>
+          <li><%= params.formatted_location %></li>
           <li>
             <small><a href="#change-location">Change location</a></small>
           </li>
@@ -122,5 +119,10 @@
         </ul>
       </footer>
     </div>
+    <script>
+      console.log(<%- JSON.stringify(currently) %>);
+      console.log(<%- JSON.stringify(hourly) %>);
+      console.log(<%- JSON.stringify(params) %>);
+    </script>
   </body>
 </html>
