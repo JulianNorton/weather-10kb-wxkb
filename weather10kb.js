@@ -131,6 +131,10 @@ router.get('/:location?/:scale?', function(request, response) {
         request.params.formatted_location = request.params.location;
       }
 
+      if (request.params.longitude == 0 && request.params.latitude == 0) {
+        throw 'Undetermined location.';
+      }
+
       response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
     })
     .catch(function(err){
