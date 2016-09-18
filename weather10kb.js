@@ -41,7 +41,14 @@ function Weather10kbRequest(request) {
         var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress
 
         nodeFreegeoip.getLocation(ip, function(err, location) {
-          if (err) return reject(err);
+          if (err) {
+            return reject(err);
+          }
+
+          if (location.latitude == 0 && location.longitude == 0) {
+            return reject(new Error("Unable to determine location based on IP address."));
+          }
+
           request.params.latitude = location.latitude
           request.params.longitude = location.longitude
 
@@ -123,10 +130,17 @@ router.get('/:location?/:scale?', function(request, response) {
       if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location == ', ') {
         request.params.formatted_location = request.params.location;
       }
+
       response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
     })
     .catch(function(err){
-      response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params, error: JSON.stringify(err)}));
+      if (err instanceof Error) {
+        var err_msg = err.toString();
+      } else {
+        var err_msg = JSON.stringify(err);
+      }
+
+      response.send(err_msg)
     });
 });
 
