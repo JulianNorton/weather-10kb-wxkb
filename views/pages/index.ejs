@@ -11,7 +11,12 @@
     <meta name="robots" content="Index, follow">
     <meta http-equiv="refresh" content="600">
     <link rel="stylesheet" type="text/css" href="/style/main.css" />
-    <link rel="icon" href="<%= '/images/' + currently.icon + '.svg' %>" sizes="any" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/<%= currently.icon %>/apple-touch-icon.png?v=<%= currently.icon %>">
+    <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-32x32.png?v=<%= currently.icon %>" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-16x16.png?v=<%= currently.icon %>" sizes="16x16">
+    <link rel="manifest" href="/images/<%= currently.icon %>/manifest.json?v=<%= currently.icon %>">
+    <link rel="mask-icon" href="/images/<%= currently.icon %>/safari-pinned-tab.svg?v=<%= currently.icon %>" color="#5bbad5">
+    <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
   </head>
 
   <body class="test-container">
