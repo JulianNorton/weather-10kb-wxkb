@@ -126,9 +126,7 @@ router.get('/:location?/:scale?', function(request, response) {
       response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
     })
     .catch(function(err){
-      // TODO pretty clientside error handling
-      console.log(err);
-      response.send(JSON.stringify(err));
+      response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params, error: JSON.stringify(err)}));
     });
 });
 

@@ -15,6 +15,9 @@
   </head>
 
   <body class="test-container">
+    <% if (typeof error != 'undefined') { %>
+      <div class="error"><%= error %></div>
+    <% } %>
     <div class="container">
       <nav class="m-a-1">
         <p>Weather for <%= params.formatted_location %> <a href="#change-location">Change location</a></p>
