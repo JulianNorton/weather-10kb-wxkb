@@ -46,7 +46,7 @@
             </div>
             <span class="status-primary"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
           </div>
-          <% include ../partials/summary.ejs %>
+          <%- include('../partials/summary', {data: currently}) %>
         </header>
       </article>
       <section class="m-a-1 card">
@@ -78,6 +78,7 @@
               <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('h:mmA') %></span>
               <span class=""><%= Math.round(hourly.data[i].temperature) %>º</span>
               <span class=""><%= hourly.data[i].summary %></span>
+              <%- include('../partials/summary', {data: hourly.data[i]}) %>
             </li>
             <% } %>
           </ul>

@@ -1,38 +1,39 @@
 <p class="status-subtitle">
 
-	<span><%= currently.summary %>,</span>
+	<span><%= data.summary %>,</span>
 
-	<% if (Math.abs(currently.temperature - currently.apparentTemperature) > 3 ) { %>
+	<% if (Math.abs(data.temperature - data.apparentTemperature) > 3 ) { %>
 		<span>
 			feels like 
-			<%= Math.round(currently.apparentTemperature) %>°
+			<%= Math.round(data.apparentTemperature) %>°
 		</span>
 	<% } %>
 
-	<% if (currently.windSpeed < 2) { %>
+	<% if (data.windSpeed < 2) { %>
 		<span>with no wind.</span>
 	<% } else { %>
-		<span>with a <%= Math.round(currently.windSpeed) %>mph breeze.</span>
+		<span>with a <%= Math.round(data.windSpeed) %>mph breeze.</span>
 	<% } %>
 
-	<% if (currently.precipProbability > 5) { %>
-		<span><%= Math.round(100 * currently.precipProbability) %>% chance of</span>
-	<% } %>
+	<% if (data.precipProbability > 5) { %>
+		<span><%= Math.round(100 * data.precipProbability) %>% chance of</span>
 
-	<% if (currently.precipIntensity > 0) { %>
-		<span>
-			<% if (currently.precipIntensity < 0.002) { %>
-				Very light
-			<% } else if (currently.precipIntensity < 0.017) { %>
-				Light
-			<% } else if (currently.precipIntensity < 0.1) { %>
-				Moderate
-			<% } else if (currently.precipIntensity < 0.4) { %>
-				Heavy
-			<% } %>
+		<% if (data.precipIntensity > 0) { %>
+			<span>
+				<% if (data.precipIntensity < 0.002) { %>
+					Very light
+				<% } else if (data.precipIntensity < 0.017) { %>
+					Light
+				<% } else if (data.precipIntensity < 0.1) { %>
+					Moderate
+				<% } else if (data.precipIntensity < 0.4) { %>
+					Heavy
+				<% } %>
 
-			<%= currently.precipType %>.
-		</span>
+				<%= data.precipType %>.
+			</span>
+		<% } %>
+
 	<% } %>
 
 </p>
