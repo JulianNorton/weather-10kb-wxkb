@@ -1,6 +1,5 @@
 var compression = require('compression');
 var express = require('express');
-var serveFavicon = require('serve-favicon');
 var moment = require('moment-timezone');
 var weather10kb = require('./weather10kb');
 
