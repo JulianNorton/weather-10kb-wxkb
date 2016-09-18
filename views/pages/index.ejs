@@ -40,7 +40,7 @@
           <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mmA') %></p>
           <div class="flex">
             <div class="status-primary status-icon">
-              <%- include('../../public/images/' + currently.icon + '.svg') %>
+              <svg><%- include('../../public/images/' + currently.icon + '.svg') %></svg>
             </div>
             <span class="status-primary"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
           </div>
@@ -55,7 +55,7 @@
             </p>
             <div class="flex">
               <div class="status-primary status-icon">
-                <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
+                <svg><%- include('../../public/images/' + daily.data[0].icon + '.svg') %></svg>
               </div>
               <span>
                 <p><%= daily.data[0].summary %></p>
@@ -89,11 +89,12 @@
           <%= daily.summary %>
         </p>
       </article>
+      <hr/>
       <section class="navigation">
         <ul class="flex justify wrap">
           <li class="m-x-1">
             <form action="/" method="get">
-              <label for="change-location">Enter a place, city, or zipcode.</label>
+              <label for="change-location">Enter a place, city, or zipcode</label>
               <input type="text" id="change-location" name="location" placeholder="New York, NY" />
               <button type="submit">Change location</button>
             </form>
