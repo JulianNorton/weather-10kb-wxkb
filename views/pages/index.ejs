@@ -91,13 +91,16 @@
           </li>
           <li class="m-x-1">
             Units:
-            <small>
               <% if (params.scale === 'F') { %>
-                Fahrenheit (°F)
-                <a class="m-x-1" href="/<%= params.location %>/c">Switch to Celsius (°C)</a>
+                °F
+                <small>
+                  <a class="m-x-1" href="/<%= params.location %>/c">Switch to Metric (°C &amp; km/s)</a>
+                </small>
               <% } else {%>
-                Celsius (°C)
-                <a class="m-x-1" href="/<%= params.location %>">Switch to Fahrenheit (°F)</a>
+                °C
+                <small>
+                  <a class="m-x-1" href="/<%= params.location %>">Switch to Imperial (°F &amp; mph)</a>
+                </small>
               <% } %>
             </small>
           </li>
