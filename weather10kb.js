@@ -120,6 +120,9 @@ router.get('/:location?/:scale?', function(request, response) {
     .then(wr.setTimeZone)
     .then(wr.getForecast)
     .then(function(data) {
+      if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location == ', ') {
+        request.params.formatted_location = request.params.location;
+      }
       response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
     })
     .catch(function(err){
