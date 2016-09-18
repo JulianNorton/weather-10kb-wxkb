@@ -104,25 +104,6 @@ h1,h2,h3,h4,h5,h6, p {
     margin-bottom: .3em;
 }
 
-// SAMP IS FOR DEBUGGING ONLY
-
-.samp {
-    font-family: monospace;
-    font-size: 1rem;
-    overflow-wrap: break-word;
-    color: white;
-    padding: .3em;
-    background: #36383C;
-    display: block;
-    border-bottom: 1px solid black;
-    box-shadow: $box-shadow;
-    margin: 0 $horizontal-spacing;
-}
-
-.samp:before {
-    content: '// debugging';
-    display: block;
-}
 
 /* ---------------------------------------- */
 /* structural  */
