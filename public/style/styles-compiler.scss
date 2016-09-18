@@ -32,22 +32,6 @@ a:hover {
     /*text-shadow: 1px 1px 2px red;*/
 }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-v2.0 | 20110126
-License: none (public domain)
-*/
-
-// removed small, strong, applet, object, iframe, canvas, embed, ruby, audio, video
-// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-// a, abbr, acronym, address, big, cite, code,
-// del, dfn, em, img, ins, kbd, q, s, samp, strike, sub, sup, tt, var,
-// b, u, i, center,
-// dl, dt, dd, ol, ul, li,
-// fieldset, form, label, legend,
-// table, caption, tbody, tfoot, thead, tr, th, td,
-// article, aside, details,
-// figure, figcaption, footer, header, hgroup, 
-// menu, nav, output, section, summary,
 html, body, div, span, article, header, footer, ol, ul, li, p {
     margin: 0;
     padding: 0;
@@ -66,22 +50,6 @@ footer, header, hgroup, menu, nav, section {
 ol, ul {
     list-style: none;
 }
-
-/*blockquote, q {
-quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-content: '';
-content: none;
-}*/
-
-/*table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-*/
 
 body {
     line-height: 1.2;
@@ -166,36 +134,22 @@ h1,h2,h3,h4,h5,h6, p {
     margin: 0;
 }
 
+.status-icon {
+    width: 1.5rem;
+  // background: #fff;
+  // margin: 0 auto;
+}
+
 .status-primary {
     font-size: 3em;
     font-weight: 200;
 }
 
-.status-icon {
-    width: 1.5em;
-  // background: #fff;
-  // margin: 0 auto;
-}
-
-
-// status-primary status-icon
-
 svg {
     margin-right: .2em;
-    width: 4em;
-    // width: 100px;
-    // width: 1.5em;
-    // max-width: 100%;
-    // height: 1.5em;
-    // height: 1.5em;
-    // max-width: 1.5em;
-    // padding: .125em 0;
-    // padding-right: .2em;
-    // vertical-align: middle;
-    //   position: absolute;
-    // top: 0;
-    // left: 0;
-    // background: red;
+    min-width: 6rem;
+    min-height: 6rem;
+    width: 2em;
 }
 
 .status-subtitle {
