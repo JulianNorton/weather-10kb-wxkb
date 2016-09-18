@@ -10,7 +10,10 @@
     <meta property="og:email" content="julian@juliannorton.com">
     <meta name="robots" content="Index, follow">
     <meta http-equiv="refresh" content="600">
-    <link rel="stylesheet" type="text/css" href="/style/main.css" />
+    <%
+      // <link rel="stylesheet" type="text/css" href="/style/main.css" />
+    %>
+    <style><%- include('../../public/style/main.css') %></style>
     <link rel="apple-touch-icon" sizes="60x60" href="/images/<%= currently.icon %>/apple-touch-icon.png?v=<%= currently.icon %>">
     <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-32x32.png?v=<%= currently.icon %>" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-16x16.png?v=<%= currently.icon %>" sizes="16x16">
@@ -19,7 +22,7 @@
     <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
   </head>
 
-  <body class="test-container">
+  <body>
     <div class="container">
       <nav class="m-a-1">
         <p>Weather for <%= params.formatted_location %> <a href="#change-location">Change location</a></p>
