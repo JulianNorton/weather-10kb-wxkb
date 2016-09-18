@@ -40,12 +40,9 @@
         <header>
           <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mmA') %></p>
           <div class="flex">
-            <img
-            class="status-primary status-icon"
-            src="/images/<%= currently.icon %>.svg"
-            alt="<%= currently.icon %>"
-            title="<%= currently.summary %>"
-            >
+            <div class="status-primary status-icon">
+              <%- include('../../public/images/' + currently.icon + '.svg') %>
+            </div>
             <span class="status-primary"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
           </div>
           <% include ../partials/summary.ejs %>
@@ -58,12 +55,9 @@
               Today
             </p>
             <div class="flex">
-              <img
-              class="status-primary status-icon"
-              src="/images/<%= daily.data[0].icon %>.svg"
-              alt="<%= daily.data[0].icon %>"
-              title="<%= daily.data[0].summary %>"
-              >
+              <div class="status-primary status-icon">
+                <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
+              </div>
               <span>
                 <p><%= daily.data[0].summary %></p>
                 <p>
