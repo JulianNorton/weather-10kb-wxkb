@@ -35,7 +35,7 @@
       %>
       <article class="m-a-1 card">
         <header>
-          <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('ha') %></p>
+          <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></p>
           <div class="flex status-primary">
             <%- include('../../public/images/' + currently.icon + '.svg') %>
             <span><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
