@@ -1,39 +1,35 @@
-<p class="status-subtitle">
+<span><%= data.summary %>,</span>
 
-	<span><%= data.summary %>,</span>
+<% if (Math.abs(data.temperature - data.apparentTemperature) > 3 ) { %>
+	<span>
+		feels like 
+		<%= Math.round(data.apparentTemperature) %>°
+	</span>
+<% } %>
 
-	<% if (Math.abs(data.temperature - data.apparentTemperature) > 3 ) { %>
+<% if (data.windSpeed < 2) { %>
+	<span>with no wind.</span>
+<% } else { %>
+	<span>with a <%= Math.round(data.windSpeed) %><%= (params.units === 'si') ? 'm/s' : 'mph' %> breeze.</span>
+<% } %>
+
+<% if (data.precipProbability > 5) { %>
+	<span><%= Math.round(100 * data.precipProbability) %>% chance of</span>
+
+	<% if (data.precipIntensity > 0) { %>
 		<span>
-			feels like 
-			<%= Math.round(data.apparentTemperature) %>°
+			<% if (data.precipIntensity < 0.002) { %>
+				Very light
+			<% } else if (data.precipIntensity < 0.017) { %>
+				Light
+			<% } else if (data.precipIntensity < 0.1) { %>
+				Moderate
+			<% } else if (data.precipIntensity < 0.4) { %>
+				Heavy
+			<% } %>
+
+			<%= data.precipType %>.
 		</span>
 	<% } %>
 
-	<% if (data.windSpeed < 2) { %>
-		<span>with no wind.</span>
-	<% } else { %>
-		<span>with a <%= Math.round(data.windSpeed) %><%= (params.units === 'si') ? 'm/s' : 'mph' %> breeze.</span>
-	<% } %>
-
-	<% if (data.precipProbability > 5) { %>
-		<span><%= Math.round(100 * data.precipProbability) %>% chance of</span>
-
-		<% if (data.precipIntensity > 0) { %>
-			<span>
-				<% if (data.precipIntensity < 0.002) { %>
-					Very light
-				<% } else if (data.precipIntensity < 0.017) { %>
-					Light
-				<% } else if (data.precipIntensity < 0.1) { %>
-					Moderate
-				<% } else if (data.precipIntensity < 0.4) { %>
-					Heavy
-				<% } %>
-
-				<%= data.precipType %>.
-			</span>
-		<% } %>
-
-	<% } %>
-
-</p>
+<% } %>

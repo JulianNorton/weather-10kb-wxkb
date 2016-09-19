@@ -22,6 +22,7 @@
   <body>
     <div class="container">
       <nav class="m-a-1">
+        <h1>wxkb.io</h1>
         <p>Weather for <%= params.formatted_location %> <a href="#change-location">Change location</a></p>
       </nav>
       <%#
@@ -68,8 +69,7 @@
             <% if (moment.unix(hourly.data[i].time).format('h:mmA') == '1:00AM') break; %>
             <li>
               <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('h:mmA') %></span>
-              <span class=""><%= Math.round(hourly.data[i].temperature) %>º</span>
-              <span class=""><%= hourly.data[i].summary %></span>
+              <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
               <%- include('../partials/summary', {data: hourly.data[i]}) %>
             </li>
             <% } %>
@@ -114,7 +114,7 @@
         <ul class="flex">
           <li class="m-x-1"><small><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">Github</a></small></li>
           <li class="m-x-1"><small><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank">Icon credit</a></small></li>
-          <li class="m-x-1"><small><a href="https://developer.forecast.io/" rel="noopener nofollow" target="_blank">Weather API credit</a></small></li>
+          <li class="m-x-1"><small><a href="https://developer.forecast.io/?wxpd" rel="noopener nofollow" target="_blank">API credit</a></small></li>
         </ul>
       </footer>
     </div>
