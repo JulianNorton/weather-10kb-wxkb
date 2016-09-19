@@ -35,7 +35,7 @@
       %>
       <article class="m-a-1 card">
         <header>
-          <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mmA') %></p>
+          <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('ha') %></p>
           <div class="flex status-primary">
             <%- include('../../public/images/' + currently.icon + '.svg') %>
             <span><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
@@ -53,12 +53,10 @@
               <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
               <span>
                 <p><%= daily.data[0].summary %></p>
-                <p>
-                  <span class="data-secondary"><%= moment.unix(daily.data[0].temperatureMaxTime).format('h:mmA')%></span>
+                <p class="data-secondary">
                   High <%= Math.round(daily.data[0].temperatureMax) %>°
                 </p>
-                <p>
-                  <span class="data-secondary"><%= moment.unix(daily.data[0].temperatureMinTime).format('h:mmA')%></span>
+                <p class="data-secondary">
                   Low <%= Math.round(daily.data[0].temperatureMin) %>°
                 </p>
               </span>
@@ -66,9 +64,9 @@
           </header>
           <ul class="forecast-secondary">
             <% for (var i = 1; i < 24; i++) { %>
-            <% if (moment.unix(hourly.data[i].time).format('h:mmA') == '1:00AM') break; %>
+            <% if (moment.unix(hourly.data[i].time).format('ha') == '1:00AM') break; %>
             <li>
-              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('h:mmA') %></span>
+              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('ha') %></span>
               <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
               <%- include('../partials/summary', {data: hourly.data[i]}) %>
             </li>
