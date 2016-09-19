@@ -64,7 +64,7 @@
           </header>
           <ul class="forecast-secondary">
             <% for (var i = 1; i < 24; i++) { %>
-            <% if (moment.unix(hourly.data[i].time).format('ha') == '1:00AM') break; %>
+            <% if (moment.unix(hourly.data[i].time).format('ha') == '1am') break; %>
             <li>
               <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('ha') %></span>
               <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
