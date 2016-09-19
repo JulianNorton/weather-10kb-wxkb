@@ -128,7 +128,7 @@ h1,h2,h3,h4,h5,h6, p {
 
 .forecast-secondary li .data-secondary {
     display: inline-block;
-    min-width: 4em;
+    min-width: 3em;
 }
 
 .forecast-secondary li:last-child {
@@ -165,7 +165,6 @@ svg {
 .data-secondary {
     font-size: $font-smaller;
     color: $text-secondary;
-    margin-right: .2rem;
 }
 
 
