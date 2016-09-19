@@ -10,6 +10,8 @@ $horizontal-spacing: .5rem;
 
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
+$font-smaller: .9em;
+
 /* ---------------------------------------- */
 /* Resets */
 
@@ -69,6 +71,7 @@ body {
 // }
 
 h1,h2,h3,h4,h5,h6, p {
+    margin-top: 0;
     margin-bottom: .3em;
 }
 
@@ -153,14 +156,14 @@ svg {
 }
 
 .status-subtitle {
-    font-size: .9em;
+    font-size: $font-smaller;
     width: 100%;
     margin-top: .4em;
     margin-bottom: 0;
 }
 
 .data-secondary {
-    font-size: .8em;
+    font-size: $font-smaller;
     color: $text-secondary;
     margin-right: .2rem;
 }
