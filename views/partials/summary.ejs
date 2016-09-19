@@ -10,7 +10,7 @@
 <% if (data.windSpeed < 2) { %>
 	<span>with no wind.</span>
 <% } else { %>
-	<span>with a <%= Math.round(data.windSpeed) %><%= (params.units === 'si') ? 'm/s' : 'mph' %> breeze.</span>
+	<span class="nowrap">with a <%= Math.round(data.windSpeed) %><%= (params.units === 'si') ? 'm/s' : 'mph' %> breeze.</span>
 <% } %>
 
 <% if (data.precipProbability > 5) { %>

@@ -22,8 +22,8 @@
   <body>
     <div class="container">
       <nav class="m-a-1">
-        <h1>wxkb.io</h1>
-        <p>Weather for <%= params.formatted_location %> <a href="#change-location">Change location</a></p>
+        <h1 class="data-secondary">wxkb.io</h1>
+        <p>Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></p>
       </nav>
       <%#
       <section class="m-a-1 card">
@@ -82,14 +82,14 @@
           <%= daily.summary %>
         </p>
       </article>
-      <hr/>
+      <hr class="m-x-1" />
       <section class="navigation">
         <ul class="flex justify wrap">
           <li class="m-x-1">
             <form action="/" method="get">
               <label for="change-location">Enter a place, city, or zipcode</label>
-              <input type="text" id="change-location" name="location" placeholder="<%= params.formatted_location %>" />
-              <button type="submit">Change location</button>
+              <input type="text" id="change-location" class="data-secondary" style="min-width: 12em" name="location" placeholder="<%= params.formatted_location %>" />
+              <button class="data-secondary" type="submit">Change location</button>
             </form>
           </li>
           <li class="m-x-1">
@@ -109,7 +109,7 @@
           </li>
         </ul>
       </section>
-      <hr/>
+      <hr class="m-x-1" />
       <footer class="navigation">
         <ul class="flex">
           <li class="m-x-1"><small><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">Github</a></small></li>
