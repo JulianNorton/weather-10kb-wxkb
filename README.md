@@ -6,7 +6,7 @@ Weather forecast in under 10kb.
 # Run app with Node
 1. clone repo
 2. `npm install`
-3. `FORECAST_IO_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX node index.js` (replace X's with forecat.io API key)
+3. `FORECAST_IO_API_KEY=<api key goes here> node_modules/nodemon/bin/nodemon.js`
 
 
 ### Compile CSS
