@@ -4,7 +4,9 @@
 // Hex instead of RGBA for ie8 support
 $text-secondary: #555;
 // rgba for non-critical styling
-$light-gray: rgba(220,220,220, .5);
+
+$gray-lighter: rgba(220,220,220, .5);
+$gray-lightest: rgba(220,220,220, .2);
 
 $horizontal-spacing: .5rem;
 
@@ -60,7 +62,7 @@ body {
     margin: 0;
     font-size: 16px;
     font-size: calc(1em + .5vw);
-    background: #FDFFFC;
+    background: $gray-lightest;
 }
 
 /* ---------------------------------------- */
@@ -80,7 +82,7 @@ h1,h2,h3,h4,h5,h6, p {
 /* structural  */
 
 .container {
-    max-width: 70rem;
+    max-width: 55rem;
     margin: 0 auto;
 }
 
@@ -107,7 +109,7 @@ h1,h2,h3,h4,h5,h6, p {
 
 .card {
     background-color: white;
-    border: 1px solid $light-gray;
+    border: 1px solid $gray-lighter;
     padding: .66em;
     border-radius: 2px;
     box-shadow: $box-shadow;
@@ -121,7 +123,7 @@ h1,h2,h3,h4,h5,h6, p {
 
 /* card-separator */
 .forecast-secondary li {
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid $gray-lighter;
     margin-bottom: .66em;
     padding-bottom: .66em;    
 }
@@ -180,7 +182,7 @@ svg {
 // }
 
 .m-a-1 {
-    margin: 1em $horizontal-spacing;
+    margin: $horizontal-spacing $horizontal-spacing;
 }
 
 // .m-y-1 {
@@ -235,16 +237,16 @@ svg {
 }
 
 
-// .sr-only {
-//     position: absolute;
-//     width: 1px;
-//     height: 1px;
-//     padding: 0;
-//     margin: -1px;
-//     overflow: hidden;
-//     clip: rect(0,0,0,0);
-//     border: 0;
-// }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
 
 /* ---------------------------------------- */
 /* Unusued */
