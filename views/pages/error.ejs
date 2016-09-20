@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Error</title>
+    <title>wxkb.io | <%= error %></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,10 +12,14 @@
 
   <body>
     <div class="container">
-      <article class="m-a-1 card">
-        <header>
-          <p class="data-secondary"><%= error %></p>
-        </header>
+      <article class="m-a-1">
+        <h1><%= error %></h1>
+        <form action="/" method="get">
+          <label for="change-location">Enter a place, city, or zipcode</label>
+          <input type="text" id="change-location" class="data-secondary m-x-1" style="min-width: 12em" name="location" placeholder="New York, NY, USA">
+          <button class="data-secondary" type="submit">Change location</button>
+        </form>
+        <h5>Try <a href="/new%20york,%20ny">Or try [New York, NY]</a></h5>
       </article>
     </div>
   </body>
