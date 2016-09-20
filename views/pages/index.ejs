@@ -80,7 +80,6 @@
           <%= daily.summary %>
         </p>
       </section>
-      <hr class="m-x-1" />
       <nav class="navigation">
         <ul class="flex justify wrap">
           <li class="m-x-1">
@@ -91,14 +90,16 @@
             </form>
           </li>
           <li class="m-x-1">
-            <!-- Units: -->
-            <% if (params.scale === 'F') { %>
-              Freedom units (°F)
-              <a class="m-x-1" href="/<%= params.location %>/c"><small>Switch to Metric (°C &amp; m/s)</small></a>
-            <% } else {%>
-              Metric (°C)
-              <a class="m-x-1" href="/<%= params.location %>"><small>Switch to Freedom units (°F &amp; mph)</small></a>
-            <% } %>
+           <small>
+             <!-- Units: -->
+             <% if (params.scale === 'F') { %>
+               Freedom units (°F)
+               <a class="m-x-1" href="/<%= params.location %>/c"><small>Switch to Metric (°C &amp; m/s)</small></a>
+             <% } else {%>
+               Metric (°C)
+               <a class="m-x-1" href="/<%= params.location %>"><small>Switch to Freedom units (°F &amp; mph)</small></a>
+             <% } %>
+           </small>
           </li>
         </ul>
       </nav>
@@ -109,7 +110,7 @@
           <li class="m-x-1"><small><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank">Iconography credit</a></small></li>
           <li class="m-x-1"><small><a href="https://developer.forecast.io/?wxpd" rel="noopener nofollow" target="_blank">Weather API credit</a></small></li>
         </ul>
-        <h6 class="m-x-1">wxkb.io automatically refreshes every 10 minutes</h6>
+        <p class="m-x-1 data-secondary"><small>wxkb.io automatically refreshes every 10 minutes</small></p>
       </aside>
     </article>
     <script>
