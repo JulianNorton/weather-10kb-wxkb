@@ -12,6 +12,7 @@ $horizontal-spacing: .5rem;
 
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
+$font-larger: 1.2em;
 $font-smaller: .9em;
 
 /* ---------------------------------------- */
@@ -150,6 +151,7 @@ h1,h2,h3,h4,h5,h6, p {
     font-weight: 200;
 }
 
+/* Iconography is fluid and resizes to match local font size */
 svg {
     margin-right: .2em;
     min-width: 6rem;
@@ -164,11 +166,18 @@ svg {
     margin-bottom: 0;
 }
 
+.data-primary {
+    font-size: $font-larger;
+}
+
 .data-secondary {
     font-size: $font-smaller;
     color: $text-secondary;
 }
 
+h3.data-secondary {
+    font-weight: normal;
+}
 
 /* ---------------------------------------- */
 /* Utilities */

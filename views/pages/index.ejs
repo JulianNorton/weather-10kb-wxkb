@@ -41,19 +41,19 @@
             <span class="sr-only"><%= currently.icon %></span>
             <span><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
           </div>
-          <%- include('../partials/summary', {data: currently}) %>
+          <span class="data-primary"><%- include('../partials/summary', {data: currently}) %></span>
         </div>
       </header>
       <section class="m-a-1 card">
         <div class="forecast-primary">
-          <p class="data-secondary">
+          <h3 class="data-secondary">
             Today
-          </p>
+          </h3>
           <div class="flex">
             <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
             <span class="sr-only"><%= daily.data[0].icon %></span>
             <span>
-              <p><%= daily.data[0].summary %></p>
+              <p class="data-primary"><%= daily.data[0].summary %></p>
               <p class="data-secondary">
                 High <%= Math.round(daily.data[0].temperatureMax) %>°
               </p>
