@@ -144,8 +144,7 @@ router.get('/:location?/:scale?', function(request, response) {
         var err_msg = JSON.stringify(err);
       }
 
-      response.send(err_msg)
-      //response.render('pages/error', {error: err_msg}));
+      response.render('pages/error', {error: err_msg});
     });
 });
 
