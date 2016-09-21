@@ -8,7 +8,8 @@ $text-secondary: #555;
 $gray-lighter: rgba(220,220,220, .5);
 $gray-lightest: rgba(220,220,220, .2);
 
-$horizontal-spacing: .5rem;
+$fallback-unit-spacing: 8px;
+$unit-spacing: .5rem;
 
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
@@ -50,6 +51,11 @@ html, body, div, span, article, header, footer, ol, ul, li, p {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
     display: block;
+
+    background: #ECE9E6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, .66)); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, .66)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
 }
 
 ol, ul {
@@ -64,6 +70,13 @@ body {
     font-size: 16px;
     font-size: calc(1em + .5vw);
     background: $gray-lightest;
+
+    background: #E0EAFC; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #E0EAFC , #CFDEF3); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #E0EAFC , #CFDEF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+        
+        
 }
 
 /* ---------------------------------------- */
@@ -109,7 +122,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .card {
-    background-color: white;
+    // background-color: white;
     border: 1px solid $gray-lighter;
     padding: .66em;
     border-radius: 2px;
@@ -151,14 +164,6 @@ h1,h2,h3,h4,h5,h6, p {
     font-weight: 200;
 }
 
-/* Iconography is fluid and resizes to match local font size */
-svg {
-    margin-right: .2em;
-    min-width: 6rem;
-    min-height: 6rem;
-    width: 2em;
-}
-
 .status-subtitle {
     font-size: $font-smaller;
     width: 100%;
@@ -182,16 +187,20 @@ h3.data-secondary {
 /* ---------------------------------------- */
 /* Utilities */
 
-// .p-a-1 {
-//     padding: 1em;
-// }
+.p-a-1 {
+    padding: $fallback-unit-spacing;
+    padding: $unit-spacing;
+
+}
 
 // .m-a-0 {
 //     margin: 0;
 // }
 
 .m-a-1 {
-    margin: $horizontal-spacing $horizontal-spacing;
+    margin: $fallback-unit-spacing;
+    margin: $unit-spacing;
+
 }
 
 // .m-y-1 {
@@ -200,7 +209,9 @@ h3.data-secondary {
 // }
 
 .m-x-1 {
-    margin: $horizontal-spacing
+    margin: $fallback-unit-spacing;
+    margin: $unit-spacing;
+
 }
 
 .nowrap {
