@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= Math.round(currently.temperature) %>º<%= params.scale %> in <%= params.formatted_location %></title>
+    <title><%= Math.round(currently.temperature) %>º<%= params.scale %> <%= currently.summary %></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
   </head>
 
-  <body>
+  <body id="wxkb">
     <article class="container">
       <nav class="m-a-1">
         <h1 class="data-secondary">wxkb.io</h1>
