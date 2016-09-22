@@ -12,7 +12,7 @@ $blue: #4990E2;
 $blue-darker: #2B598E;
 
 $fallback-unit-spacing: 8px;
-$unit-spacing: .5rem;
+$unit-spacing: .5em;
 
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
@@ -117,7 +117,8 @@ h1,h2,h3,h4,h5,h6, p {
 
 .container {
     max-width: 55rem;
-    margin: 0 auto;
+    margin: 0 auto 1em;
+
 }
 
 .flex {
@@ -186,16 +187,29 @@ input {
 //////////////////////// 
 
 .card {
-    @extend .m-a-1;
-    // background-color: white;
+    // @extend .m-a-1;
+    // calc(1em + .5vw);
+    // margin-left:  1em;
+    // margin-right: ;
+    margin-bottom: $fallback-unit-spacing;
+    margin-bottom: $unit-spacing;
     border: $border;
     padding: $fallback-unit-spacing;
     padding: $unit-spacing;
-    border-radius: 2px;
     box-shadow: $box-shadow;
     background: #fff; /* fallback for old browsers */
     // background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
     // background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
+}
+
+@media (min-width: 420px){
+  .card {
+    margin-left: $fallback-unit-spacing;
+    margin-left: $unit-spacing;
+    margin-right: $fallback-unit-spacing;
+    margin-right: $unit-spacing;
+    border-radius: 2px;
+  }
 }
 
 .forecast-primary {
@@ -266,6 +280,8 @@ input {
 .m-x-1 {
     margin-right: $fallback-unit-spacing;
     margin-left: $fallback-unit-spacing;
+    margin-right: $unit-spacing;
+    margin-left: $unit-spacing;
 }
 
 .nowrap {
