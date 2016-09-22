@@ -11,8 +11,8 @@
 	<!--<span>with no wind.</span>-->
 <% } else { %>
 	<span>
-		with a <%= Math.round(data.windSpeed) %>
-		<span><%= (params.units === 'si') ? 'm/s' : 'mph' %> breeze</span>
+		with a
+		<%= Math.round(data.windSpeed) %><span><%= (params.units === 'si') ? 'm/s' :'mph' %> breeze</span>
 	</span>
 <% } %>
 
