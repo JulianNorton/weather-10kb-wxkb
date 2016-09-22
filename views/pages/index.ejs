@@ -21,9 +21,9 @@
 
   <body id="wxkb_io" class="container">
     <main>
-      <nav class="m-a-1">
-        <h1 class="data-secondary">wxkb.io</h1>
-        <p>Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></p>
+      <nav class="m-a-1 flex wrap" style="justify-content: space-between">
+        <h1 class="muted" style="margin-right: 1em;" title="Weather forecast under 10kb">wxkb.io</h1>
+        <h2 class="data-secondary" style="align-self: center;">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h2>
       </nav>
       <%#
       <section class="card">
@@ -34,7 +34,7 @@
       <article>
         <header class="card">
           <div>
-            <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></p>
+            <h3 class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></h3>
             <div class="flex status-primary">
               <!--[if gte IE 9]><!-->
               <%- include('../../public/images/' + currently.icon + '.svg') %>
@@ -84,7 +84,7 @@
           </ul>
         </section>
         <section class="card">
-          <p class="data-secondary">This week</p>
+          <h3 class="data-secondary">This week</h3>
           <p class="data-primary">
             <%= daily.summary %>
           </p>
@@ -93,7 +93,7 @@
       <section class="card">
         <%- include('../partials/change-location')%>
         <nav>
-          <!-- Units: -->
+          <h3 class="sr-only">Current units</h3>
           <% if (params.scale === 'F') { %>
           Freedom units (°F)
           <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric (°C &amp; m/s)</a>
@@ -104,14 +104,20 @@
         </nav>
       </section>
     </main>
+    <hr class="sr-only" />
     <footer role="navigation">
+      <h4 class="sr-only">Credits</h4>
       <ul class="flex wrap small">
-        <li class="p-a-1"><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">Code available on Github</a></li>
-        <li class="p-a-1"><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank">Iconography credit</a></li>
-        <li class="p-a-1"><a href="https://developer.forecast.io/?wxpd" rel="noopener nofollow" target="_blank">Weather API credit</a></li>
+        <li class="p-a-1"><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">wxkb.io code on Github</a></li>
+        <li class="p-a-1"><a href="https://darksky.net/dev/?wxpd" rel="noopener nofollow" target="_blank">Powered by Dark Sky</a></li>
+        <!-- Attribution not required for Amit's weather icons, but it's the right thing to do -->
+        <li class="p-a-1"><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank" title="Icons created by Amit Jakhu from www.amitjakhu.com">Icons by Amit</a></li>
       </ul>
-      <p class="sr-only">This site will automatically refresh every 10 minutes</p>
     </footer>
+    <aside>
+      <p class="sr-only">This site will automatically refresh every 10 minutes</p>
+      <small class="sr-only">wxkb.io is a collaboration between by <i>Julian Norton</i> and <i>Ryan Williams</i></small>
+    </aside>
     <script>
       console.log('params', <%- JSON.stringify(params) %>);
       console.log('currently', <%- JSON.stringify(currently) %>);
