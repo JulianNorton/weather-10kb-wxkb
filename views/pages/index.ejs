@@ -49,27 +49,25 @@
           </div>
         </header>
         <section class="card">
-          <div class="forecast-primary">
-            <h3 class="data-secondary">
-              Today
-            </h3>
-            <div class="flex wrap">
-              <!--[if gte IE 9]><!-->
-              <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
-              <!--<![endif]-->
-              <!--[if lte IE 8]>
-                <%# IE8 and below see nothing :( %>
-              <![endif]-->
-              <span class="sr-only"><%= daily.data[0].icon %></span>
-              <div class="m-x-1">
-                <p class="data-primary"><%= daily.data[0].summary %></p>
-                <p class="small">
-                  High <%= Math.round(daily.data[0].temperatureMax) %>°
-                </p>
-                <p class="data-secondary">
-                  Low <%= Math.round(daily.data[0].temperatureMin) %>°
-                </p>
-              </div>
+          <h3 class="data-secondary">
+            Today
+          </h3>
+          <div class="flex wrap">
+            <!--[if gte IE 9]><!-->
+            <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
+            <!--<![endif]-->
+            <!--[if lte IE 8]>
+              <%# IE8 and below see nothing :( %>
+            <![endif]-->
+            <span class="sr-only"><%= daily.data[0].icon %></span>
+            <div class="m-x-1">
+              <p class="data-primary"><%= daily.data[0].summary %></p>
+              <p class="small">
+                High <%= Math.round(daily.data[0].temperatureMax) %>°
+              </p>
+              <p class="data-secondary">
+                Low <%= Math.round(daily.data[0].temperatureMin) %>°
+              </p>
             </div>
           </div>
           <ul class="forecast-secondary">
