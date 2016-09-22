@@ -137,7 +137,9 @@ svg {
     min-width:4rem;
     max-width:6rem;
     max-height:6rem;
-    padding:.1em;
+    padding: .1em .1em .1em 0;
+    align-self: center;
+
     // Default inline
     // margin-right:.2em;width:2em;
 }
@@ -212,10 +214,10 @@ input {
   }
 }
 
-.forecast-primary {
-    border-bottom: 1px solid rgba(220,220,220, .5);
-    margin-bottom: .66em;
-    padding-bottom: .66em;    
+.forecast-secondary li:first-child {
+    border-top: 1px solid rgba(220,220,220, .5);
+    margin-top: .66em;
+    padding-top: .66em;    
 }
 
 /* card-separator */
