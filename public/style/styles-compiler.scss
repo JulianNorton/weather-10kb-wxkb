@@ -181,8 +181,8 @@ svg {
     border-radius: 2px;
     box-shadow: $box-shadow;
     background: #fff; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
-    background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
+    // background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
+    // background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
 }
 
 .forecast-primary {
