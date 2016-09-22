@@ -10,14 +10,17 @@
 <% if (data.windSpeed < 2) { %>
 	<!--<span>with no wind.</span>-->
 <% } else { %>
-	<span class="nowrap">with a <%= Math.round(data.windSpeed) %><%= (params.units === 'si') ? 'm/s' : 'mph' %> breeze.</span>
+	<span>
+		with a <%= Math.round(data.windSpeed) %>
+		<span><%= (params.units === 'si') ? 'm/s' : 'mph' %> breeze</span>
+	</span>
 <% } %>
 
 <% if (data.precipProbability > 5) { %>
 	<span><%= Math.round(100 * data.precipProbability) %>% chance of</span>
 
 	<% if (data.precipIntensity > 0) { %>
-		<span>
+		<span class="nowrap">
 			<% if (data.precipIntensity < 0.002) { %>
 				Very light
 			<% } else if (data.precipIntensity < 0.017) { %>
