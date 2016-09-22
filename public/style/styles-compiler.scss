@@ -38,10 +38,11 @@ html {
 a, a:visited {
     color: $blue;
     transition: all linear 125ms;
+    transition-property:box-shadow, color, border-bottom;
     text-decoration: none;
     border-bottom: 1px dotted $blue;
      // transition
-    text-shadow: 0 1px 1px #fff;
+    text-shadow: 0 1px 2px #fff;
 }
 
 a:hover, a:active, a:focus {
@@ -111,7 +112,6 @@ h1,h2,h3,h4,h5,h6, p {
     font-weight: normal;
 }
 
-
 /* ---------------------------------------- */
 /* structural  */
 
@@ -124,7 +124,6 @@ h1,h2,h3,h4,h5,h6, p {
     display: flex;
     align-items: flex-start;
 }
-
 
 .wrap {
     flex-wrap: wrap;
@@ -142,16 +141,29 @@ svg {
     // margin-right:.2em;width:2em;
 }
 
+/* Change location */
+
 #change-location {
     @extend .large;
     border-width: 1px;
     border-color: $blue;
-    border-right: 0;
-    padding: .3em;
+    // border-right: 0;
+    padding: .3em .1em .3em .3em;
     flex: 1;
     &:hover, &:active, &:focus {
         border-color: $blue-darker
     }
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .3em;
+}
+
+input {
+    flex: 1;
+    min-width: 60%;
+    margin-bottom: .5rem;
 }
 
 .btn {
@@ -171,6 +183,7 @@ svg {
         background-color: $blue-darker
     }
 }
+//////////////////////// 
 
 .card {
     @extend .m-a-1;
@@ -216,13 +229,13 @@ svg {
 
 .data-primary {
     @extend .large;
+    margin-bottom: 0;
 }
 
 .data-secondary {
     @extend .small;
     @extend .muted;
 }
-
 
 /* ---------------------------------------- */
 /* Utilities */
@@ -244,14 +257,15 @@ svg {
 }
 
 .m-y-1 {
+    margin-top: $fallback-unit-spacing;
     margin-top: $unit-spacing;
-    margin-bottom: 1em;
+    margin-bottom: $fallback-unit-spacing;
+    margin-bottom: $unit-spacing;
 }
 
 .m-x-1 {
     margin-right: $fallback-unit-spacing;
     margin-left: $fallback-unit-spacing;
-
 }
 
 .nowrap {
