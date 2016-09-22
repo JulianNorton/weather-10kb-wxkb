@@ -14,16 +14,8 @@
     <div class="container">
       <article class="m-a-1 card">
         <h1 style="color: #1E256C"><%= error %></h1>
-        <nav role="Change location">
-          <form action="/" method="get">
-            <label for="change-location">Enter a city, place, or zipcode</label>
-            <span class="flex m-y-1">
-            <input type="text" id="change-location" style="flex: 1;" name="location"/>
-              <button class="btn" type="submit">Change location</button>
-            </span>
-          </form>
-        </nav>
-        <h5>Try <a href="/new%20york,%20ny">Or try <strong>New York, NY</strong></a></h5>
+        <%- include('../partials/change-location')%>
+        <h5>Try <a href="/new%20york,%20ny"><strong>New York, NY</strong></a></h5>
       </article>
     </div>
   </body>

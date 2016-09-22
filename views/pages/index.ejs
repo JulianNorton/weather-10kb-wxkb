@@ -20,8 +20,8 @@
   </head>
 
   <body id="wxkb_io">
-    <article class="container">
-      <nav class="p-a-1">
+    <main class="container">
+      <nav class="m-a-1">
         <h1 class="data-secondary">wxkb.io</h1>
         <p>Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></p>
       </nav>
@@ -31,7 +31,7 @@
         <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
       </section>
       %>
-      <main>
+      <article>
         <header class="card">
           <div>
             <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></p>
@@ -61,15 +61,15 @@
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
               <span class="sr-only"><%= daily.data[0].icon %></span>
-              <span class="m-x-1">
+              <div class="m-x-1">
                 <p class="data-primary"><%= daily.data[0].summary %></p>
-                <p>
+                <p class="small">
                   High <%= Math.round(daily.data[0].temperatureMax) %>°
                 </p>
                 <p class="data-secondary">
                   Low <%= Math.round(daily.data[0].temperatureMin) %>°
                 </p>
-              </span>
+              </div>
             </div>
           </div>
           <ul class="forecast-secondary">
@@ -89,18 +89,10 @@
             <%= daily.summary %>
           </p>
         </section>
-      </main>
-      <section class="card m-y-1">
-        <nav role="Change location">
-          <form action="/" method="get">
-            <label for="change-location">Enter a city, place, or zipcode</label>
-            <span class="flex m-y-1">
-            <input type="text" id="change-location" style="flex: 1;" name="location" placeholder="<%= params.formatted_location %>" />
-              <button class="btn" type="submit">Change location</button>
-            </span>
-          </form>
-        </nav>
-        <nav role="Change units">
+      </article>
+      <section class="card">
+        <%- include('../partials/change-location')%>
+        <nav>
           <!-- Units: -->
           <% if (params.scale === 'F') { %>
           Freedom units (°F)
@@ -111,15 +103,15 @@
           <% } %>
         </nav>
       </section>
-      <footer>
-        <ul class="flex wrap small p-a-1">
-          <li><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">Code available on Github</a></li>
-          <li class="m-x-1"><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank">Iconography credit</a></li>
-          <li class="m-x-1"><a href="https://developer.forecast.io/?wxpd" rel="noopener nofollow" target="_blank">Weather API credit</a></li>
-        </ul>
-        <p class="sr-only">This site will automatically refresh every 10 minutes</p>
-      </footer>
-    </article>
+    </main>
+    <footer role="navigation">
+      <ul class="flex wrap small">
+        <li class="p-a-1"><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">Code available on Github</a></li>
+        <li class="p-a-1"><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank">Iconography credit</a></li>
+        <li class="p-a-1"><a href="https://developer.forecast.io/?wxpd" rel="noopener nofollow" target="_blank">Weather API credit</a></li>
+      </ul>
+      <p class="sr-only">This site will automatically refresh every 10 minutes</p>
+    </footer>
     <script>
       console.log('params', <%- JSON.stringify(params) %>);
       console.log('currently', <%- JSON.stringify(currently) %>);
