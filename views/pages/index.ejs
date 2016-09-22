@@ -26,13 +26,13 @@
         <p>Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></p>
       </nav>
       <%#
-      <section class="m-a-1 card">
+      <section class="card">
         <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
         <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
       </section>
       %>
       <main>
-        <header class="m-a-1 card">
+        <header class="card">
           <div>
             <p class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></p>
             <div class="flex status-primary">
@@ -48,12 +48,12 @@
             <span class="data-primary"><%- include('../partials/summary', {data: currently}) %></span>
           </div>
         </header>
-        <section class="m-a-1 card">
+        <section class="card">
           <div class="forecast-primary">
             <h3 class="data-secondary">
               Today
             </h3>
-            <div class="flex">
+            <div class="flex wrap">
               <!--[if gte IE 9]><!-->
               <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
               <!--<![endif]-->
@@ -61,7 +61,7 @@
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
               <span class="sr-only"><%= daily.data[0].icon %></span>
-              <span>
+              <span class="m-x-1">
                 <p class="data-primary"><%= daily.data[0].summary %></p>
                 <p>
                   High <%= Math.round(daily.data[0].temperatureMax) %>°
@@ -78,50 +78,47 @@
             <li>
               <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('ha') %></span>
               <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
-              <%- include('../partials/summary', {data: hourly.data[i]}) %>
+              <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
             </li>
             <% } %>
           </ul>
         </section>
-        <section class="m-a-1 card">
+        <section class="card">
           <p class="data-secondary">This week</p>
           <p class="data-primary">
             <%= daily.summary %>
           </p>
         </section>
       </main>
-      <nav class="navigation">
-        <ul class="flex justify wrap">
-          <li class="m-x-1">
-            <form action="/" method="get">
-              <label for="change-location">Enter a place, city, or zipcode</label>
-              <input type="text" id="change-location" class="data-secondary m-x-1" style="min-width: 12em" name="location" placeholder="<%= params.formatted_location %>" />
-              <button class="data-secondary" type="submit">Change location</button>
-            </form>
-          </li>
-          <li class="m-x-1">
-           <small>
-             <!-- Units: -->
-             <% if (params.scale === 'F') { %>
-               Freedom units (°F)
-               <a class="m-x-1" href="/<%= params.location %>/c"><small>Switch to Metric (°C &amp; m/s)</small></a>
-             <% } else {%>
-               Metric (°C)
-               <a class="m-x-1" href="/<%= params.location %>"><small>Switch to Freedom units (°F &amp; mph)</small></a>
-             <% } %>
-           </small>
-          </li>
+      <section class="card m-y-1">
+        <nav role="Change location">
+          <form action="/" method="get">
+            <label for="change-location">Enter a city, place, or zipcode</label>
+            <span class="flex m-y-1">
+            <input type="text" id="change-location" style="flex: 1;" name="location" placeholder="<%= params.formatted_location %>" />
+              <button class="btn" type="submit">Change location</button>
+            </span>
+          </form>
+        </nav>
+        <nav role="Change units">
+          <!-- Units: -->
+          <% if (params.scale === 'F') { %>
+          Freedom units (°F)
+          <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric (°C &amp; m/s)</a>
+          <% } else {%>
+          Metric (°C)
+          <a class="small m-x-1" href="/<%= params.location %>">Switch to Freedom units (°F &amp; mph)</a>
+          <% } %>
+        </nav>
+      </section>
+      <footer>
+        <ul class="flex wrap small p-a-1">
+          <li><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">Code available on Github</a></li>
+          <li class="m-x-1"><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank">Iconography credit</a></li>
+          <li class="m-x-1"><a href="https://developer.forecast.io/?wxpd" rel="noopener nofollow" target="_blank">Weather API credit</a></li>
         </ul>
-      </nav>
-      <hr class="m-x-1" />
-      <aside class="navigation">
-        <ul class="flex wrap">
-          <li class="m-x-1"><small><a href="https://github.com/JulianNorton/weather-10kb" rel="noopener" target="_blank">Code available on Github</a></small></li>
-          <li class="m-x-1"><small><a href="https://github.com/amitjakhu/dripicons-weather" rel="noopener nofollow" target="_blank">Iconography credit</a></small></li>
-          <li class="m-x-1"><small><a href="https://developer.forecast.io/?wxpd" rel="noopener nofollow" target="_blank">Weather API credit</a></small></li>
-        </ul>
-      </aside>
-      <p class="sr-only">This site will automatically refresh every 10 minutes</p>
+        <p class="sr-only">This site will automatically refresh every 10 minutes</p>
+      </footer>
     </article>
     <script>
       console.log('params', <%- JSON.stringify(params) %>);
