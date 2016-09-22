@@ -8,13 +8,18 @@ $text-secondary: #555;
 $gray-lighter: rgba(220,220,220, .5);
 $gray-lightest: rgba(220,220,220, .2);
 
+$blue: #4990E2;
+$blue-darker: #2B598E;
+
 $fallback-unit-spacing: 8px;
 $unit-spacing: .5rem;
 
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
 $font-larger: 1.2em;
-$font-smaller: .9em;
+$font-smaller: .8em;
+
+$border: 1px solid $gray-lighter;
 
 /* ---------------------------------------- */
 /* Resets */
@@ -29,12 +34,20 @@ html {
     box-sizing: border-box;
 }
 
-a {
-    transition: opacity 125ms ease-in-out;
+// TODO: add fancy :before :after underline magic.
+a, a:visited {
+    color: $blue;
+    transition: all linear 125ms;
+    text-decoration: none;
+    border-bottom: 1px dotted $blue;
+     // transition
+    text-shadow: 0 1px 1px #fff;
 }
 
-a:hover {
-    opacity: .8;
+a:hover, a:active, a:focus {
+    box-shadow: 0px 1px 1px #fff;
+    color: $blue-darker;
+    border-bottom: 1px solid $blue-darker;
     /*text-shadow: 1px 1px 2px red;*/
 }
 
@@ -48,14 +61,8 @@ html, body, div, span, article, header, footer, ol, ul, li, p {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article, aside, details, footer, header, nav, section {
     display: block;
-
-    background: #ECE9E6; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, .66)); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, .66)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
 }
 
 ol, ul {
@@ -71,9 +78,9 @@ body {
     font-size: calc(1em + .5vw);
     background: $gray-lightest;
 
-    background: #E0EAFC; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #E0EAFC , #CFDEF3); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #E0EAFC , #CFDEF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // background: #E0EAFC; /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to bottom, #fff , #CFDEF3);
+    // background: linear-gradient(to bottom, #fff , #CFDEF3);
         
         
         
@@ -91,6 +98,19 @@ h1,h2,h3,h4,h5,h6, p {
     margin-bottom: .3em;
 }
 
+.small {
+    font-size: $font-smaller;
+}
+
+.large {
+    font-size: $font-larger;
+}
+
+.muted {
+    color: $text-secondary;
+    font-weight: normal;
+}
+
 
 /* ---------------------------------------- */
 /* structural  */
@@ -102,12 +122,9 @@ h1,h2,h3,h4,h5,h6, p {
 
 .flex {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
-.justify {
-    justify-content: space-between;
-}
 
 .wrap {
     flex-wrap: wrap;
@@ -116,17 +133,56 @@ h1,h2,h3,h4,h5,h6, p {
 /* ---------------------------------------- */
 /* components */
 
-/* Navigation  */
-.navigation {
-    padding: 0;
+svg {
+    min-width:4rem;
+    max-width:6rem;
+    max-height:6rem;
+    padding:.1em;
+    // Default inline
+    // margin-right:.2em;width:2em;
+}
+
+#change-location {
+    @extend .large;
+    border-width: 1px;
+    border-color: $blue;
+    border-right: 0;
+    padding: .3em;
+    flex: 1;
+    &:hover, &:active, &:focus {
+        border-color: $blue-darker
+    }
+}
+
+.btn {
+    @extend .large;
+    padding: .3em .6em;
+    border: $border;
+    border-left: 0;
+    margin-left: -1px;
+    background: $blue;
+    color: #fff;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    opacity: .8;
+    transition: all linear 125ms;
+    &:hover, &:active, &:focus {
+        opacity: 1;
+        background-color: $blue-darker
+    }
 }
 
 .card {
+    @extend .m-a-1;
     // background-color: white;
-    border: 1px solid $gray-lighter;
-    padding: .66em;
+    border: $border;
+    padding: $fallback-unit-spacing;
+    padding: $unit-spacing;
     border-radius: 2px;
     box-shadow: $box-shadow;
+    background: #fff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
+    background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
 }
 
 .forecast-primary {
@@ -137,7 +193,7 @@ h1,h2,h3,h4,h5,h6, p {
 
 /* card-separator */
 .forecast-secondary li {
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: $border;
     margin-bottom: .66em;
     padding-bottom: .66em;    
 }
@@ -153,36 +209,20 @@ h1,h2,h3,h4,h5,h6, p {
     margin: 0;
 }
 
-.status-icon {
-    width: 1.5rem;
-  // background: #fff;
-  // margin: 0 auto;
-}
-
 .status-primary {
     font-size: 3em;
     font-weight: 200;
 }
 
-.status-subtitle {
-    font-size: $font-smaller;
-    width: 100%;
-    margin-top: .4em;
-    margin-bottom: 0;
-}
-
 .data-primary {
-    font-size: $font-larger;
+    @extend .large;
 }
 
 .data-secondary {
-    font-size: $font-smaller;
-    color: $text-secondary;
+    @extend .small;
+    @extend .muted;
 }
 
-h3.data-secondary {
-    font-weight: normal;
-}
 
 /* ---------------------------------------- */
 /* Utilities */
@@ -203,14 +243,14 @@ h3.data-secondary {
 
 }
 
-// .m-y-1 {
-//     margin-top: 1em;
-//     margin-bottom: 1em;
-// }
+.m-y-1 {
+    margin-top: $unit-spacing;
+    margin-bottom: 1em;
+}
 
 .m-x-1 {
-    margin: $fallback-unit-spacing;
-    margin: $unit-spacing;
+    margin-right: $fallback-unit-spacing;
+    margin-left: $fallback-unit-spacing;
 
 }
 
@@ -218,15 +258,26 @@ h3.data-secondary {
     white-space: nowrap;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
 
-/* Colors  */
+
+/* SVG icon Colors  */
 
 .sun {
-    fill: #F5A623
+    fill: #F5A623;
 }
 
 .moon {
-    fill: #1E256C
+    fill: #1E256C;
 }
 
 // cloudy & fog
@@ -236,12 +287,12 @@ h3.data-secondary {
 
 // rain, drizzle, snow
 .rain {
-    fill: #4990E2;
+    fill: $blue;
 }
 
 // sleet, hail
 .hail {
-    fill: #2B598E;
+    fill: $blue-darker;
 }
 
 .wind {
@@ -254,18 +305,6 @@ h3.data-secondary {
 
 .bolt {
     fill: #F2E000;
-}
-
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
 }
 
 /* ---------------------------------------- */
