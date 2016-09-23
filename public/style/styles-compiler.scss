@@ -222,14 +222,7 @@ input {
 /* ---------------------------------------- */
 /* Responsive */
 
-.around {
-    justify-content: space-around;
-}
-
-@media (min-width: 420px){
-    .around {
-        justify-content: flex-start;
-    }
+@media (min-width: 481px){
     .card {
         margin-left: $fallback-unit-spacing;
         margin-left: $unit-spacing;
@@ -291,10 +284,11 @@ input {
 
 svg {
     @extend .center;
+    @extend .m-x-1;
     min-width:4rem;
     max-width:6rem;
     max-height:6rem;
-    padding: .1em .1em .1em 0;
+    padding: .1em;
 
     // Default inline
     // margin-right:.2em;width:2em;

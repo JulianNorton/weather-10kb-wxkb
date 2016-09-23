@@ -35,7 +35,8 @@
         <header class="card">
           <div>
             <h3 class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></h3>
-            <div class="flex wrap around status-primary">
+            <div class="flex wrap status-primary">
+              <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <!--[if gte IE 9]><!-->
               <%- include('../../public/images/' + currently.icon + '.svg') %>
               <!--<![endif]-->
@@ -43,7 +44,6 @@
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
               <span class="sr-only"><%= currently.icon %></span>
-              <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
             </div>
             <span class="data-primary"><%- include('../partials/summary', {data: currently}) %></span>
           </div>
@@ -52,7 +52,16 @@
           <h3 class="data-secondary">
             Today
           </h3>
-          <div class="flex wrap around">
+          <div class="flex wrap">
+            <div>
+              <p class="data-primary"><%= daily.data[0].summary %></p>
+              <span class="small nowrap">
+                High <%= Math.round(daily.data[0].temperatureMax) %>°
+              </span>
+              <span class="data-secondary nowrap" style="margin-bottom: 1em;">
+                Low <%= Math.round(daily.data[0].temperatureMin) %>°
+              </span>
+            </div>
             <!--[if gte IE 9]><!-->
             <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
             <!--<![endif]-->
@@ -60,15 +69,6 @@
               <%# IE8 and below see nothing :( %>
             <![endif]-->
             <span class="sr-only"><%= daily.data[0].icon %></span>
-            <div class="m-x-1">
-              <p class="data-primary"><%= daily.data[0].summary %></p>
-              <p class="small">
-                High <%= Math.round(daily.data[0].temperatureMax) %>°
-              </p>
-              <p class="data-secondary">
-                Low <%= Math.round(daily.data[0].temperatureMin) %>°
-              </p>
-            </div>
           </div>
           <ul class="forecast-secondary">
             <% for (var i = 1; i < 24; i++) { %>
