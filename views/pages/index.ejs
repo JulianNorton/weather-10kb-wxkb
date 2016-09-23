@@ -23,7 +23,7 @@
     <main>
       <nav class="m-a-1 flex wrap" style="justify-content: space-between">
         <h1 class="muted" style="margin-right: 1em;" title="Weather forecast under 10kb">wxkb.io</h1>
-        <h2 class="data-secondary" style="align-self: center;">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h2>
+        <h2 class="data-secondary center"">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h2>
       </nav>
       <%#
       <section class="card">
@@ -35,7 +35,7 @@
         <header class="card">
           <div>
             <h3 class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></h3>
-            <div class="flex status-primary">
+            <div class="flex wrap around status-primary">
               <!--[if gte IE 9]><!-->
               <%- include('../../public/images/' + currently.icon + '.svg') %>
               <!--<![endif]-->
@@ -43,7 +43,7 @@
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
               <span class="sr-only"><%= currently.icon %></span>
-              <span><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
+              <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
             </div>
             <span class="data-primary"><%- include('../partials/summary', {data: currently}) %></span>
           </div>
@@ -52,7 +52,7 @@
           <h3 class="data-secondary">
             Today
           </h3>
-          <div class="flex wrap">
+          <div class="flex wrap around">
             <!--[if gte IE 9]><!-->
             <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
             <!--<![endif]-->

@@ -42,10 +42,10 @@ a, a:visited {
     text-decoration: none;
     border-bottom: 1px dotted $blue;
      // transition
-    text-shadow: 0 1px 2px #fff;
-}
+     text-shadow: 0 1px 2px #fff;
+ }
 
-a:hover, a:active, a:focus {
+ a:hover, a:active, a:focus {
     box-shadow: 0px 1px 1px #fff;
     color: $blue-darker;
     border-bottom: 1px solid $blue-darker;
@@ -82,13 +82,10 @@ body {
     // background: #E0EAFC; /* fallback for old browsers */
     // background: -webkit-linear-gradient(to bottom, #fff , #CFDEF3);
     // background: linear-gradient(to bottom, #fff , #CFDEF3);
-        
-        
-        
 }
 
 /* ---------------------------------------- */
-/* type */
+/* Type */
 
 // h1,h2,h3,h4,h5,h6, .active {
 //     font-weight: 700;
@@ -113,7 +110,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 /* ---------------------------------------- */
-/* structural  */
+/* Structural */
 
 .container {
     max-width: 55rem;
@@ -121,28 +118,8 @@ h1,h2,h3,h4,h5,h6, p {
 
 }
 
-.flex {
-    display: flex;
-    align-items: flex-start;
-}
-
-.wrap {
-    flex-wrap: wrap;
-}
-
 /* ---------------------------------------- */
-/* components */
-
-svg {
-    min-width:4rem;
-    max-width:6rem;
-    max-height:6rem;
-    padding: .1em .1em .1em 0;
-    align-self: center;
-
-    // Default inline
-    // margin-right:.2em;width:2em;
-}
+/* Components */
 
 /* Change location */
 
@@ -186,7 +163,6 @@ input {
         background-color: $blue-darker
     }
 }
-//////////////////////// 
 
 .card {
     // @extend .m-a-1;
@@ -202,16 +178,6 @@ input {
     background: #fff; /* fallback for old browsers */
     // background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
     // background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
-}
-
-@media (min-width: 420px){
-  .card {
-    margin-left: $fallback-unit-spacing;
-    margin-left: $unit-spacing;
-    margin-right: $fallback-unit-spacing;
-    margin-right: $unit-spacing;
-    border-radius: 2px;
-  }
 }
 
 .forecast-secondary li:first-child {
@@ -245,7 +211,7 @@ input {
 
 .data-primary {
     @extend .large;
-    margin-bottom: 0;
+    margin-top: .3em;
 }
 
 .data-secondary {
@@ -254,17 +220,46 @@ input {
 }
 
 /* ---------------------------------------- */
+/* Responsive */
+
+.around {
+    justify-content: space-around;
+}
+
+@media (min-width: 420px){
+    .around {
+        justify-content: flex-start;
+    }
+    .card {
+        margin-left: $fallback-unit-spacing;
+        margin-left: $unit-spacing;
+        margin-right: $fallback-unit-spacing;
+        margin-right: $unit-spacing;
+        border-radius: 2px;
+    }
+}
+
+/* ---------------------------------------- */
 /* Utilities */
+
+.flex {
+    display: flex;
+    align-items: flex-start;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.center {
+    align-self: center;
+}
 
 .p-a-1 {
     padding: $fallback-unit-spacing;
     padding: $unit-spacing;
 
 }
-
-// .m-a-0 {
-//     margin: 0;
-// }
 
 .m-a-1 {
     margin: $fallback-unit-spacing;
@@ -288,28 +283,30 @@ input {
 
 .nowrap {
     white-space: nowrap;
+
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
+/* ---------------------------------------- */
+/* SVG icon, colors */
+
+svg {
+    @extend .center;
+    min-width:4rem;
+    max-width:6rem;
+    max-height:6rem;
+    padding: .1em .1em .1em 0;
+
+    // Default inline
+    // margin-right:.2em;width:2em;
 }
-
-
-/* SVG icon Colors  */
 
 .sun {
     fill: #F5A623;
 }
 
 .moon {
-    fill: #1E256C;
+    fill: #663399;
+    fill: rebeccapurple;
 }
 
 // cloudy & fog
@@ -340,22 +337,39 @@ input {
 }
 
 /* ---------------------------------------- */
-/* Unusued */
+/* // Accessibility */
 
-// .container {
-//     margin-left: 1em;
-//     margin-right: 1em;
-//     display: flex;
-//     flex-flow: row wrap;
-// }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
 
-// .container > * {
-//     flex-basis: 20em;
-//     flex-grow: 1;
-// }
-
-
-/*body * + * {
-margin-top: 1.5rem;
-}*/
+/* rule sets for windows high contrast mode */
+@media (-ms-high-contrast: active) {
+    *, body {
+        background: #000 !important;
+        color: #fff !important;
+        font-size: 2rem;
+    }
+    a, button, input {
+        color: #0ff !important; // cyan
+        text-decoration: underline !important;
+        text-shadow: none !important;
+    }
+    button, input {
+        border: 1px solid #0ff !important;
+    }
+    a:hover, a:focus, button:hover, button:focus {
+        color: #6F0 !important; // neon green
+    }
+    svg {
+        display: none;
+    }
+}
 
