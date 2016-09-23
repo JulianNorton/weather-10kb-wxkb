@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= Math.round(currently.temperature) %>º<%= params.scale %> <%= currently.summary %></title>
+    <title><%= Math.round(currently.temperature) %>° <%= currently.summary %></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
   <body id="wxkb_io" class="container">
     <main>
       <nav class="m-a-1 flex wrap" style="justify-content: space-between">
-        <h1 class="muted" style="margin-right: 1em;" title="Weather forecast under 10kb">wxkb.io</h1>
+        <h1 class="muted" style="margin-right: 1em;" title="Weather forecast in under 10kb">wxkb.io</h1>
         <h2 class="data-secondary center"">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h2>
       </nav>
       <%#
