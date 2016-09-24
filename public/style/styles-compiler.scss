@@ -270,21 +270,24 @@ svg .rain {
     }
 }
 
+// .fade-in {
+//     animation: fade-in .5s ease-in-out;
+// }
 
-.cloud {
-    animation: cloud 6s ease alternate infinite;
-}
+@keyframes fade-in {
+  0% {
+    transform: scale3d(0, 0, 0);
+    opacity: 0;
+  }
 
-@keyframes cloud {
-    0% {
-        transform: translateY(1px);
-    }
-    
-    
-    100% {
-        transform: translateY(-1px);
-        // transform: translateY(-.1em);
-    }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 
@@ -355,6 +358,10 @@ svg {
 }
 
 .moon {
+    fill: #1E256C;
+}
+
+.stars {
     fill: #663399;
     fill: rebeccapurple;
 }
