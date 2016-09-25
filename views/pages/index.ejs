@@ -20,11 +20,11 @@
   </head>
 
   <body id="wxkb_io" class="container">
+    <header class="m-a-1 flex wrap" style="justify-content: space-between">
+      <h1 class="muted small" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h1>
+      <h2 class="data-secondary center"">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h2>
+    </header>
     <main>
-      <nav class="m-a-1 flex wrap" style="justify-content: space-between">
-        <h1 class="muted" style="margin-right: 1em;" title="Weather forecast in under 10kb">wxkb.io</h1>
-        <h2 class="data-secondary center"">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h2>
-      </nav>
       <%#
       <section class="card">
         <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
@@ -43,7 +43,6 @@
               <!--[if lte IE 8]>
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
-              <span class="sr-only"><%= currently.icon %></span>
             </div>
             <span class="data-primary"><%- include('../partials/summary', {data: currently}) %></span>
           </div>
@@ -68,7 +67,6 @@
             <!--[if lte IE 8]>
               <%# IE8 and below see nothing :( %>
             <![endif]-->
-            <span class="sr-only"><%= daily.data[0].icon %></span>
           </div>
           <ul class="forecast-secondary">
             <% for (var i = 1; i < 24; i++) { %>
@@ -103,8 +101,11 @@
       </section>
     </main>
     <hr class="sr-only" />
+    <aside>
+      <p class="small p-a-1">wxkb.io automatically refreshes every 10 minutes.</p>
+    </aside>
     <footer role="navigation">
-      <h4 class="sr-only">Credits</h4>
+      <!-- wxkb.io is a collaboration between by Julian Norton and Ryan Williams -->
       <ul class="flex wrap small">
         <li class="p-a-1"><a href="https://github.com/JulianNorton/weather-10kb?wxkb.io" rel="noopener" target="_blank">wxkb.io code on Github</a></li>
         <li class="p-a-1"><a href="https://darksky.net/dev/?wxkb.io" rel="noopener nofollow" target="_blank">Powered by Dark Sky</a></li>
@@ -112,10 +113,6 @@
         <li class="p-a-1"><a href="https://github.com/amitjakhu/dripicons-weather?wxkb.io" rel="noopener nofollow" target="_blank" title="Icons created by Amit Jakhu">Icons by Amit</a></li>
       </ul>
     </footer>
-    <aside>
-      <p class="sr-only">This site will automatically refresh every 10 minutes</p>
-      <!-- wxkb.io is a collaboration between by Julian Norton and Ryan Williams -->
-    </aside>
     <script>
       console.log('params', <%- JSON.stringify(params) %>);
       console.log('currently', <%- JSON.stringify(currently) %>);

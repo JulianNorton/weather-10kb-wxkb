@@ -2,19 +2,30 @@
 /* Variables */
 
 // Hex instead of RGBA for ie8 support
-$text-secondary: #555;
-// rgba for non-critical styling
+$text-secondary: #4E554E;
 
 $gray-lighter: rgb(248,248,248);
 $gray-lightest: rgb(248,248,248);
 $site-background: $gray-lightest;
 
 $blue: #2B598E;
-$blue-darker: darken($blue, 15%);
+$blue-darker: darken($blue, 10%);
+
+/*
+unfortunately #639 color difference isn't at least 500
+according to github.com/ThePacielloGroup/CCA-OSX/releases/
+ */ 
+$purple: rebeccapurple;
+$purple-fallback: #639;
+
+
+$primary-color: #3D00B5;
+$primary-color-darker: darken(#3D00B5, 10%);
 
 $fallback-unit-spacing: 8px;
 $unit-spacing: .5em;
 
+// rgba for non-critical styling
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
 $font-larger: 1.2em;
@@ -36,11 +47,11 @@ html {
 }
 
 a, a:visited {
-    color: $blue;
+    color: $primary-color;
     transition: all linear 125ms;
     transition-property:box-shadow, color, border-bottom;
     text-decoration: none;
-    border-bottom: 1px dotted $blue;
+    border-bottom: 1px dotted $primary-color;
     /* tasteful descenders */
     // once 'text-decoration-skip' is supported
         // read https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
@@ -54,8 +65,8 @@ a, a:visited {
 
  a:hover, a:active, a:focus {
     box-shadow: 0px 1px 1px $gray-lightest;
-    color: $blue-darker;
-    border-bottom: 1px solid $blue-darker;
+    color: $primary-color-darker;
+    border-bottom: 1px solid $primary-color-darker;
 }
 
 html, body, div, span, article, header, footer, ol, ul, li, p {
@@ -132,12 +143,12 @@ h1,h2,h3,h4,h5,h6, p {
 #change-location {
     @extend .large;
     border-width: 1px;
-    border-color: $blue;
+    border-color: $primary-color;
     // border-right: 0;
     padding: .3em .1em .3em .3em;
     flex: 1;
     &:hover, &:active, &:focus {
-        border-color: $blue-darker
+        border-color: $primary-color-darker
     }
 }
 
@@ -156,19 +167,17 @@ input {
     @extend .large;
     padding: .3em .6em;
     border: $border;
-    border-color: $blue;
+    border-color: $primary-color;
     border-left: 0;
     margin-left: -1px;
-    background: $blue;
+    background: $primary-color;
     color: #fff;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
-    opacity: .8;
-    transition: all linear 125ms;
+    transition: background-color ease-in-out 125ms;
     &:hover, &:active, &:focus {
-        opacity: 1;
-        background-color: $blue-darker;
-        border-color: darken($blue-darker, 10%);
+        background-color: $primary-color-darker;
+        border-color: darken($primary-color-darker, 10%);
     }
 }
 
@@ -369,8 +378,8 @@ svg { // width: 1.5em inlined
 }
 
 .stars {
-    fill: #663399;
-    fill: rebeccapurple;
+    fill: $purple-fallback;
+    fill: $purple;
 }
 
 // cloudy & fog
@@ -380,7 +389,7 @@ svg { // width: 1.5em inlined
 
 // rain, drizzle, snow
 .rain {
-    fill: $blue;
+    fill: #2B598E;
 }
 
 // sleet, hail
