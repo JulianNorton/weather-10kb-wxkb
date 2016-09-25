@@ -347,17 +347,17 @@ svg .rain {
 /* ---------------------------------------- */
 /* SVG icon, colors */
 
-svg {
+svg { // width: 1.5em inlined
     @extend .center;
     @extend .m-x-1;
-    min-width:4rem;
-    max-width:6rem;
-    max-height:6rem;
+    min-width: 32px; // fallback
+    max-width: 72px; // fallback
+    min-width: 4rem;
+    max-width: 6rem;
+    max-height: 72px; // fallback
+    max-height: 6rem;
     padding: .1em;
     box-sizing: content-box;
-
-    // Default inline
-    // margin-right:.2em;width:2em;
 }
 
 .sun {
@@ -419,6 +419,7 @@ svg {
     *, body {
         background: #000 !important;
         color: #fff !important;
+        font-size: 32px;
         font-size: 2rem;
     }
     a, button, input {
