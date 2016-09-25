@@ -354,6 +354,7 @@ svg {
     max-width:6rem;
     max-height:6rem;
     padding: .1em;
+    box-sizing: content-box;
 
     // Default inline
     // margin-right:.2em;width:2em;
