@@ -44,7 +44,7 @@
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
             </div>
-            <span class="data-primary"><%- include('../partials/summary', {data: currently}) %></span>
+            <p class="data-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
         </header>
         <section class="card">
@@ -54,12 +54,14 @@
           <div class="flex wrap">
             <div>
               <p class="data-primary"><%= daily.data[0].summary %></p>
-              <span class="small nowrap">
-                High <%= Math.round(daily.data[0].temperatureMax) %>°
-              </span>
-              <span class="data-secondary nowrap" style="margin-bottom: 1em;">
-                Low <%= Math.round(daily.data[0].temperatureMin) %>°
-              </span>
+              <p>
+                <span class="small nowrap">
+                  High <%= Math.round(daily.data[0].temperatureMax) %>°
+                </span>
+                <span class="data-secondary nowrap" style="margin-bottom: 1em;">
+                  Low <%= Math.round(daily.data[0].temperatureMin) %>°
+                </span>
+              </p>
             </div>
             <!--[if gte IE 9]><!-->
             <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>

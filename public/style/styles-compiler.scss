@@ -11,10 +11,10 @@ $site-background: $gray-lightest;
 $blue: #2B598E;
 $blue-darker: darken($blue, 10%);
 
-/*
-unfortunately #639 color difference isn't at least 500
-according to github.com/ThePacielloGroup/CCA-OSX/releases/
- */ 
+
+// unfortunately #639 color difference isn't at least 500
+// according to github.com/ThePacielloGroup/CCA-OSX/releases/
+
 $purple: rebeccapurple;
 $purple-fallback: #639;
 
@@ -229,6 +229,7 @@ input {
 .data-primary {
     @extend .large;
     margin-top: .3em;
+    margin-bottom: 0;
 }
 
 .data-secondary {
@@ -350,7 +351,6 @@ svg .rain {
 
 .nowrap {
     white-space: nowrap;
-
 }
 
 /* ---------------------------------------- */
