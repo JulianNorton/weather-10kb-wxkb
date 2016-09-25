@@ -34,7 +34,7 @@
       <article>
         <header class="card">
           <div>
-            <h3 class="data-secondary">Updated: <%= moment.unix(currently.time).format('h:mma') %></h3>
+            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mma') %>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <!--[if gte IE 9]><!-->
