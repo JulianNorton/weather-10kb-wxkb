@@ -1,4 +1,4 @@
-<span><%= data.summary %></span>
+<span><%= data.summary.charAt(0).toUpperCase() + data.summary.slice(1).toLowerCase() %></span>
 
 <% if (Math.abs(data.temperature - data.apparentTemperature) > 3 ) { %>
 	<span>
