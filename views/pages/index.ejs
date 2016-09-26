@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= Math.round(currently.temperature) %>° <%= currently.summary %></title>
+    <title><%= Math.round(currently.temperature) %>&deg; <%= currently.summary %></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,8 +21,8 @@
 
   <body id="wxkb_io" class="container">
     <header class="m-a-1 flex wrap" style="justify-content: space-between">
-      <h1 class="muted small" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h1>
-      <h2 class="data-secondary center"">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h2>
+      <h1 class="data-secondary"">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h1>
+      <h2 class="data-secondary" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h2>
     </header>
     <main>
       <%#
@@ -56,10 +56,10 @@
               <p class="data-primary"><%= daily.data[0].summary %></p>
               <p>
                 <span class="small nowrap">
-                  High <%= Math.round(daily.data[0].temperatureMax) %>°
+                  High <%= Math.round(daily.data[0].temperatureMax) %>&deg;
                 </span>
                 <span class="data-secondary nowrap" style="margin-bottom: 1em;">
-                  Low <%= Math.round(daily.data[0].temperatureMin) %>°
+                  Low <%= Math.round(daily.data[0].temperatureMin) %>&deg;
                 </span>
               </p>
             </div>
@@ -93,11 +93,11 @@
         <nav>
           <h3 class="sr-only">Current units</h3>
           <% if (params.scale === 'F') { %>
-          Freedom units (°F)
-          <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric (°C &amp; m/s)</a>
+          Imperial (&deg;F)
+          <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric units (&deg;C &amp; m/s)</a>
           <% } else {%>
-          Metric (°C)
-          <a class="small m-x-1" href="/<%= params.location %>">Switch to Freedom units (°F &amp; mph)</a>
+          Metric (&deg;C)
+          <a class="small m-x-1" href="/<%= params.location %>">Switch to Imperial units (&deg;F &amp; mph)</a>
           <% } %>
         </nav>
       </section>
