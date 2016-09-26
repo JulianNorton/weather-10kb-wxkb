@@ -12,7 +12,16 @@
 <% } else { %>
 	<span>
 		with a
-		<%= Math.round(data.windSpeed) %><span><%= (params.units === 'si') ? 'm/s' :'mph' %> breeze</span>
+		<%= Math.round(data.windSpeed) %>
+		<span><%= (params.units === 'si') ? 'm/s' :'mph' %>
+		<% if (params.units === 'si' && data.windSpeed < 13.9 || data.windSpeed < 32) { %>
+			breeze
+		<% } else if (params.units === 'si' && data.windSpeed < 17.2 || data.windSpeed < 39) { %>
+			wind
+		<% } else { %>
+			gale
+		<% } %>
+		</span>
 	</span>
 <% } %>
 
