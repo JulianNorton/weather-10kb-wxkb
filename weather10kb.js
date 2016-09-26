@@ -135,7 +135,7 @@ router.get('/:location?/:scale?', function(request, response) {
         throw 'Undetermined location.';
       }
 
-      response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
+      response.render('pages/index', objectMerge(data, {params: request.params}));
     })
     .catch(function(err){
       if (err instanceof Error) {
