@@ -131,6 +131,9 @@ router.get('/:location?/:scale?', function(request, response) {
         request.params.formatted_location = request.params.location;
       }
 
+      // remove extraneous country info if present
+      request.params.formatted_location = request.params.formatted_location.replace(/, USA/, '')
+
       if (request.params.longitude == 0 && request.params.latitude == 0) {
         throw 'Undetermined location.';
       }
