@@ -7,7 +7,7 @@
 	</span>
 <% } %>
 
-<% if (data.windSpeed < 2) { %>
+<% if (params.units === 'si' && data.windSpeed < 0.894 || data.windSpeed < 2) { %>
 	<!--<span>with no wind.</span>-->
 <% } else { %>
 	<span>
