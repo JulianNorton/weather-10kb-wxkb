@@ -12,15 +12,15 @@ $blue: #2B598E;
 $blue-darker: darken($blue, 10%);
 
 
-// unfortunately #639 color difference isn't at least 500
-// according to github.com/ThePacielloGroup/CCA-OSX/releases/
-
 $purple: rebeccapurple;
 $purple-fallback: #639;
 
+// $primary-color: $purple-fallback;
+// although I really want to use $primary-color
+// I'm having trouble getting scss to output 'rebeccapurple' instead of #639.
+// #3D00B5 is a possible, higher contrast alternative
 
-$primary-color: #3D00B5;
-$primary-color-darker: darken(#3D00B5, 10%);
+$primary-color-darker: darken(#3D00B5, 5%);
 
 $fallback-unit-spacing: 8px;
 $unit-spacing: .5em;
@@ -47,11 +47,11 @@ html {
 }
 
 a, a:visited {
-    color: $primary-color;
+    color: rebeccapurple;
     transition: all linear 125ms;
     transition-property:box-shadow, color, border-bottom;
     text-decoration: none;
-    border-bottom: 1px dotted $primary-color;
+    border-bottom: 1px dotted rebeccapurple;
     /* tasteful descenders */
     // once 'text-decoration-skip' is supported
         // read https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
@@ -143,7 +143,7 @@ h1,h2,h3,h4,h5,h6, p {
 #change-location {
     @extend .large;
     border-width: 1px;
-    border-color: $primary-color;
+    border-color: rebeccapurple;
     // border-right: 0;
     padding: .3em .1em .3em .3em;
     flex: 1;
@@ -167,10 +167,10 @@ input {
     @extend .large;
     padding: .3em .6em;
     border: $border;
-    border-color: $primary-color;
+    border-color: rebeccapurple;
     border-left: 0;
     margin-left: -1px;
-    background: $primary-color;
+    background: rebeccapurple;
     color: #fff;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
