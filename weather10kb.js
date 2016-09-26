@@ -4,7 +4,7 @@ var nodeFreegeoip = require('node-freegeoip')
 var nodeGeocoder  = require('node-geocoder')
 var moment        = require('moment-timezone')
 var objectMerge   = require('object-merge')
-var timezone      = require('google-timezone-api')
+//var timezone      = require('google-timezone-api')
 
 /* opbeat test */
 var opbeat = require('opbeat').start({
@@ -89,6 +89,8 @@ function Weather10kbRequest(request) {
         .units(units)
         .get()
         .then(function(res) {
+          request.params.tz = res.timezone
+          moment.tz.setDefault(request.params.tz)
           resolve(res);
         })
         .catch(function(err) {
@@ -124,7 +126,7 @@ router.get('/:location?/:scale?', function(request, response) {
   var wr = new Weather10kbRequest(request);
 
   wr.geocode()
-    .then(wr.setTimeZone)
+    //.then(wr.setTimeZone)
     .then(wr.getForecast)
     .then(function(data) {
       if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location == ', ') {
