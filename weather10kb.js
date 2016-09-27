@@ -73,10 +73,7 @@ function Weather10kbRequest(request) {
 
   this.setTimeZone = function() {
     return new Promise(function(resolve, reject) {
-      timezone({
-        location: request.params.latitude + ',' + request.params.longitude,
-        key: process.env.GOOGLE_API_KEY
-      })
+      timezone({location: request.params.latitude + ',' + request.params.longitude})
         .then(function(res) {
           request.params.tz = res.timeZoneId
           moment.tz.setDefault(request.params.tz)
