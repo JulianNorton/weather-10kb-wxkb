@@ -7,9 +7,10 @@ var nodeFreegeoip = require('node-freegeoip')
 var nodeGeocoder  = require('node-geocoder')
 var moment        = require('moment-timezone')
 var objectMerge   = require('object-merge')
-//var timezone      = require('google-timezone-api')
+var timezone      = require('google-timezone-api')
 
 
+            
 var router = express.Router();
 
 function Weather10kbRequest(request) {
@@ -129,7 +130,7 @@ router.get('/:location?/:scale?', function(request, response) {
   var wr = new Weather10kbRequest(request);
 
   wr.geocode()
-    //.then(wr.setTimeZone)
+    .then(wr.setTimeZone)
     .then(wr.getForecast)
     .then(function(data) {
       if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location == ', ') {
@@ -142,10 +143,6 @@ router.get('/:location?/:scale?', function(request, response) {
       if (request.params.longitude == 0 && request.params.latitude == 0) {
         throw 'Undetermined location.';
       }
-
-      // set timezone from forecast.io response
-      request.params.tz = data.timezone
-      moment.tz.setDefault(request.params.tz)
 
       response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
     })
