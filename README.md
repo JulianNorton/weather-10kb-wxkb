@@ -13,3 +13,9 @@ Weather forecast in under 10kb.
 ### Compile CSS
 * Automatically compile: `npm run watch-css`
 * If you just want to run it once: `npm run build-css`
+
+
+
+[GNU General Public License GPL-2.0](https://opensource.org/licenses/GPL-2.0)
+
+> The GNU GPL is the most widely used free software license. When distributing derived works, the source code of the work must be made available under the same license.
