@@ -3,6 +3,7 @@ var express = require('express');
 var moment = require('moment-timezone');
 var minifyHTML = require('express-minify-html');
 var weather10kb = require('./weather10kb');
+var opbeat = require('opbeat')
 
 var app = express();
 
@@ -22,6 +23,9 @@ app.use(minifyHTML({
 }));
 app.use(express.static(__dirname + '/public'));
 app.use('/', weather10kb);
+// Add the Opbeat middleware after your regular middleware
+app.use(opbeat.middleware.express()) // injects opbeat, if error, registers in opbeat
+// https://opbeat.com/docs/articles/get-started-with-express/#express-errors
 
 app.set('port', (process.env.PORT || 5000));
 app.set('view engine', 'ejs');
