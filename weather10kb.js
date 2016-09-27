@@ -2,14 +2,6 @@ var express       = require('express');
 var forecastIo    = require('forecast-io')
 var nodeFreegeoip = require('node-freegeoip')
 var nodeGeocoder  = require('node-geocoder')
-  var options = {
-    provider: 'google',
-   
-    // Optional depending on the providers 
-    httpAdapter: 'https', // Default 
-    apiKey: process.env.GOOGLE_API_KEY,
-    formatter: null         // 'gpx', 'string', ... 
-  };
 var moment        = require('moment-timezone')
 var objectMerge   = require('object-merge')
 var timezone      = require('google-timezone-api')
@@ -27,7 +19,14 @@ function Weather10kbRequest(request) {
   this.geocode = function() {
     return new Promise(function(resolve, reject) {
       if (typeof request.params.location === 'string') {
-        var geocoder = nodeGeocoder();
+        var geocoder = nodeGeocoder({
+          provider: 'google',
+
+          // Optional depending on the providers
+          httpAdapter: 'https', // Default
+          apiKey: process.env.GOOGLE_API_KEY,
+          formatter: null         // 'gpx', 'string', ...
+        });
 
         geocoder.geocode(request.params.location)
           .then(function(res) {
