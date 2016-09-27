@@ -15,11 +15,12 @@ $blue-darker: darken($blue, 10%);
 $purple: rebeccapurple;
 $purple-fallback: #639;
 
-// $primary-color: $purple-fallback;
-// although I really want to use $primary-color
+$primary-color: $purple-fallback;
+// although I really want to use rebeccapurple
 // I'm having trouble getting scss to output 'rebeccapurple' instead of #639.
-// #3D00B5 is a possible, higher contrast alternative
+// #639 has better support
 
+// #3D00B5 is a possible, higher contrast alternative
 $primary-color-darker: darken(#3D00B5, 5%);
 
 $fallback-unit-spacing: 8px;
@@ -47,11 +48,11 @@ html {
 }
 
 a, a:visited {
-    color: rebeccapurple;
+    color: $brand-primary;
     transition: all linear 125ms;
     transition-property:box-shadow, color, border-bottom;
     text-decoration: none;
-    border-bottom: 1px dotted rebeccapurple;
+    border-bottom: 1px dotted $brand-primary;
     /* tasteful descenders */
     // once 'text-decoration-skip' is supported
         // read https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
@@ -143,7 +144,7 @@ h1,h2,h3,h4,h5,h6, p {
 #change-location {
     @extend .large;
     border-width: 1px;
-    border-color: rebeccapurple;
+    border-color: $brand-primary;
     // border-right: 0;
     padding: .3em .1em .3em .3em;
     flex: 1;
@@ -167,10 +168,10 @@ input {
     @extend .large;
     padding: .3em .6em;
     border: $border;
-    border-color: rebeccapurple;
+    border-color: $brand-primary;
     border-left: 0;
     margin-left: -1px;
-    background: rebeccapurple;
+    background: $brand-primary;
     color: #fff;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
