@@ -14,14 +14,12 @@ $blue-darker: darken($blue, 10%);
 
 $purple: rebeccapurple;
 $purple-fallback: #639;
-
-$primary-color: $purple-fallback;
+$brand-primary: $purple-fallback;
 // although I really want to use rebeccapurple
 // I'm having trouble getting scss to output 'rebeccapurple' instead of #639.
 // #639 has better support
-
 // #3D00B5 is a possible, higher contrast alternative
-$primary-color-darker: darken(#3D00B5, 5%);
+$brand-primary-darker: darken(#3D00B5, 5%);
 
 $fallback-unit-spacing: 8px;
 $unit-spacing: .5em;
@@ -66,8 +64,8 @@ a, a:visited {
 
  a:hover, a:active, a:focus {
     box-shadow: 0px 1px 1px $gray-lightest;
-    color: $primary-color-darker;
-    border-bottom: 1px solid $primary-color-darker;
+    color: $brand-primary-darker;
+    border-bottom: 1px solid $brand-primary-darker;
 }
 
 html, body, div, span, article, header, footer, ol, ul, li, p {
@@ -149,7 +147,7 @@ h1,h2,h3,h4,h5,h6, p {
     padding: .3em .1em .3em .3em;
     flex: 1;
     &:hover, &:active, &:focus {
-        border-color: $primary-color-darker
+        border-color: $brand-primary-darker
     }
 }
 
@@ -177,8 +175,8 @@ input {
     border-bottom-right-radius: 2px;
     transition: background-color ease-in-out 125ms;
     &:hover, &:active, &:focus {
-        background-color: $primary-color-darker;
-        border-color: darken($primary-color-darker, 10%);
+        background-color: $brand-primary-darker;
+        border-color: darken($brand-primary-darker, 10%);
     }
 }
 
