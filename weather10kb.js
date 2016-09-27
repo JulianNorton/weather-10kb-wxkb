@@ -61,7 +61,7 @@ function Weather10kbRequest(request) {
           request.params.location = request.params.latitude + ',' + request.params.longitude;
 
           // something readable to display to the user
-          request.params.formatted_location = location.region_name + ', ' + location.region_code
+          request.params.formatted_location = location.city + ', ' + location.region_code
 
           resolve();
         })
