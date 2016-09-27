@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= Math.round(currently.temperature) %>&deg; <%= currently.summary.charAt(0).toUpperCase() + currently.summary.slice(1).toLowerCase() %></title>
+    <title><%= Math.round(currently.temperature) %>° <%= currently.summary.charAt(0).toUpperCase() + currently.summary.slice(1).toLowerCase() %></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -56,10 +56,10 @@
               <p class="data-primary"><%= daily.data[0].summary %></p>
               <p>
                 <span class="small nowrap">
-                  High <%= Math.round(daily.data[0].temperatureMax) %>&deg;
+                  High <%= Math.round(daily.data[0].temperatureMax) %>°
                 </span>
                 <span class="data-secondary nowrap" style="margin-bottom: 1em;">
-                  Low <%= Math.round(daily.data[0].temperatureMin) %>&deg;
+                  Low <%= Math.round(daily.data[0].temperatureMin) %>°
                 </span>
               </p>
             </div>
@@ -73,8 +73,8 @@
           <ul class="forecast-secondary">
             <% for (var i = 1; i < 12; i++) { %>
             <li>
-              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('hA') %></span>
-              <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
+              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('hA')%>&#8203;</span>
+              <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º&#8203;</span>
               <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
             </li>
             <% } %>
@@ -92,11 +92,11 @@
         <nav>
           <h3 class="sr-only">Current units</h3>
           <% if (params.scale === 'F') { %>
-          Imperial (&deg;F)
-          <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric units (&deg;C &amp; m/s)</a>
+          Imperial (°F)
+          <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric units (°C &amp; m/s)</a>
           <% } else {%>
-          Metric (&deg;C)
-          <a class="small m-x-1" href="/<%= params.location %>">Switch to Imperial units (&deg;F &amp; mph)</a>
+          Metric (°C)
+          <a class="small m-x-1" href="/<%= params.location %>">Switch to Imperial units (°F &amp; mph)</a>
           <% } %>
         </nav>
       </section>

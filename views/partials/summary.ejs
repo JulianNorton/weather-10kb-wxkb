@@ -1,9 +1,9 @@
-<span><%= data.summary.charAt(0).toUpperCase() + data.summary.slice(1).toLowerCase() %></span>
+<span><%= data.summary.charAt(0).toUpperCase() + data.summary.slice(1).toLowerCase() %>&#8203;</span>
 
 <% if (Math.abs(data.temperature - data.apparentTemperature) > 3 ) { %>
 	<span>
 		feels like 
-		<%= Math.round(data.apparentTemperature) %>&deg;
+		<%= Math.round(data.apparentTemperature) %>°
 	</span>
 <% } %>
 
