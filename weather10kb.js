@@ -91,6 +91,7 @@ function Weather10kbRequest(request) {
         .latitude(request.params.latitude)
         .longitude(request.params.longitude)
         .units(units)
+        .exclude('minutely,alerts,flags')
         .get()
         .then(function(res) {
           resolve(res);
