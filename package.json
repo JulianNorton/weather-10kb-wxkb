@@ -1,6 +1,6 @@
 {
   "name": "weather-10kb",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "weather in 10kb",
   "engines": {
     "node": "5.9.1"
@@ -17,7 +17,7 @@
     "ejs": "^2.5.1",
     "express": "^4.13.3",
     "express-minify-html": "^0.6.0",
-    "forecast-io": "1.0.2",
+    "dark-sky": "^1.0.7",
     "geoip-lite": "^1.1.8",
     "google-timezone-api": "^1.0.1",
     "moment-timezone": "^0.5.5",
