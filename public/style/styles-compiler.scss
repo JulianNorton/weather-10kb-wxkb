@@ -4,7 +4,6 @@
 // Hex instead of RGBA for ie8 support
 $gray: #4E554E;
 $gray-lighter: #F8F8F8;
-// $gray-lightest: lighten($gray-lighter;
 $blue: #2B598E;
 $blue-darker: darken($blue, 10%);
 $purple: rebeccapurple;
@@ -16,22 +15,21 @@ $purple-fallback: #639;
 
 $text-secondary: $gray;
 $site-background: $gray-lighter;
-/* Text shadow needs to be 'inbetween' color 
-    because the <a> tag is sometimes on a gray background, and sometimes on a white background
-    This way reduces markup, while exploiting our eyes that can't see the small contrast
-    to allow letter descenders to have padding.
-    Deprecate this once 'text-decoration-skip' is supported
-    further reading:
-        https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
-        https://drafts.csswg.org/css-text-decor-3/#text-decoration-skip-property
-    */
+/*
+Text shadow needs to be 'inbetween' color 
+because the <a> tag is sometimes on a gray background, and sometimes on a white background
+This way reduces markup, while exploiting our eyes that can't see the small contrast
+to allow letter descenders to have padding.
+Deprecate this once 'text-decoration-skip' is supported. Further reading:
+https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
+https://drafts.csswg.org/css-text-decor-3/#text-decoration-skip-property
+*/
 $text-shadow: mix($site-background, #ffffff );
-$brand-primary: $purple-fallback;
-$brand-primary-darker: darken(#3D00B5, 5%);
+$brand-primary: $purple-fallback; // rebecca purple
+$brand-primary-darker: darken(#3D00B5, 5%); // slightly higher contrast than rebecca purple
 
-$fallback-unit-spacing: 8px;
+
 $unit-spacing: .5em;
-
 // rgba for non-critical styling
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
@@ -163,7 +161,7 @@ label {
 input {
     flex: 1;
     min-width: 60%;
-    margin-bottom: .5rem;
+    margin-bottom: .5em;
 }
 
 .btn {
@@ -185,19 +183,11 @@ input {
 }
 
 .card {
-    // @extend .m-a-1;
-    // calc(1em + .5vw);
-    // margin-left:  1em;
-    // margin-right: ;
-    margin-bottom: $fallback-unit-spacing;
     margin-bottom: $unit-spacing;
     border: $border;
-    padding: $fallback-unit-spacing;
     padding: $unit-spacing;
     box-shadow: $box-shadow;
     background: #fff; /* fallback for old browsers */
-    // background: -webkit-linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
-    // background: linear-gradient(to left, rgba(255,255,255, .2) , rgba(255,255,255, 1));
 }
 
 .forecast-secondary li:first-child {
@@ -245,9 +235,7 @@ input {
 
 @media (min-width: 481px){
     .card {
-        margin-left: $fallback-unit-spacing;
         margin-left: $unit-spacing;
-        margin-right: $fallback-unit-spacing;
         margin-right: $unit-spacing;
         border-radius: 2px;
     }
@@ -285,7 +273,6 @@ svg .rain {
     100% {
         transform: translateY(0);
         opacity: 0;
-        // transform: translateY(-.1em);
     }
 }
 
@@ -327,20 +314,16 @@ svg .rain {
 }
 
 .p-a-1 {
-    padding: $fallback-unit-spacing;
     padding: $unit-spacing;
 
 }
 
 .m-a-1 {
-    margin: $fallback-unit-spacing;
     margin: $unit-spacing;
 
 }
 
 .m-x-1 {
-    margin-right: $fallback-unit-spacing;
-    margin-left: $fallback-unit-spacing;
     margin-right: $unit-spacing;
     margin-left: $unit-spacing;
 }
