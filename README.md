@@ -18,7 +18,7 @@ Weather forecast in under 10kb.
 
 
 ### Please fork, modify, and use this project!
-**Submit pull requests to the [development](https://github.com/JulianNorton/weather-10kb/tree/development)**
+**Submit pull requests to the [development branch](https://github.com/JulianNorton/weather-10kb/tree/development)**
 
 
 [GNU General Public License GPL-2.0](https://opensource.org/licenses/GPL-2.0)
