@@ -155,7 +155,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 label {
-    display: block;
+    display: block; // block instead of inline-block for older browser edge cases
     margin-bottom: .4em;
 }
 
