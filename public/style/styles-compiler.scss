@@ -2,7 +2,7 @@
 /* Variables */
 
 // Hex instead of RGBA for ie8 support
-$gray: #4E554E;
+$gray: #4E554E; // 7.2 contrast with background of $gray-lighter (#f8f8f8)
 $gray-lighter: #F8F8F8;
 $blue: #2B598E;
 $blue-darker: darken($blue, 10%);
@@ -30,6 +30,7 @@ $brand-primary-darker: darken(#3D00B5, 5%); // slightly higher contrast than reb
 
 
 $unit-spacing: .5em;
+
 // rgba for non-critical styling
 $box-shadow: 0 1px 1px rgba(77,77,77, .3);
 
