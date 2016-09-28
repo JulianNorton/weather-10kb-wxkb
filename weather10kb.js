@@ -2,7 +2,7 @@
 /* ~100 bytes additional on requests */
 var opbeat = require('opbeat').start()
 var express       = require('express');
-var forecastIo    = require('forecast-io')
+var DarkSky    = require('dark-sky')
 var nodeFreegeoip = require('node-freegeoip')
 var nodeGeocoder  = require('node-geocoder')
 var moment        = require('moment-timezone')
@@ -25,7 +25,6 @@ function Weather10kbRequest(request) {
           apiKey: process.env.GOOGLE_API_KEY,
           formatter: null         // 'gpx', 'string', ...
         });
-
         geocoder.geocode(request.params.location)
           .then(function(res) {
             if (res.length) {
@@ -85,7 +84,7 @@ function Weather10kbRequest(request) {
 
   this.getForecast = function() {
     return new Promise(function(resolve, reject) {
-      var forecast = new forecastIo(process.env.FORECAST_IO_API_KEY);
+      var forecast = new DarkSky(process.env.DARK_SKY_API_KEY);
       var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
 
       forecast
@@ -98,6 +97,7 @@ function Weather10kbRequest(request) {
           resolve(res);
         })
         .catch(function(err) {
+
           return reject(err);
         });
     });
@@ -144,7 +144,7 @@ router.get('/:location?/:scale?', function(request, response) {
         throw 'Undetermined location.';
       }
 
-      response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
+      response.render('pages/index', objectMerge(data, {params: request.params}));
     })
     .catch(function(err){
       if (err instanceof Error) {
