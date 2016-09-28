@@ -321,12 +321,19 @@ svg .rain {
 
 .m-a-1 {
     margin: $unit-spacing;
-
 }
 
 .m-x-1 {
     margin-right: $unit-spacing;
     margin-left: $unit-spacing;
+}
+
+.m-b-1 {
+    margin-bottom: $unit-spacing;
+}
+
+.m-b-xs {
+    margin-bottom: $unit-spacing / 2;
 }
 
 .nowrap {
