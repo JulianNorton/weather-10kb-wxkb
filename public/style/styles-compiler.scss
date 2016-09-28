@@ -2,23 +2,31 @@
 /* Variables */
 
 // Hex instead of RGBA for ie8 support
-$text-secondary: #4E554E;
-
-$gray-lighter: rgb(248,248,248);
-$gray-lightest: rgb(248,248,248);
-$site-background: $gray-lightest;
-
+$gray: #4E554E;
+$gray-lighter: #F8F8F8;
+// $gray-lightest: lighten($gray-lighter;
 $blue: #2B598E;
 $blue-darker: darken($blue, 10%);
-
-
 $purple: rebeccapurple;
-$purple-fallback: #639;
-$brand-primary: $purple-fallback;
 // although I really want to use rebeccapurple
-// I'm having trouble getting scss to output 'rebeccapurple' instead of #639.
+$purple-fallback: #639;
+// Having trouble getting scss to output 'rebeccapurple' instead of #639.
 // #639 has better support
 // #3D00B5 is a possible, higher contrast alternative
+
+$text-secondary: $gray;
+$site-background: $gray-lighter;
+/* Text shadow needs to be 'inbetween' color 
+    because the <a> tag is sometimes on a gray background, and sometimes on a white background
+    This way reduces markup, while exploiting our eyes that can't see the small contrast
+    to allow letter descenders to have padding.
+    Deprecate this once 'text-decoration-skip' is supported
+    further reading:
+        https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
+        https://drafts.csswg.org/css-text-decor-3/#text-decoration-skip-property
+    */
+$text-shadow: mix($site-background, #ffffff );
+$brand-primary: $purple-fallback;
 $brand-primary-darker: darken(#3D00B5, 5%);
 
 $fallback-unit-spacing: 8px;
@@ -52,18 +60,15 @@ a, a:visited {
     text-decoration: none;
     border-bottom: 1px dotted $brand-primary;
     /* tasteful descenders */
-    // once 'text-decoration-skip' is supported
-        // read https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
-        // read https://drafts.csswg.org/css-text-decor-3/#text-decoration-skip-property
-    text-shadow: -1px -1px 0 $gray-lightest, // left top
-                1px -1px 0 $gray-lightest, // right top
-                -1px 1px 0 $gray-lightest, // left bottom
-                1px 1px 0 $gray-lightest, // right bottom
-                0 2px 0 $gray-lightest; // bottom bottom
+    text-shadow: -1px -1px 0 $text-shadow, // left top
+                1px -1px 0 $text-shadow, // right top
+                -1px 1px 0 $text-shadow, // left bottom
+                1px 1px 0 $text-shadow, // right bottom
+                0 2px 0 $text-shadow; // bottom bottom
  }
 
  a:hover, a:active, a:focus {
-    box-shadow: 0px 1px 1px $gray-lightest;
+    // box-shadow: 0px 1px 1px red;
     color: $brand-primary-darker;
     border-bottom: 1px solid $brand-primary-darker;
 }
@@ -73,12 +78,11 @@ html, body, div, span, article, header, footer, ol, ul, li, p {
     padding: 0;
     border: 0;
     font-size: 100%;
-    // font: inherit;
     vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, footer, header, nav, section {
+article, aside, footer, header, nav, section {
     display: block;
 }
 
@@ -93,7 +97,7 @@ body {
     margin: 0;
     font-size: 16px;
     font-size: calc(1em + .5vw);
-    background: $gray-lightest;
+    background: $gray-lighter;
 
     // background: #E0EAFC; /* fallback for old browsers */
     // background: -webkit-linear-gradient(to bottom, #fff , #CFDEF3);
@@ -332,13 +336,6 @@ svg .rain {
     margin: $fallback-unit-spacing;
     margin: $unit-spacing;
 
-}
-
-.m-y-1 {
-    margin-top: $fallback-unit-spacing;
-    margin-top: $unit-spacing;
-    margin-bottom: $fallback-unit-spacing;
-    margin-bottom: $unit-spacing;
 }
 
 .m-x-1 {
