@@ -154,6 +154,10 @@ h1,h2,h3,h4,h5,h6, p {
         border-color: $brand-primary-darker
     }
 }
+// safari input needs this or it won't resize
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
 
 label {
     display: block; // block instead of inline-block for older browser edge cases
