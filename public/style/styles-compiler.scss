@@ -144,25 +144,24 @@ h1,h2,h3,h4,h5,h6, p {
 
 #change-location {
     @extend .large;
+    @extend .m-b-xs;
+    min-width: 60%;
     border-width: 1px;
     border-color: $brand-primary;
-    // border-right: 0;
     padding: .3em .1em .3em .3em;
     flex: 1;
     &:hover, &:active, &:focus {
         border-color: $brand-primary-darker
     }
 }
+// safari input needs this or it won't resize
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
 
 label {
     display: block; // block instead of inline-block for older browser edge cases
     margin-bottom: .4em;
-}
-
-input {
-    flex: 1;
-    min-width: 60%;
-    margin-bottom: .5em;
 }
 
 .btn {
