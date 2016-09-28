@@ -35,7 +35,7 @@
     "hourly",
     "10kb"
   ],
-  "license": "MIT",
+  "license": "GPL-2.0",
   "devDependencies": {
     "gulp": "^3.9.1",
     "node-sass": "^3.9.0",
