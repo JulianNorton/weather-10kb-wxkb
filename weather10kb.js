@@ -2,7 +2,7 @@
 /* ~100 bytes additional on requests */
 var opbeat = require('opbeat').start()
 var express       = require('express');
-var forecastIo    = require('forecast-io')
+var forecastIo    = require('./forecast-io.js')
 var nodeFreegeoip = require('node-freegeoip')
 var nodeGeocoder  = require('node-geocoder')
 var moment        = require('moment-timezone')
