@@ -148,6 +148,7 @@ h1,h2,h3,h4,h5,h6, p {
     border-color: $brand-primary;
     // border-right: 0;
     padding: .3em .1em .3em .3em;
+    -webkit-appearance: text-field;
     flex: 1;
     &:hover, &:active, &:focus {
         border-color: $brand-primary-darker
