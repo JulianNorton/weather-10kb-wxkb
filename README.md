@@ -22,8 +22,8 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 ### Modify & Compile CSS
   * `styles-compiler.scss` compiles into `main.css` using [node-sass](https://npmjs.org/package/node-sass)
-  * Automatically compile css: `npm run watch-css` whenever there's a change
-  * If you just want to run it once: `npm run build-css`
+  * Automatically compile css whenever there's a change: `npm run watch-css` 
+  * If you just want to compile css once: `npm run build-css`
 
 
 
