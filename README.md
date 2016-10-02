@@ -13,7 +13,7 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
   * replace `<key>` with whatever your API key is.
   * Production branch uses `FORECAST_IO_API_KEY` instead of `DARK_SKY_API_KEY`
   * Google api key isn't required, but will increase rate limit for the npm package `node-geocoder`
-  * `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js` to run it locally with the google key.
+    * `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js` to run it locally with the google key.
   * Ignore opbeat "isn't correctly configured", that's used only for wxkb.io production logging
 1. go to http://localhost:5000
   * Note that it should show an error on when loaded and show "Error: Unable to determine location based on IP address.".
