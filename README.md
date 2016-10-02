@@ -8,7 +8,7 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 1. clone repo, `git clone https://github.com/JulianNorton/weather-10kb.git`
 1. `npm install`
   * this installs other packages that make wxkb.io work.
-1. [Sign up for a dark sky API key](https://darksky.net/dev/register)
+1. [Sign up for a dark sky API key](https://darksky.net/dev/register?wxkb)
 1. `DARK_SKY_API_KEY=<key> node index.js`
   * replace `<key>` with whatever your API key is.
   * Production branch uses `FORECAST_IO_API_KEY` instead of `DARK_SKY_API_KEY`
