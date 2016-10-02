@@ -1,8 +1,6 @@
 # http://wxkb.io/
 ### Weather forecast in under 10kb.
-* wxkb will load in less than 10kb (excluding favicons).
-* wkxb is functional without any client side javascript.
-
+* wxkb loads in less than 10kb (excluding favicons) without any client side javascript.
 
 ## Run app with Node
 1. clone repo
