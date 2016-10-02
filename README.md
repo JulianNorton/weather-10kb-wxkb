@@ -2,13 +2,19 @@
 ### Weather forecast in under 10kb.
 Loads in less than 10kb (excluding favicons) without any client side javascript.
 
-## Run app with Node
+## Run wxkb.io locally
+1. [Install node.js](https://nodejs.org/en/download/)
+ * if you have homebrew, do `brew install node`
 1. clone repo
-2. `npm install`
-3. `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js`
+1. `npm install`
+1. [Sign up for a dark sky API key](https://darksky.net/dev/register)
+1. `DARK_SKY_API_KEY=<key> node index.js`
+  * replace `<key>` with whatever your API key is.
   * Production branch uses `FORECAST_IO_API_KEY` instead of `DARK_SKY_API_KEY`
   * Google api key isn't required, but will increase rate limit for the npm package `node-geocoder`
-  * Ignore opbeat "isn't correctly configured", that's used for wxkb.io logging
+    * `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js`
+  * Ignore opbeat "isn't correctly configured", that's used only for wxkb.io production logging
+1. [Submit any bugs, questions, or ideas you have!](https://github.com/JulianNorton/weather-10kb/issues)
 
 
 ### Compile CSS
