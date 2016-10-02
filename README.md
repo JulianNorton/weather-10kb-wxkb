@@ -16,7 +16,7 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
     * `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js` to run it locally with the google key.
   * Ignore opbeat "isn't correctly configured", that's used only for wxkb.io production logging
 1. go to http://localhost:5000
-  * It should show an error when loaded > "Error: Unable to determine location based on IP address.".
+  * It should show an error when loaded "Error: Unable to determine location based on IP address.", that's normal!
 1. [Submit any bugs, questions, or ideas you have!](https://github.com/JulianNorton/weather-10kb/issues)
 
 
