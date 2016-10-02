@@ -18,7 +18,7 @@
 
 
 
-#### Please fork, modify, and use this project! Just make sure the pull-requests are to the development branch
+#### Please fork, modify, and use this project! Just make sure the pull-requests are to the _development_ branch
 [GNU General Public License GPL-2.0](https://opensource.org/licenses/GPL-2.0)
 
 > The GNU GPL is the most widely used free software license. When distributing derived works, the source code of the work must be made available under the same license.
