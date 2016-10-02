@@ -44,24 +44,29 @@
             <p class="data-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
         </header>
+        <%
+        var currentTime = moment.unix(currently.time);
+        var showTomorrow = currentTime.diff(currentTime.clone().add(1, 'days').startOf('day').subtract(6, 'hours')) > 0;
+        var dataIndex = showTomorrow ? 1 : 0;
+         %>
         <section class="card">
           <h3 class="data-secondary">
-            Today
+            <%= showTomorrow ? "Tomorrow" : "Today" %>
           </h3>
           <div class="flex wrap">
             <div>
-              <p class="data-primary"><%= daily.data[0].summary %></p>
+              <p class="data-primary"><%= daily.data[dataIndex].summary %></p>
               <p>
                 <span class="small nowrap">
-                  High <%= Math.round(daily.data[0].temperatureMax) %>°
+                  High <%= Math.round(daily.data[dataIndex].temperatureMax) %>°
                 </span>
                 <span class="data-secondary nowrap m-b-1">
-                  Low <%= Math.round(daily.data[0].temperatureMin) %>°
+                  Low <%= Math.round(daily.data[dataIndex].temperatureMin) %>°
                 </span>
               </p>
             </div>
             <!--[if gte IE 9]><!-->
-            <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
+            <%- include('../../public/images/' + daily.data[dataIndex].icon + '.svg') %>
             <!--<![endif]-->
             <!--[if lte IE 8]>
               <%# IE8 and below see nothing :( %>
@@ -70,9 +75,9 @@
           <ul class="forecast-secondary">
             <% for (var i = 1; i < 12; i++) { %>
             <li>
-              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('hA')%></span>
-              <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
-              <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
+              <span class="data-secondary"><%= moment.unix(hourly.data[i + (dataIndex * 24)].time).format('hA')%></span>
+              <span class="m-x-1"><%= Math.round(hourly.data[i + (dataIndex * 24)].temperature) %>º</span>
+              <span><%- include('../partials/summary', {data: hourly.data[i + (dataIndex * 24)]}) %></span>
             </li>
             <% } %>
           </ul>
