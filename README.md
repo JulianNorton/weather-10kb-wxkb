@@ -24,4 +24,4 @@
 > The GNU GPL is the most widely used free software license. When distributing derived works, the source code of the work must be made available under the same license.
 
 
-Pull requests are welcome! Please 
+**Pull requests are welcome! Please make sure it's to the development branch.
