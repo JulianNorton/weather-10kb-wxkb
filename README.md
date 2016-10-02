@@ -1,6 +1,7 @@
 # http://wxkb.io/
-Weather forecast in under 10kb.
-
+### Weather forecast in under 10kb.
+* wxkb will *always* be less than 10kb excluding favicons.
+* wkxb will always be functional without any client side javascript.
 
 
 ## Run app with Node
@@ -21,3 +22,6 @@ Weather forecast in under 10kb.
 [GNU General Public License GPL-2.0](https://opensource.org/licenses/GPL-2.0)
 
 > The GNU GPL is the most widely used free software license. When distributing derived works, the source code of the work must be made available under the same license.
+
+
+Pull requests are welcome! Please 
