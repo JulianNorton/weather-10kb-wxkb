@@ -77,7 +77,7 @@
             <li>
               <span class="data-secondary"><%= moment.unix(hourly.data[i + (dataIndex * 24)].time).format('hA')%></span>
               <span class="m-x-1"><%= Math.round(hourly.data[i + (dataIndex * 24)].temperature) %>º</span>
-              <span><%- include('../partials/summary', {data: hourly.data[i + (dataIndex * 24)]}) %></span>
+              <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
             </li>
             <% } %>
           </ul>
