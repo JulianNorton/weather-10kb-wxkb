@@ -7,9 +7,10 @@
 ## Run app with Node
 1. clone repo
 2. `npm install`
-3. `FORECAST_IO_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js`
-  * Development branch uses **DARK_SKY_API_KEY** instead of FORECAST_IO_API_KEY
-  * google api key isn't required, but will increase rate limit for the npm package `node-geocoder`.
+3. `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js`
+  * Production branch uses `FORECAST_IO_API_KEY` instead of `DARK_SKY_API_KEY`
+  * Google api key isn't required, but will increase rate limit for the npm package `node-geocoder`.
+  * Ignore opbeat "isn't correctly configured", that's used for wxkb.io logging.
 
 
 ### Compile CSS
