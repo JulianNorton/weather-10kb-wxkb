@@ -31,7 +31,7 @@
       <article>
         <header class="card">
           <div>
-            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mm')%><span class="small-caps"><%= moment.unix(currently.time).format('A') %></span>)</h3>
+            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mm')%><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <!--[if gte IE 9]><!-->
@@ -75,7 +75,7 @@
           <ul class="forecast-secondary">
             <% for (var i = 1; i < 12; i++) { %>
             <li>
-              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('hA')%></span>
+              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('h')%><span class="small-caps"><%= moment.unix(hourly.data[i].time).format('a') %></span></span>
               <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
               <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
             </li>
