@@ -12,8 +12,6 @@
     <style><%- include('../../public/style/main.css') %></style>
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" sizes="48x48" href="/images/default/favicon.ico">
-    <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-32x32.png?v=<%= currently.icon %>" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-16x16.png?v=<%= currently.icon %>" sizes="16x16">
     <link rel="manifest" href="/images/<%= currently.icon %>/manifest.json?v=<%= currently.icon %>">
     <link rel="mask-icon" href="/images/<%= currently.icon %>/safari-pinned-tab.svg?v=<%= currently.icon %>" color="#5bbad5">
     <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
@@ -34,7 +32,7 @@
       <article>
         <header class="card">
           <div>
-            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mmA') %>)</h3>
+            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mm')%><span class="small-caps"><%= moment.unix(currently.time).format('A') %></span>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <!--[if gte IE 9]><!-->
@@ -47,24 +45,29 @@
             <p class="data-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
         </header>
+        <%
+        var currentTime = moment.unix(currently.time);
+        var showTomorrow = currentTime.diff(currentTime.clone().add(1, 'days').startOf('day').subtract(6, 'hours')) > 0;
+        var dataIndex = showTomorrow ? 1 : 0;
+         %>
         <section class="card">
           <h3 class="data-secondary">
-            Today
+            <%= showTomorrow ? "Tomorrow" : "Today" %>
           </h3>
           <div class="flex wrap">
             <div>
-              <p class="data-primary"><%= daily.data[0].summary %></p>
+              <p class="data-primary"><%= daily.data[dataIndex].summary %></p>
               <p>
                 <span class="small nowrap">
-                  High <%= Math.round(daily.data[0].temperatureMax) %>°
+                  High <%= Math.round(daily.data[dataIndex].temperatureMax) %>°
                 </span>
                 <span class="data-secondary nowrap m-b-1">
-                  Low <%= Math.round(daily.data[0].temperatureMin) %>°
+                  Low <%= Math.round(daily.data[dataIndex].temperatureMin) %>°
                 </span>
               </p>
             </div>
             <!--[if gte IE 9]><!-->
-            <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
+            <%- include('../../public/images/' + daily.data[dataIndex].icon + '.svg') %>
             <!--<![endif]-->
             <!--[if lte IE 8]>
               <%# IE8 and below see nothing :( %>
