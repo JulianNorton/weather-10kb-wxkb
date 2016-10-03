@@ -46,42 +46,13 @@
         </header>
         <%
         var currentTime = moment.unix(currently.time);
-        var showTomorrow = currentTime.diff(currentTime.clone().add(1, 'days').startOf('day').subtract(6, 'hours')) > 0;
-        var dataIndex = showTomorrow ? 1 : 0;
-         %>
-        <section class="card">
-          <h3 class="data-secondary">
-            <%= showTomorrow ? "Tomorrow" : "Today" %>
-          </h3>
-          <div class="flex wrap">
-            <div>
-              <p class="data-primary"><%= daily.data[dataIndex].summary %></p>
-              <p>
-                <span class="small nowrap">
-                  High <%= Math.round(daily.data[dataIndex].temperatureMax) %>°
-                </span>
-                <span class="data-secondary nowrap m-b-1">
-                  Low <%= Math.round(daily.data[dataIndex].temperatureMin) %>°
-                </span>
-              </p>
-            </div>
-            <!--[if gte IE 9]><!-->
-            <%- include('../../public/images/' + daily.data[dataIndex].icon + '.svg') %>
-            <!--<![endif]-->
-            <!--[if lte IE 8]>
-              <%# IE8 and below see nothing :( %>
-            <![endif]-->
-          </div>
-          <ul class="forecast-secondary">
-            <% for (var i = 1; i < 12; i++) { %>
-            <li>
-              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('hA')%></span>
-              <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
-              <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
-            </li>
-            <% } %>
-          </ul>
-        </section>
+        var tomorrowTime = currentTime.clone().add(1, 'days').startOf('day');
+        var showTomorrow = currentTime.diff(tomorrowTime.clone().subtract(6, 'hours')) >= 0;
+        %>
+        <%- include('../partials/daily', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <% if(showTomorrow) { %>
+            <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <% } %>
         <section class="card">
           <h3 class="data-secondary">This week</h3>
           <p class="data-primary">
