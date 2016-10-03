@@ -45,6 +45,9 @@ function Weather10kbRequest(request) {
       } else {
         var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress
 
+        // handle azure-style ip values which include ports
+        ip = ip.split(':')[0]
+
         nodeFreegeoip.getLocation(ip, function(err, location) {
           if (err) {
             return reject(err);
