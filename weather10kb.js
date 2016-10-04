@@ -1,8 +1,8 @@
 /* Opbeat has to be on top */
 /* ~100 bytes additional on requests */
-var opbeat = require('opbeat').start()
-var express       = require('express');
-var DarkSky    = require('dark-sky')
+var opbeat        = require('opbeat').start()
+var express       = require('express')
+var DarkSky       = require('dark-sky')
 var nodeFreegeoip = require('node-freegeoip')
 var nodeGeocoder  = require('node-geocoder')
 var moment        = require('moment-timezone')
@@ -10,8 +10,8 @@ var objectMerge   = require('object-merge')
 var timezone      = require('google-timezone-api')
 
 
-            
-var router = express.Router();
+var router = express.Router()
+
 
 function Weather10kbRequest(request) {
   this.geocode = function() {
