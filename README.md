@@ -9,8 +9,8 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 1. cd into the weather-10kb folder: `cd weather-10kb`
 1. install required packages: `npm install`
 1. [Sign up for a dark sky API key](https://darksky.net/dev/register?wxkb)
-1. Turn on local version: `DARK_SKY_API_KEY=<key> node index.js`†
-  * † replace `<key>` with whatever your API key is
+1. Turn on local version: `DARK_SKY_API_KEY=<key> node index.js`
+  * Replace `<key>` with whatever your API key is
   * Google api key isn't required, but will increase rate limit for the npm package `node-geocoder`
     * `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js` to run it locally with the google key
   * Ignore opbeat "isn't correctly configured", that's used only for wxkb.io production logging
