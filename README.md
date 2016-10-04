@@ -5,7 +5,7 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 ## Run wxkb.io locally
 1. [Install node.js](https://nodejs.org/en/download/)
   * if you have [homebrew](http://brew.sh/), `brew install node`
-1. clone repo via terminal:, `git clone https://github.com/JulianNorton/weather-10kb.git`
+1. clone repo via terminal: `git clone https://github.com/JulianNorton/weather-10kb.git`
 1. cd into the weather-10kb folder: `cd weather-10kb`
 1. install required packages: `npm install`
 1. [Sign up for a dark sky API key](https://darksky.net/dev/register?wxkb)
