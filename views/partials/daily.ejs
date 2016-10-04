@@ -33,7 +33,7 @@
         }
     %>
     <li>
-      <span class="data-secondary"><%= hourlyTime.format('hA')%></span>
+      <span class="data-secondary"><%= hourlyTime.format('h')%><span class="small-caps"><%= hourlyTime.format('a') %></span></span>
       <span class="m-x-1"><%= Math.round(data.hourly[i].temperature) %>º</span>
       <span><%- include('../partials/summary', {data: data.hourly[i]}) %></span>
     </li>
