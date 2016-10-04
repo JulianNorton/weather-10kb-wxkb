@@ -1,5 +1,5 @@
 # http://wxkb.io/
-### Weather forecast in under 10kb.
+#### Weather forecast in under 10kb.
 Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 ## Run wxkb.io locally
@@ -26,7 +26,5 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
   * If you want to compile css once: `npm run build-css`
 
 
-#### Please fork, modify, and use this project! Just make sure the pull-requests are to the _development_ branch
-[GNU General Public License GPL-2.0](https://opensource.org/licenses/GPL-2.0)
-
-> The GNU GPL is the most widely used free software license. When distributing derived works, the source code of the work must be made available under the same license.
+#### Please fork, modify, and use this project!
+Open source, General Public License v2.
