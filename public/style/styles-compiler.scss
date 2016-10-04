@@ -149,7 +149,7 @@ h1,h2,h3,h4,h5,h6, p {
 #change-location {
     @extend .large;
     @extend .m-b-xs;
-    height: 55px;
+    height: 2em; //adjusts height of search area
     min-width: 60%;
     border-width: 1px;
     border-color: $brand-primary;
@@ -179,9 +179,7 @@ label {
     margin-left: -2px;
     background: $brand-primary;
     color: #fff;
-    display: block;
-    line-height: 1.1em;
-    height: 55px;
+    height: 2em; //adjusts height of button
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
     transition: background-color ease-in-out 125ms;
