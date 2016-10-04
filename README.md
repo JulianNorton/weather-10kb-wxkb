@@ -1,5 +1,5 @@
 # http://wxkb.io/
-#### Weather forecast in under 10kb.
+### Weather forecast in under 10kb.
 Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 ## Run wxkb.io locally
@@ -26,5 +26,5 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
   * If you want to compile css once: `npm run build-css`
 
 
-#### Please fork, modify, and use this project!
+### Please fork, modify, and use this project!
 Open source, General Public License v2.
