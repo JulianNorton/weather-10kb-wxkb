@@ -27,3 +27,6 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 ### Please fork, modify, and use this project!
 Open source, General Public License v2.
+
+### Misc
+* [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
