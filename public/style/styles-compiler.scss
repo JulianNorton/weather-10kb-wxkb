@@ -16,7 +16,7 @@ $purple-fallback: #639;
 $text-secondary: $gray;
 $site-background: $gray-lighter;
 /*
-Text shadow needs to be 'inbetween' color 
+Text shadow needs to be 'inbetween' color
 because the <a> tag is sometimes on a gray background, and sometimes on a white background
 This way reduces markup, while exploiting our eyes that can't see the small contrast
 to allow letter descenders to have padding.
@@ -149,6 +149,7 @@ h1,h2,h3,h4,h5,h6, p {
 #change-location {
     @extend .large;
     @extend .m-b-xs;
+    height: 2em; //adjusts height of search area
     min-width: 60%;
     border-width: 1px;
     border-color: $brand-primary;
@@ -175,9 +176,10 @@ label {
     border: $border;
     border-color: $brand-primary;
     border-left: 0;
-    margin-left: -1px;
+    margin-left: -2px;
     background: $brand-primary;
     color: #fff;
+    height: 2em; //adjusts height of button
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
     transition: background-color ease-in-out 125ms;
@@ -198,14 +200,14 @@ label {
 .forecast-secondary li:first-child {
     border-top: 1px solid rgba(220,220,220, .5);
     margin-top: .66em;
-    padding-top: .66em;    
+    padding-top: .66em;
 }
 
 /* card-separator */
 .forecast-secondary li {
     border-bottom: $border;
     margin-bottom: .66em;
-    padding-bottom: .66em;    
+    padding-bottom: .66em;
 }
 
 .forecast-secondary li .data-secondary {
@@ -274,7 +276,7 @@ svg .rain {
     90% {
         opacity: .9;
     }
-    
+
     100% {
         transform: translateY(0);
         opacity: 0;
