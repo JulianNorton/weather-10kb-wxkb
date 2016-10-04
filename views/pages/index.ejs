@@ -11,8 +11,6 @@
     <meta http-equiv="refresh" content="600">
     <style><%- include('../../public/style/main.css') %></style>
     <link rel="apple-touch-icon" sizes="48x48" href="/images/default/favicon.ico">
-    <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-32x32.png?v=<%= currently.icon %>" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/<%= currently.icon %>/favicon-16x16.png?v=<%= currently.icon %>" sizes="16x16">
     <link rel="manifest" href="/images/<%= currently.icon %>/manifest.json?v=<%= currently.icon %>">
     <link rel="mask-icon" href="/images/<%= currently.icon %>/safari-pinned-tab.svg?v=<%= currently.icon %>" color="#5bbad5">
     <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
@@ -20,7 +18,7 @@
 
   <body id="wxkb_io" class="container">
     <header class="flex wrap" style="justify-content: space-between">
-      <h1 class="m-a-1 data-secondary"">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h1>
+      <h1 class="m-a-1 data-secondary">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h1>
       <h2 class="m-a-1 data-secondary" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h2>
     </header>
     <main>
@@ -33,7 +31,7 @@
       <article>
         <header class="card">
           <div>
-            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mmA') %>)</h3>
+            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mm')%><span class="small-caps"><%= moment.unix(currently.time).format('A') %></span>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <!--[if gte IE 9]><!-->
@@ -46,39 +44,15 @@
             <p class="data-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
         </header>
-        <section class="card">
-          <h3 class="data-secondary">
-            Today
-          </h3>
-          <div class="flex wrap">
-            <div>
-              <p class="data-primary"><%= daily.data[0].summary %></p>
-              <p>
-                <span class="small nowrap">
-                  High <%= Math.round(daily.data[0].temperatureMax) %>°
-                </span>
-                <span class="data-secondary nowrap m-b-1">
-                  Low <%= Math.round(daily.data[0].temperatureMin) %>°
-                </span>
-              </p>
-            </div>
-            <!--[if gte IE 9]><!-->
-            <%- include('../../public/images/' + daily.data[0].icon + '.svg') %>
-            <!--<![endif]-->
-            <!--[if lte IE 8]>
-              <%# IE8 and below see nothing :( %>
-            <![endif]-->
-          </div>
-          <ul class="forecast-secondary">
-            <% for (var i = 1; i < 12; i++) { %>
-            <li>
-              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('hA')%></span>
-              <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
-              <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
-            </li>
-            <% } %>
-          </ul>
-        </section>
+        <%
+        var currentTime = moment.unix(currently.time);
+        var tomorrowTime = currentTime.clone().add(1, 'days').startOf('day');
+        var showTomorrow = currentTime.diff(tomorrowTime.clone().subtract(6, 'hours')) >= 0;
+        %>
+        <%- include('../partials/daily', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <% if(showTomorrow) { %>
+            <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <% } %>
         <section class="card">
           <h3 class="data-secondary">This week</h3>
           <p class="data-primary">
