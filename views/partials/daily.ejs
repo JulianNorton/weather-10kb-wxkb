@@ -1,0 +1,42 @@
+<section class="card">
+  <h3 class="data-secondary">
+    <%= data.name %>
+  </h3>
+  <div class="flex wrap">
+    <div>
+      <p class="data-primary"><%= data.daily.summary %></p>
+      <p>
+        <span class="small nowrap">
+          High <%= Math.round(data.daily.temperatureMax) %>°
+        </span>
+        <span class="data-secondary nowrap m-b-1">
+          Low <%= Math.round(data.daily.temperatureMin) %>°
+        </span>
+      </p>
+    </div>
+    <!--[if gte IE 9]><!-->
+    <%- include('../../public/images/' + data.daily.icon + '.svg') %>
+    <!--<![endif]-->
+    <!--[if lte IE 8]>
+      <%# IE8 and below see nothing :( %>
+    <![endif]-->
+  </div>
+  <ul class="forecast-secondary">
+    <%
+    for (var i = 1; i < 12; i++) {
+        var hourlyTime = moment.unix(data.hourly[i].time);
+        if(hourlyTime.diff(data.tomorrowTime) < 0 && data.name == "Tomorrow") { // Is today but showing Tomorrow
+            continue;
+        }
+        if(hourlyTime.diff(data.tomorrowTime) >= 0 && data.name == "Today") { // Is tomorrow but showing Today
+            break;
+        }
+    %>
+    <li>
+      <span class="data-secondary"><%= hourlyTime.format('h')%><span class="small-caps"><%= hourlyTime.format('a') %></span></span>
+      <span class="m-x-1"><%= Math.round(data.hourly[i].temperature) %>º</span>
+      <span><%- include('../partials/summary', {data: data.hourly[i]}) %></span>
+    </li>
+    <% } %>
+  </ul>
+</section>

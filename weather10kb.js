@@ -1,8 +1,8 @@
 /* Opbeat has to be on top */
 /* ~100 bytes additional on requests */
-var opbeat = require('opbeat').start()
-var express       = require('express');
-var forecastIo    = require('./forecast-io.js')
+var opbeat        = require('opbeat').start()
+var express       = require('express')
+var DarkSky       = require('dark-sky')
 var nodeFreegeoip = require('node-freegeoip')
 var nodeGeocoder  = require('node-geocoder')
 var moment        = require('moment-timezone')
@@ -10,8 +10,8 @@ var objectMerge   = require('object-merge')
 var timezone      = require('google-timezone-api')
 
 
-            
-var router = express.Router();
+var router = express.Router()
+
 
 function Weather10kbRequest(request) {
   this.geocode = function() {
@@ -25,7 +25,6 @@ function Weather10kbRequest(request) {
           apiKey: process.env.GOOGLE_API_KEY,
           formatter: null         // 'gpx', 'string', ...
         });
-
         geocoder.geocode(request.params.location)
           .then(function(res) {
             if (res.length) {
@@ -44,6 +43,9 @@ function Weather10kbRequest(request) {
           })
       } else {
         var ip = request.headers['x-forwarded-for'] ? request.headers['x-forwarded-for'].split(',')[0] : request.connection.remoteAddress
+
+        // handle azure-style ip values which include ports
+        ip = ip.split(':')[0]
 
         nodeFreegeoip.getLocation(ip, function(err, location) {
           if (err) {
@@ -85,7 +87,7 @@ function Weather10kbRequest(request) {
 
   this.getForecast = function() {
     return new Promise(function(resolve, reject) {
-      var forecast = new forecastIo(process.env.FORECAST_IO_API_KEY);
+      var forecast = new DarkSky(process.env.DARK_SKY_API_KEY);
       var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
 
       forecast
@@ -98,6 +100,7 @@ function Weather10kbRequest(request) {
           resolve(res);
         })
         .catch(function(err) {
+
           return reject(err);
         });
     });
@@ -144,7 +147,7 @@ router.get('/:location?/:scale?', function(request, response) {
         throw 'Undetermined location.';
       }
 
-      response.render('pages/index', objectMerge(JSON.parse(data), {params: request.params}));
+      response.render('pages/index', objectMerge(data, {params: request.params}));
     })
     .catch(function(err){
       if (err instanceof Error) {
