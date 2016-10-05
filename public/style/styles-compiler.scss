@@ -251,7 +251,7 @@ label {
 /* ---------------------------------------- */
 /* Animation */
 
-svg .rain {
+svg .rain, svg .hail {
     animation: rain 5s ease-in infinite;
     &:nth-child(2) {
         animation-delay: 0s;
