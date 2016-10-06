@@ -109,10 +109,9 @@ function Weather10kbRequest(request) {
 
 router.get('/:location?/:scale?', function(request, response) {
   // validate
-  (function() {
     // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
     if (typeof request.query.location === 'string') {
-      response.redirect('/' + request.query.location);
+      return response.redirect('/' + request.query.location);
     }
 
     // if we got a scale and not a location for the first param, adjust params accordingly
@@ -128,7 +127,6 @@ router.get('/:location?/:scale?', function(request, response) {
     }
 
     request.params.units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
-  })();
 
   var wr = new Weather10kbRequest(request);
 
@@ -147,7 +145,7 @@ router.get('/:location?/:scale?', function(request, response) {
         throw 'Undetermined location.';
       }
 
-      response.render('pages/index', objectMerge(data, {params: request.params}));
+      return response.render('pages/index', objectMerge(data, {params: request.params}));
     })
     .catch(function(err){
       if (err instanceof Error) {
@@ -156,7 +154,7 @@ router.get('/:location?/:scale?', function(request, response) {
         var err_msg = JSON.stringify(err);
       }
 
-      response.render('pages/error', {error: err_msg});
+      return response.render('pages/error', {error: err_msg});
     });
 });
 
