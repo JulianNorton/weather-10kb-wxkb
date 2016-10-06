@@ -22,12 +22,12 @@
       <h2 class="m-a-1 data-secondary" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h2>
     </header>
     <main>
-      <%#
-      <section class="card">
-        <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
-        <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
-      </section>
-      %>
+
+    <% if (typeof alerts == "undefined" || !(alerts instanceof Array)) { %>
+    <% } else { %>
+    <%- include('../partials/alert', {data: alerts})%>
+    <% } %>
+
       <article>
         <header class="card">
           <div>
