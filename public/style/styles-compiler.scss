@@ -264,6 +264,10 @@ svg .rain, svg .hail {
     }
 }
 
+svg .bolt {
+    animation: bolt-flash 2s ease-in infinite ;
+}
+
 @keyframes rain {
     0% {
         opacity: 0;
@@ -279,6 +283,27 @@ svg .rain, svg .hail {
 
     100% {
         transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes bolt-flash {
+    0% {
+        opacity: 1;
+        transform: translateY(-.2em);
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateY(0em);
+    }
+
+
+    100% {
         opacity: 0;
     }
 }
