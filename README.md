@@ -28,7 +28,7 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 
 ### Please fork, modify, and use this project!
-Open source, General Public License v2. Basically do whatever you want with it.
+Open source, General Public License v2. Basically do whatever you want with it. Pull requests must keep these tenants in mind:
 
 #### Accessibility (a11y)
   * https://a-k-apart.com/faq#a11y
@@ -39,6 +39,7 @@ Open source, General Public License v2. Basically do whatever you want with it.
   
 #### Performance
   * https://developers.google.com/speed/pagespeed/insights/?url=wxkb.io
+
 
 ### Misc
 * Vote for wkxb on a-k-apart.com!
