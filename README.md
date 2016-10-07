@@ -28,14 +28,14 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 
 ### Please fork, modify, and use this project!
-Open source, General Public License v2.
-Things to keep in mind:
-* ####Accessibility (a11y)
+Open source, General Public License v2. Basically do whatever you want with it.
+
+#### Accessibility (a11y)
   * https://a-k-apart.com/faq#a11y
   * https://a11y-service.herokuapp.com/report/wxkb.io
-* ####Browser compatibility
+#### Browser compatibility
   * http://browsershots.org/http://wxkb.io/
-* ####Performance
+#### Performance
   * https://developers.google.com/speed/pagespeed/insights/?url=wxkb.io
 
 ### Misc
