@@ -1,5 +1,6 @@
 var compression = require('compression');
 var express = require('express');
+var cookieParser = require('cookie-parser');
 var moment = require('moment-timezone');
 var minifyHTML = require('express-minify-html');
 var weather10kb = require('./weather10kb');
@@ -22,6 +23,7 @@ app.use(minifyHTML({
   }
 }));
 app.use(express.static(__dirname + '/public'));
+app.use(cookieParser());
 app.use('/', weather10kb);
 // Add the Opbeat middleware after your regular middleware
 app.use(opbeat.middleware.express()) // injects opbeat, if error, registers in opbeat
