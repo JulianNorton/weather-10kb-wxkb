@@ -45,6 +45,7 @@ Open source, General Public License v2. Basically do whatever you want with it. 
 * Vote for wkxb on a-k-apart.com!
   * https://a-k-apart.com/gallery/wxkb-io-A-super-fast-weat
 * [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
+* Make sure your text editor or IDE supports [EditorConfig](http://editorconfig.org/) or has the plugin installed. Check out [the plugin section](http://editorconfig.org/#download) to see if your editor or IDE requires the plugin.
 
 ### Pull requestsAccessibility
 Cross-browser compatibility (I'll open it in lynx)
