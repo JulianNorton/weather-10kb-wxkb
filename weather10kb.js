@@ -90,7 +90,7 @@ function Weather10kbRequest(request) {
   this.getForecast = function() {
     return new Promise(function(resolve, reject) {
       var forecast = new DarkSky(process.env.DARK_SKY_API_KEY);
-      var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'auto' : 'us'
+      var units = request.params.units;
 
       forecast
         .latitude(request.params.latitude)
@@ -109,26 +109,30 @@ function Weather10kbRequest(request) {
   }
 }
 
-router.get('/:location?/:scale?', function(request, response) {
+router.get('/:location?', function(request, response) {
+  request.params.units = 'auto';
+
+  // Dark Sky units with their wind speed measurements
+  // TODO: Read from config file?
+  const defaultUnits = {
+    ca: 'km/h',
+    si: 'm/s',
+    uk2: 'mph',
+    us: 'mph',
+  };
+
   // validate
-    // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
+    // Check query string variable for switching units
+    if (typeof request.query.units === 'string' && request.query.units.toLowerCase() in defaultUnits) {
+      // TODO: Handle setting the cookie
+      console.log('Setting from units', request.query.units);
+      request.params.units = request.query.units.toLowerCase();
+    }
+
+    // check for & handle a querystring variable in case the user submitted the location/units form rather than passing a url param
     if (typeof request.query.location === 'string') {
       return response.redirect('/' + request.query.location);
     }
-
-    // if we got a scale and not a location for the first param, adjust params accordingly
-    if (typeof request.params.location === 'string' && request.params.location.toUpperCase() in ['C', 'F']) {
-      request.params.scale = request.params.location;
-      delete request.params.location;
-    }
-
-    if (typeof request.params.scale === 'string') {
-      request.params.scale = request.params.scale.toUpperCase();
-    } else {
-      request.params.scale = 'C';
-    }
-
-    request.params.units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'auto' : 'us'
 
   var wr = new Weather10kbRequest(request);
 
@@ -136,14 +140,6 @@ router.get('/:location?/:scale?', function(request, response) {
     .then(wr.setTimeZone)
     .then(wr.getForecast)
     .then(function(data) {
-      // Wind speed measurement by Dark Sky unit
-      // TODO: Read from config file?
-      const measurement = {
-        ca: 'km/h',
-        si: 'm/s',
-        uk2: 'mph',
-        us: 'mph',
-      };
 
       if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location == ', ') {
         request.params.formatted_location = request.params.location;
@@ -161,11 +157,11 @@ router.get('/:location?/:scale?', function(request, response) {
       // Default wind speed unit
       args.params.windUnit = 'km/h';
 
-      // Set default units based on the unit used in the forecast response
+      // Set default units based on the units flag used in the forecast response
       if (typeof args.flags.units === 'string' && args.flags.units !== '') {
         args.params.units = args.flags.units;
         args.params.scale = args.params.units === 'us' ? 'F' : 'C';
-        args.params.windUnit = measurement[args.params.units];
+        args.params.windUnit = defaultUnits[args.params.units];
       }
 
       return response.render('pages/index', args);
