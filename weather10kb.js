@@ -136,6 +136,16 @@ router.get('/:location?', function(request, response) {
 
       // Set units cookie
       response.cookie(unitsCookie, request.params.units, {expires: 0});
+
+      // Redirect to remove units query string from URL
+      var locParam = '';
+      if (typeof request.params.location === 'string') {
+        locParam = request.params.location;
+      } else if (typeof request.query.location === 'string') {
+        locParam = '?location=' + request.query.location;
+      }
+
+      return response.redirect('/' + locParam);
     }
 
     // check for & handle a querystring variable in case the user submitted the location/units form rather than passing a url param
