@@ -31,4 +31,6 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 Open source, General Public License v2.
 
 ### Misc
+* Vote for wkxb on a-k-apart.com!
+  * https://a-k-apart.com/gallery/wxkb-io-A-super-fast-weat
 * [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
