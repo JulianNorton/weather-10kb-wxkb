@@ -24,6 +24,7 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
   * `styles-compiler.scss` compiles into `main.css` using [node-sass](https://npmjs.org/package/node-sass)
   * `npm run watch-css` Automatically compiles css whenever there's a change to the `.scss`
   * `npm run build-css` If you want to compile css once 
+  * `npm rebuild node-sass` if you're switching branches a lot this can fix node-sass crashes.
 
 
 ### Please fork, modify, and use this project!
