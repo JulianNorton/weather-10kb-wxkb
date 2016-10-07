@@ -32,6 +32,7 @@ function Weather10kbRequest(request) {
               request.params.latitude = res[0].latitude
               request.params.longitude = res[0].longitude
               request.params.formatted_location = res[0].formattedAddress
+              request.params.locationSearch = request.params.location;
               countryCode = res[0].countryCode;
             } else {
               // TODO throw exception?
@@ -110,7 +111,9 @@ function Weather10kbRequest(request) {
 }
 
 router.get('/:location?', function(request, response) {
+  const unitsCookie = 'wxkbUnits';
   request.params.units = 'auto';
+  request.params.locationSearch  = null;
 
   // Dark Sky units with their wind speed measurements
   // TODO: Read from config file?
@@ -122,11 +125,17 @@ router.get('/:location?', function(request, response) {
   };
 
   // validate
-    // Check query string variable for switching units
+    // Check for a cookie with units value
+    if (unitsCookie in request.cookies && typeof request.cookies[unitsCookie] === 'string' && request.cookies[unitsCookie] in defaultUnits) {
+      request.params.units = request.cookies[unitsCookie];
+    }
+
     if (typeof request.query.units === 'string' && request.query.units.toLowerCase() in defaultUnits) {
-      // TODO: Handle setting the cookie
-      console.log('Setting from units', request.query.units);
-      request.params.units = request.query.units.toLowerCase();
+      // Check query string variable for switching units
+      request.params.units = request.query.units;
+
+      // Set units cookie
+      response.cookie(unitsCookie, request.params.units, {expires: 0});
     }
 
     // check for & handle a querystring variable in case the user submitted the location/units form rather than passing a url param
