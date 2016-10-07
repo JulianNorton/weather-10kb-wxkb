@@ -171,7 +171,6 @@ label {
 }
 
 .btn {
-    @extend .large;
     padding: .3em .6em;
     border: $border;
     border-color: $brand-primary;
@@ -335,6 +334,10 @@ svg .bolt {
 .flex {
     display: flex;
     align-items: flex-start;
+}
+
+.f-1 {
+    flex: 1;
 }
 
 .wrap {

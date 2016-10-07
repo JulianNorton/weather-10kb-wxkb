@@ -1,0 +1,12 @@
+<form action="/" method="get">
+  <label for="change-units" class="sr-only">Select scale/wind units</label>
+  <span class="flex wrap m-b-xs">
+    <select id="change-units" name="units">
+      <option value="us"<%= params.units === 'us' ? ' selected' : '' %>>°F, mph</option>
+      <option value="ca"<%= params.units === 'ca' ? ' selected' : '' %>>°C, km/h</option>
+      <option value="si"<%= params.units === 'si' ? ' selected' : '' %>>°C, m/s</option>
+      <option value="uk2"<%= params.units === 'uk2' ? ' selected' : '' %>>°C, mph</option>
+    </select>
+    <button class="btn" type="submit">Switch</button>
+  </span>
+</form>
