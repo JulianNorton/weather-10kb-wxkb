@@ -2,7 +2,7 @@
 
 <% if (Math.abs(data.temperature - data.apparentTemperature) > 3 ) { %>
 	<span>
-		feels like 
+		feels like
 		<%= Math.round(data.apparentTemperature) %>°
 	</span>
 <% } %>
@@ -13,7 +13,7 @@
 	<span>
 		with a
 		<%= Math.round(data.windSpeed) %>
-		<span><%= (params.units === 'si') ? 'm/s' :'mph' %>
+		<span><%= params.windUnit %>
 		<% if (params.units === 'si' && data.windSpeed < 13.9 || data.windSpeed < 32) { %>
 			breeze
 		<% } else if (params.units === 'si' && data.windSpeed < 17.2 || data.windSpeed < 39) { %>
