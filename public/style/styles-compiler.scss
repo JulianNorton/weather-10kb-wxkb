@@ -188,6 +188,28 @@ label {
     }
 }
 
+.btn-secondary {
+    background: lighten($brand-primary, 55%);
+    border: none;
+    cursor: pointer;
+    font-size: .8em;
+    padding: .3em .4em;
+    &:hover, &:active, &:focus {
+        background-color: lighten($brand-primary, 40%);
+    }
+
+    &.current {
+        background: $brand-primary;
+        color: $gray-lighter;
+    }
+}
+
+.btn-wrap {
+    .btn-secondary, .btn {
+        margin-right: $unit-spacing;
+    }
+}
+
 .card {
     margin-bottom: $unit-spacing;
     border: $border;

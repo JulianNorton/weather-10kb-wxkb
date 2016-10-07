@@ -1,30 +1,7 @@
-<ul class="flex wrap m-b-xs small center-h">
-  <li class="p-a-1">
-    <% if (params.units === 'us') { %>
-      °F, mph
-    <% } else { %>
-      <a href="/<%= params.locationSearch %>?units=us">°F, mph</a>
-    <% } %>
-  </li>
-  <li class="p-a-1">
-    <% if (params.units === 'ca') { %>
-      °C, km/h
-    <% } else { %>
-      <a href="/<%= params.locationSearch %>?units=ca">°C, km/h</a>
-    <% } %>
-  </li>
-  <li class="p-a-1">
-    <% if (params.units === 'si') { %>
-      °C, m/s
-    <% } else { %>
-      <a href="/<%= params.locationSearch %>?units=si">°C, m/s</a>
-    <% } %>
-  </li>
-  <li class="p-a-1">
-    <% if (params.units === 'uk2') { %>
-      °C, mph
-    <% } else { %>
-      <a href="/<%= params.locationSearch %>?units=uk2">°C, mph</a>
-    <% } %>
-  </li>
-</ul>
+<form action="/<%= params.locationSearch %>" method="get" class="flex wrap m-b-xs center-h btn-wrap">
+  <button type="submit" value="us" class="btn-secondary<%= params.units === 'us' ? ' current' : '' %>">°F, mph</button>
+  <button type="submit" value="ca" class="btn-secondary<%= params.units === 'ca' ? ' current' : '' %>">°C, km/h</button>
+  <button type="submit" value="si" class="btn-secondary<%= params.units === 'si' ? ' current' : '' %>">°C, m/s</button>
+  <button type="submit" value="uk2" class="btn-secondary<%= params.units === 'uk2' ? ' current' : '' %>">°C, mph</button>
+</form>
+
