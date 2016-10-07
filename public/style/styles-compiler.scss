@@ -60,13 +60,13 @@ a, a:visited {
   border-bottom: 1px dotted $brand-primary;
   /* tasteful descenders */
   text-shadow: -1px -1px 0 $text-shadow, // left top
-  1px -1px 0 $text-shadow, // right top
-  -1px 1px 0 $text-shadow, // left bottom
-  1px 1px 0 $text-shadow, // right bottom
-  0 2px 0 $text-shadow; // bottom bottom
-}
+        1px -1px 0 $text-shadow, // right top
+        -1px 1px 0 $text-shadow, // left bottom
+        1px 1px 0 $text-shadow, // right bottom
+        0 2px 0 $text-shadow; // bottom bottom
+ }
 
-a:hover, a:active, a:focus {
+ a:hover, a:active, a:focus {
   // box-shadow: 0px 1px 1px red;
   color: $brand-primary-darker;
   border-bottom: 1px solid $brand-primary-darker;
@@ -97,7 +97,7 @@ body {
   font-size: 16px;
   font-size: calc(1em + .5vw);
   background: $gray-lighter;
-  
+
   // background: #E0EAFC; /* fallback for old browsers */
   // background: -webkit-linear-gradient(to bottom, #fff , #CFDEF3);
   // background: linear-gradient(to bottom, #fff , #CFDEF3);
@@ -138,7 +138,7 @@ h1,h2,h3,h4,h5,h6, p {
 .container {
   max-width: 55rem;
   margin: 0 auto 1em;
-  
+
 }
 
 /* ---------------------------------------- */
@@ -254,37 +254,37 @@ label {
 svg .snow {
   fill: #77b5ed;
   animation: snow-fall 5s linear infinite;
-  
+
   transform-origin: center;
 }
 
 @keyframes snow-fall {
-  
+
   0% {
     transform: translate3d(0px,-20%,0px) rotateZ(0deg);
     opacity: 0;
   }
-  
+
   25% {
     transform: translate3d(0px,-15%,0px) rotateZ(15deg);
     opacity: 0.5;
   }
-  
+
   50% {
     transform: translate3d(0px,-10%,0px) rotateZ(30deg);
     opacity: 1;
   }
-  
+
   75% {
     transform: translate3d(0px,0%,0px) rotateZ(45deg);
     opacity: 1;
   }
-  
+
   100% {
     transform: translate3d(0px,10%,0px) rotateZ(60deg);
     opacity: 0;
   }
-  
+
 }
 
 svg .rain, svg .hail {
@@ -312,11 +312,11 @@ svg .bolt {
   70% {
     opacity: 1;
   }
-  
+
   90% {
     opacity: .9;
   }
-  
+
   100% {
     transform: translateY(0);
     opacity: 0;
@@ -328,17 +328,17 @@ svg .bolt {
     opacity: 1;
     transform: translateY(-.2em);
   }
-  
+
   20% {
     opacity: 0;
   }
-  
+
   40% {
     opacity: 1;
     transform: translateY(0em);
   }
-  
-  
+
+
   100% {
     opacity: 0;
   }
@@ -353,11 +353,11 @@ svg .bolt {
     transform: scale3d(0, 0, 0);
     opacity: 0;
   }
-  
+
   50% {
     transform: scale3d(1.05, 1.05, 1.05);
   }
-  
+
   100% {
     opacity: 1;
     transform: scale3d(1, 1, 1);
@@ -383,7 +383,7 @@ svg .bolt {
 
 .p-a-1 {
   padding: $unit-spacing;
-  
+
 }
 
 .m-a-1 {
