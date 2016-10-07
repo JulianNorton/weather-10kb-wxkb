@@ -29,8 +29,16 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 ### Please fork, modify, and use this project!
 Open source, General Public License v2.
+Things to keep in mind:
+* [Accessibility (a11y)](https://a-k-apart.com/faq#a11y)
+* Browser compatibility
+* Performance
 
 ### Misc
 * Vote for wkxb on a-k-apart.com!
   * https://a-k-apart.com/gallery/wxkb-io-A-super-fast-weat
 * [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
+
+### Pull requestsAccessibility
+Cross-browser compatibility (I'll open it in lynx)
+Performance (shouldn't be a problem here)
