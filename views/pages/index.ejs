@@ -66,10 +66,10 @@
           <h3 class="sr-only">Current units</h3>
           <% if (params.scale === 'F') { %>
           Imperial (°F)
-          <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric units (°C &amp; m/s)</a>
+          <a class="small m-x-1" href="/<%= params.location %>">Switch to Metric units (°C &amp; m/s)</a>
           <% } else {%>
           Metric (°C)
-          <a class="small m-x-1" href="/<%= params.location %>">Switch to Imperial units (°F &amp; mph)</a>
+          <a class="small m-x-1" href="/<%= params.location %>/f">Switch to Imperial units (°F &amp; mph)</a>
           <% } %>
         </nav>
       </section>

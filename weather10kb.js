@@ -123,7 +123,7 @@ router.get('/:location?/:scale?', function(request, response) {
     if (typeof request.params.scale === 'string') {
       request.params.scale = request.params.scale.toUpperCase();
     } else {
-      request.params.scale = 'F';
+      request.params.scale = 'C';
     }
 
     request.params.units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
