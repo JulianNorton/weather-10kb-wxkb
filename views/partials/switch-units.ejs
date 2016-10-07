@@ -1,12 +1,30 @@
-<form action="/<%= params.locationSearch %>" method="get">
-  <label for="change-units" class="sr-only">Select scale/wind units</label>
-  <span class="flex wrap m-b-xs">
-    <select id="change-units" name="units">
-      <option value="us"<%= params.units === 'us' ? ' selected' : '' %>>°F, mph</option>
-      <option value="ca"<%= params.units === 'ca' ? ' selected' : '' %>>°C, km/h</option>
-      <option value="si"<%= params.units === 'si' ? ' selected' : '' %>>°C, m/s</option>
-      <option value="uk2"<%= params.units === 'uk2' ? ' selected' : '' %>>°C, mph</option>
-    </select>
-    <button class="btn" type="submit">Switch</button>
-  </span>
-</form>
+<ul class="flex wrap m-b-xs small center-h">
+  <li class="p-a-1">
+    <% if (params.units === 'us') { %>
+      °F, mph
+    <% } else { %>
+      <a href="/<%= params.locationSearch %>?units=us">°F, mph</a>
+    <% } %>
+  </li>
+  <li class="p-a-1">
+    <% if (params.units === 'ca') { %>
+      °C, km/h
+    <% } else { %>
+      <a href="/<%= params.locationSearch %>?units=ca">°C, km/h</a>
+    <% } %>
+  </li>
+  <li class="p-a-1">
+    <% if (params.units === 'si') { %>
+      °C, m/s
+    <% } else { %>
+      <a href="/<%= params.locationSearch %>?units=si">°C, m/s</a>
+    <% } %>
+  </li>
+  <li class="p-a-1">
+    <% if (params.units === 'uk2') { %>
+      °C, mph
+    <% } else { %>
+      <a href="/<%= params.locationSearch %>?units=uk2">°C, mph</a>
+    <% } %>
+  </li>
+</ul>
