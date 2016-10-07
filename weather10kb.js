@@ -25,18 +25,20 @@ function Weather10kbRequest(request) {
           apiKey: process.env.GOOGLE_API_KEY,
           formatter: null         // 'gpx', 'string', ...
         });
+        var countryCode = 'US';
         geocoder.geocode(request.params.location)
           .then(function(res) {
             if (res.length) {
               request.params.latitude = res[0].latitude
               request.params.longitude = res[0].longitude
               request.params.formatted_location = res[0].formattedAddress
+              countryCode = res[0].countryCode;
             } else {
               // TODO throw exception?
               request.params.latitude = 0;
               request.params.longitude = 0;
             }
-            resolve();
+            resolve(countryCode);
           })
           .catch(function(err) {
             return reject(err);
@@ -65,7 +67,7 @@ function Weather10kbRequest(request) {
           // something readable to display to the user
           request.params.formatted_location = location.city + ', ' + location.region_code
 
-          resolve();
+          resolve(location.region_code);
         })
       }
     });
@@ -88,13 +90,13 @@ function Weather10kbRequest(request) {
   this.getForecast = function() {
     return new Promise(function(resolve, reject) {
       var forecast = new DarkSky(process.env.DARK_SKY_API_KEY);
-      var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
+      var units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'auto' : 'us'
 
       forecast
         .latitude(request.params.latitude)
         .longitude(request.params.longitude)
         .units(units)
-        .exclude('minutely,flags')
+        .exclude('minutely')
         .get()
         .then(function(res) {
           resolve(res);
@@ -126,7 +128,7 @@ router.get('/:location?/:scale?', function(request, response) {
       request.params.scale = 'C';
     }
 
-    request.params.units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'si' : 'us'
+    request.params.units = (typeof request.params.scale === 'string' && request.params.scale === 'C') ? 'auto' : 'us'
 
   var wr = new Weather10kbRequest(request);
 
@@ -134,6 +136,15 @@ router.get('/:location?/:scale?', function(request, response) {
     .then(wr.setTimeZone)
     .then(wr.getForecast)
     .then(function(data) {
+      // Wind speed measurement by Dark Sky unit
+      // TODO: Read from config file?
+      const measurement = {
+        ca: 'km/h',
+        si: 'm/s',
+        uk2: 'mph',
+        us: 'mph',
+      };
+
       if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location == ', ') {
         request.params.formatted_location = request.params.location;
       }
@@ -145,7 +156,19 @@ router.get('/:location?/:scale?', function(request, response) {
         throw 'Undetermined location.';
       }
 
-      return response.render('pages/index', objectMerge(data, {params: request.params}));
+      var args = objectMerge(data, {params: request.params});
+
+      // Default wind speed unit
+      args.params.windUnit = 'km/h';
+
+      // Set default units based on the unit used in the forecast response
+      if (typeof args.flags.units === 'string' && args.flags.units !== '') {
+        args.params.units = args.flags.units;
+        args.params.scale = args.params.units === 'us' ? 'F' : 'C';
+        args.params.windUnit = measurement[args.params.units];
+      }
+
+      return response.render('pages/index', args);
     })
     .catch(function(err){
       if (err instanceof Error) {
