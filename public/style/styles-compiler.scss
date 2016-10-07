@@ -251,6 +251,42 @@ label {
 /* ---------------------------------------- */
 /* Animation */
 
+svg .snow {
+	fill: #77b5ed;
+	animation: snow-fall 5s linear infinite;
+
+	transform-origin: center;
+}
+
+@keyframes snow-fall {
+
+	0% {
+		transform: translate3d(0px,-20%,0px) rotateZ(0deg);
+		opacity: 0;
+	}
+
+	25% {
+		transform: translate3d(0px,-15%,0px) rotateZ(15deg);
+		opacity: 0.5;
+	}
+
+	50% {
+		transform: translate3d(0px,-10%,0px) rotateZ(30deg);
+		opacity: 1;
+	}
+
+	75% {
+		transform: translate3d(0px,0%,0px) rotateZ(45deg);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translate3d(0px,10%,0px) rotateZ(60deg);
+		opacity: 0;
+	}
+
+}
+
 svg .rain, svg .hail {
     animation: rain 5s ease-in infinite;
     &:nth-child(2) {
