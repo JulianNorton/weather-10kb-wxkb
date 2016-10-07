@@ -130,10 +130,15 @@ router.get('/:location?/:scale?', function(request, response) {
 
   var wr = new Weather10kbRequest(request);
 
+
   wr.geocode()
     .then(wr.setTimeZone)
     .then(wr.getForecast)
     .then(function(data) {
+
+        console.log(request.params);
+        console.log(data.daily.data);
+
       if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location == ', ') {
         request.params.formatted_location = request.params.location;
       }

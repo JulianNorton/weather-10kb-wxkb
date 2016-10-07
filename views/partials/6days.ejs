@@ -1,0 +1,19 @@
+<section class="card">
+  <div>
+    Day <%= data.i%>
+  </div>
+  <br>
+  <div class="ccont">
+    <div class="tempcont">
+        <div>
+          High: <%=Math.round(data.daily.temperatureMax)%>°
+        </div>
+          <div>
+          Low: <%=Math.round(data.daily.temperatureMin)%>°
+        </div>
+    </div>
+    <div class="imagecont">
+        <%- include('../../public/images/' + data.daily.icon + '.svg') %>
+    </div>
+  </div>
+</section>
