@@ -2,7 +2,7 @@
     <section class="card">
 
         <h4><a href="<%= data[i].uri %>" rel="noopener" target="_blank"><%= data[i].title %> until <%= moment.utc(data[i].expires * 1000).format("h:mm a [on] dddd, MMMM Do") %></a></h4>
-        <p class="status-subtitle"><%= data[i].description.substr(0,139) %>&hellip;<a href="<%= data[i].uri %>" rel="noopener" target="_blank">continued</a></p>
+        <p class="status-subtitle" style="text-transform:lowercase"><%= data[i].description.substr(0,139) %>&hellip;<a href="<%= data[i].uri %>" rel="noopener" target="_blank">continued</a></p>
 
     </section>
 
