@@ -111,7 +111,7 @@ router.get('/:location?/:scale?', function(request, response) {
   // validate
     // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
     if (typeof request.query.location === 'string') {
-      return response.redirect('/' + request.query.location);
+      return response.redirect('/' + encodeURIComponent(request.query.location));
     }
 
     // if we got a scale and not a location for the first param, adjust params accordingly
