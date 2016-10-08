@@ -5,14 +5,14 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 ## Run wxkb.io locally
 1. [Install node.js](https://nodejs.org/en/download/)
   * if you have [homebrew](http://brew.sh/), `brew install node`
-1. clone repo, `git clone https://github.com/JulianNorton/weather-10kb.git`
-1. `npm install`
-  * this installs other packages that make wxkb.io work.
+1. clone repo via terminal: `git clone https://github.com/JulianNorton/weather-10kb.git`
+1. cd into the weather-10kb folder: `cd weather-10kb`
+1. install required packages: `npm install`
 1. [Sign up for a dark sky API key](https://darksky.net/dev/register?wxkb)
-1. `DARK_SKY_API_KEY=<key> node index.js`
-  * replace `<key>` with whatever your API key is
-  * Production branch uses `FORECAST_IO_API_KEY` instead of `DARK_SKY_API_KEY`
-  * Google api key isn't required, but will increase rate limit for the npm package `node-geocoder`
+1. Turn on local version: `DARK_SKY_API_KEY=<key> node index.js` †
+  * Replace `<key>` with whatever your API key is
+  * † Google api key will increase rate limit for the npm package `node-geocoder`
+    * † **may require google api** key, see: https://github.com/JulianNorton/weather-10kb/issues/62
     * `DARK_SKY_API_KEY=<key> GOOGLE_API_KEY=<key> node index.js` to run it locally with the google key
   * Ignore opbeat "isn't correctly configured", that's used only for wxkb.io production logging
 1. go to http://localhost:5000
@@ -22,11 +22,31 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 
 ### Modify & Compile CSS
   * `styles-compiler.scss` compiles into `main.css` using [node-sass](https://npmjs.org/package/node-sass)
-  * Automatically compile css whenever there's a change to the `.scss` file: `npm run watch-css` 
-  * If you want to compile css once: `npm run build-css`
+  * `npm run watch-css` Automatically compiles css whenever there's a change to the `.scss`
+  * `npm run build-css` If you want to compile css once 
+  * `npm rebuild node-sass` if you're switching branches a lot this can fix node-sass crashes.
 
 
-#### Please fork, modify, and use this project! Just make sure the pull-requests are to the _development_ branch
-[GNU General Public License GPL-2.0](https://opensource.org/licenses/GPL-2.0)
+### Please fork, modify, and use this project!
+Open source, General Public License v2. Basically do whatever you want with it. Pull requests must keep these tenants in mind:
 
-> The GNU GPL is the most widely used free software license. When distributing derived works, the source code of the work must be made available under the same license.
+#### Accessibility (a11y)
+  * https://a-k-apart.com/faq#a11y
+  * https://a11y-service.herokuapp.com/report/wxkb.io
+  
+#### Browser compatibility
+  * http://browsershots.org/http://wxkb.io/
+  
+#### Performance
+  * https://developers.google.com/speed/pagespeed/insights/?url=wxkb.io
+
+
+### Misc
+* Vote for wkxb on a-k-apart.com!
+  * https://a-k-apart.com/gallery/wxkb-io-A-super-fast-weat
+* [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
+* Use [EditorConfig](http://editorconfig.org/) to maintain a consistent coding style between contributors. Use EditorConfig with your editor: [the plugin section](http://editorconfig.org/#download).
+
+### Pull requestsAccessibility
+Cross-browser compatibility (I'll open it in lynx)
+Performance (shouldn't be a problem here)
