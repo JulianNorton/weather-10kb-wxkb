@@ -500,3 +500,23 @@ svg { // width: 1.5em inlined
     display: none;
   }
 }
+
+/* Tempoary section, needs to be refactored */
+
+.ccont{
+  width: 100%;
+  height: 2.4em;
+  padding-bottom: 10%;
+}
+.tempcont{
+  width: 85%;
+  display: inline;
+  float: left;
+}
+.imgcomp{
+  width: 50%;
+  height: auto;
+
+  display: inline;
+  float: right;
+}
