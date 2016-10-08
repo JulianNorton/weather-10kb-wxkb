@@ -111,7 +111,7 @@ function Weather10kbRequest(request) {
 }
 
 router.get('/:location?', function(request, response) {
-  const unitsCookie = 'wxkbUnits';
+  const prefsCookie = 'wxkb_preferences';
   request.params.units = 'auto';
   request.params.locationSearch  = null;
 
@@ -142,16 +142,21 @@ router.get('/:location?', function(request, response) {
 
   // validate
     // Check for a cookie with units value
-    if (unitsCookie in request.cookies && typeof request.cookies[unitsCookie] === 'string' && request.cookies[unitsCookie] in defaultUnits) {
-      request.params.units = request.cookies[unitsCookie];
+    var prefsCookiePrev;
+    if (prefsCookie in request.cookies
+      && typeof request.cookies[prefsCookie] === 'object'
+      && 'units' in request.cookies[prefsCookie]
+      && request.cookies[prefsCookie].units in defaultUnits) {
+      request.params.units = request.cookies[prefsCookie].units;
+      prefsCookiePrev = request.cookies[prefsCookie];
     }
 
     // Check query string variable for switching units
     if (typeof request.query.units === 'string' && request.query.units.toLowerCase() in defaultUnits) {
       request.params.units = request.query.units;
 
-      // Set units cookie
-      response.cookie(unitsCookie, request.params.units, {expires: 0});
+      // Update preferences cookie or create a new one
+      response.cookie(prefsCookie, objectMerge(prefsCookiePrev, {units: request.params.units}), {expires: 0});
 
       // Redirect to remove units query string from URL
       var locParam = '';
