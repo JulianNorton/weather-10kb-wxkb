@@ -1,22 +1,12 @@
 <h4 class="sr-only">Switch units</h4>
 <form action="/<%= params.locationSearch %>" method="get">
-<ul class="flex wrap m-b-xs center-h btn-wrap">
-  <li>
-    <label id="us-label" class="sr-only">Fahrenheit, imperial</label>
-    <button type="submit" value="us" class="btn-secondary<%= params.units === 'us' ? ' current' : '' %>" aria-labelledby="us-label"><span aria-hidden="true">°F, mph</span></button>
-  </li>
-  <li>
-    <label id="ca-label" class="sr-only">Celsius, metric (km/h)</label>
-    <button type="submit" value="ca" class="btn-secondary<%= params.units === 'ca' ? ' current' : '' %>" aria-labelledby="ca-label"><span aria-hidden="true">°C, km/h</span></button>
-  </li>
-  <li>
-    <label id="si-label" class="sr-only">Celsius, metric (m/h)</label>
-    <button type="submit" value="si" class="btn-secondary<%= params.units === 'si' ? ' current' : '' %>" aria-labelledby="si-label"><span aria-hidden="true">°C, m/s</span></button>
-  </li>
-  <li>
-    <label id="uk2-label" class="sr-only">Celsius, imperial</label>
-    <button type="submit" value="uk2" class="btn-secondary<%= params.units === 'uk2' ? ' current' : '' %>" aria-labelledby="uk2-label"><span aria-hidden="true">°C, mph</span></button>
-  </li>
-</ul>
+  <ul class="flex wrap m-b-xs center-h btn-wrap">
+    <% for (var unitProp in params.defaultUnits) { %>
+      <li>
+        <label id="<%= unitProp %>-label" class="sr-only"><%= params.defaultUnits[unitProp].desc %><%= params.units === unitProp ? ' (current)' : '' %></label>
+        <button type="submit" value="<%= unitProp %>" class="btn-secondary<%= params.units === unitProp ? ' current' : '' %>" aria-labelledby="<%= unitProp %>-label" name="units"><span aria-hidden="true">°<%= params.defaultUnits[unitProp].scale %>, <%= params.defaultUnits[unitProp].speed %></span></button>
+      </li>
+    <% } %>
+  </ul>
 </form>
 

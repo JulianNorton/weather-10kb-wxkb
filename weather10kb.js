@@ -118,10 +118,26 @@ router.get('/:location?', function(request, response) {
   // Dark Sky units with their wind speed measurements
   // TODO: Read from config file?
   const defaultUnits = {
-    ca: 'km/h',
-    si: 'm/s',
-    uk2: 'mph',
-    us: 'mph',
+    ca: {
+      scale: 'C',
+      speed: 'km/h',
+      desc: 'Celsius, metric (km/h)'
+    },
+    si: {
+      scale: 'C',
+      speed: 'm/s',
+      desc: 'Celsius, metric (m/s)'
+    },
+    us: {
+      scale: 'F',
+      speed: 'mph',
+      desc: 'Fahrenheit, imperial'
+    },
+    uk2: {
+      scale: 'C',
+      speed: 'mph',
+      desc: 'Celsius, imperial'
+    },
   };
 
   // validate
@@ -130,8 +146,8 @@ router.get('/:location?', function(request, response) {
       request.params.units = request.cookies[unitsCookie];
     }
 
+    // Check query string variable for switching units
     if (typeof request.query.units === 'string' && request.query.units.toLowerCase() in defaultUnits) {
-      // Check query string variable for switching units
       request.params.units = request.query.units;
 
       // Set units cookie
@@ -176,11 +192,14 @@ router.get('/:location?', function(request, response) {
       // Default wind speed unit
       args.params.windUnit = 'km/h';
 
+      // List of available units
+      args.params.defaultUnits = defaultUnits;
+
       // Set default units based on the units flag used in the forecast response
       if (typeof args.flags.units === 'string' && args.flags.units !== '') {
         args.params.units = args.flags.units;
         args.params.scale = args.params.units === 'us' ? 'F' : 'C';
-        args.params.windUnit = defaultUnits[args.params.units];
+        args.params.windUnit = defaultUnits[args.params.units].speed;
       }
 
       return response.render('pages/index', args);
