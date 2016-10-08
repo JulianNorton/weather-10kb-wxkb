@@ -161,9 +161,9 @@ router.get('/:location?', function(request, response) {
       // Redirect to remove units query string from URL
       var locParam = '';
       if (typeof request.params.location === 'string') {
-        locParam = request.params.location;
+        locParam = encodeURIComponent(request.params.location);
       } else if (typeof request.query.location === 'string') {
-        locParam = '?location=' + request.query.location;
+        locParam = '?location=' + encodeURIComponent(request.query.location);
       }
 
       return response.redirect('/' + locParam);
@@ -171,7 +171,7 @@ router.get('/:location?', function(request, response) {
 
     // check for & handle a querystring variable in case the user submitted the location/units form rather than passing a url param
     if (typeof request.query.location === 'string') {
-      return response.redirect('/' + request.query.location);
+      return response.redirect('/' + encodeURIComponent(request.query.location));
     }
 
   var wr = new Weather10kbRequest(request);
