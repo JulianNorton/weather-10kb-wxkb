@@ -1,0 +1,6 @@
+<li class="flex">
+  <span class="data-secondary">Day <%= data.i%></span>
+  <span class="small nowrap m-x-1">High: <%=Math.round(data.daily.temperatureMax)%>°</span>
+  <span class="data-secondary nowrap">Low: <%=Math.round(data.daily.temperatureMin)%>°</span>
+  <%- include('../../public/images/' + data.daily.icon + '.svg') %>
+</li>

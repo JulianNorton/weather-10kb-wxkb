@@ -53,12 +53,26 @@
         <% if(showTomorrow) { %>
             <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
         <% } %>
+
+        <!-- Maybe this week should be its' own page? -->
+        <section class="card">
+          <h3 class="data-secondary">Week's Forecast</h3>
+          <%= daily.summary %>
+          <ul class="forecast-secondary">
+            <% for(var i = 1;i<=6;i++){%>
+              <%-include('../partials/6days',{data:{daily:daily.data[i],i:i}})%>
+            <%}%>
+          </ul>
+        </section>
+        
+        <!-- No longer needed? -->
         <section class="card">
           <h3 class="data-secondary">This week</h3>
-          <p class="data-primary">
+          <div class="forecast-secondary">
             <%= daily.summary %>
-          </p>
+          </div>
         </section>
+
       </article>
       <section class="card">
         <%- include('../partials/change-location')%>
