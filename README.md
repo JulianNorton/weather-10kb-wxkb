@@ -46,7 +46,3 @@ Open source, General Public License v2. Basically do whatever you want with it. 
   * https://a-k-apart.com/gallery/wxkb-io-A-super-fast-weat
 * [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
 * Use [EditorConfig](http://editorconfig.org/) to maintain a consistent coding style between contributors. Use EditorConfig with your editor: [the plugin section](http://editorconfig.org/#download).
-
-### Pull requestsAccessibility
-Cross-browser compatibility (I'll open it in lynx)
-Performance (shouldn't be a problem here)
