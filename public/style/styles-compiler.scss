@@ -191,6 +191,7 @@ label {
 .btn-secondary {
     background: lighten($brand-primary, 55%);
     border: none;
+    color: $gray;
     cursor: pointer;
     font-size: .8em;
     padding: .3em .4em;
