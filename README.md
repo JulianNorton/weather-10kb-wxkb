@@ -2,7 +2,7 @@
 #### Weather forecast in under 10kb.
 Loads in less than 10kb (excluding favicons) without any client side javascript.
 
-## Run wxkb.io locally
+# Run wxkb.io locally
 1. [Install node.js](https://nodejs.org/en/download/)
   * if you have [homebrew](http://brew.sh/), `brew install node`
 1. clone repo via terminal: `git clone https://github.com/JulianNorton/weather-10kb.git`
@@ -20,14 +20,14 @@ Loads in less than 10kb (excluding favicons) without any client side javascript.
 1. [Submit any bugs, questions, or ideas you have!](https://github.com/JulianNorton/weather-10kb/issues)
 
 
-### Modify & Compile CSS
+## Modify & Compile CSS
   * `styles-compiler.scss` compiles into `main.css` using [node-sass](https://npmjs.org/package/node-sass)
   * `npm run watch-css` Automatically compiles css whenever there's a change to the `.scss`
   * `npm run build-css` If you want to compile css once 
   * `npm rebuild node-sass` if you're switching branches a lot this can fix node-sass crashes.
 
 
-### Please fork, modify, and use this project!
+## Please fork, modify, and use this project!
 Open source, General Public License v2. Basically do whatever you want with it. Pull requests must keep these tenants in mind:
 
 #### Accessibility (a11y)
