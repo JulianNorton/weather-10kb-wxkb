@@ -1,13 +1,13 @@
 <span><%= data.summary.charAt(0).toUpperCase() + data.summary.slice(1).toLowerCase() %></span>
 
-<% isNoWind = function() {
-	if (params.windUnit === 'm/s' && data.windSpeed < 0.894) {
+<% isWindSpeedBelowMph = function(mphValue) {
+	if (params.windUnit === 'm/s' && data.windSpeed < mphValue*0.447) {
 		return true;
 	}
-	if (params.windUnit === 'km/h' && data.windSpeed < 3.219) {
+	if (params.windUnit === 'km/h' && data.windSpeed < mphValue*1.609) {
 		return true;
 	}
-	if (params.windUnit === 'mph' && data.windSpeed < 2) {
+	if (params.windUnit === 'mph' && data.windSpeed < mphValue) {
 		return true;
 	}
 	return false;
@@ -21,14 +21,14 @@
 <% } %>
 
 <span>with
-<% if (isNoWind()) { %>
+<% if (isWindSpeedBelowMph(2)) { %>
 	no wind
 <% } else { %>
 	a <%= Math.round(data.windSpeed) %>
 		<span><%= params.windUnit %>
-		<% if (params.windUnit === 'm/s' && data.windSpeed < 13.9 || (params.windUnit === 'mph' && data.windSpeed < 32) || (params.windUnit === 'km/h' && data.windSpeed < 51.49)) { %>
+		<% if (isWindSpeedBelowMph(32)) { %>
 			breeze
-		<% } else if (params.windUnit === 'm/s' && data.windSpeed < 17.2 || (params.windUnit === 'mph' && data.windSpeed < 39) || (params.windUnit === 'km/h' && data.windSpeed < 62.764)) { %>
+		<% } else if (isWindSpeedBelowMph(39)) { %>
 			wind
 		<% } else { %>
 			gale
