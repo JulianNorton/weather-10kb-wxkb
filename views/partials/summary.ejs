@@ -1,5 +1,18 @@
 <span><%= data.summary.charAt(0).toUpperCase() + data.summary.slice(1).toLowerCase() %></span>
 
+<% isNoWind = function() {
+	if (params.windUnit === 'm/s' && data.windSpeed < 0.894) {
+		return true;
+	}
+	if (params.windUnit === 'km/h' && data.windSpeed < 3.219) {
+		return true;
+	}
+	if (params.windUnit === 'mph' && data.windSpeed < 2) {
+		return true;
+	}
+	return false;
+}%>
+
 <% if (Math.abs(data.temperature - data.apparentTemperature) > 3 ) { %>
 	<span>
 		feels like
@@ -7,12 +20,11 @@
 	</span>
 <% } %>
 
-<% if (params.windUnit === 'm/s' && data.windSpeed < 0.894 || (params.windUnit === 'mph' && data.windSpeed < 2) || (params.windUnit === 'km/h' && data.windSpeed < 3.219)) { %>
-	<!--<span>with no wind.</span>-->
+<span>with
+<% if (isNoWind()) { %>
+	no wind
 <% } else { %>
-	<span>
-		with a
-		<%= Math.round(data.windSpeed) %>
+	a <%= Math.round(data.windSpeed) %>
 		<span><%= params.windUnit %>
 		<% if (params.windUnit === 'm/s' && data.windSpeed < 13.9 || (params.windUnit === 'mph' && data.windSpeed < 32) || (params.windUnit === 'km/h' && data.windSpeed < 51.49)) { %>
 			breeze
@@ -22,8 +34,8 @@
 			gale
 		<% } %>
 		</span>
-	</span>
 <% } %>
+</span>
 
 <% if (data.precipProbability > 5) { %>
 	<span><%= Math.round(100 * data.precipProbability) %>% chance of</span>
