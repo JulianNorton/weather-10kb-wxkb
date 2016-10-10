@@ -33,7 +33,7 @@ function Weather10kbRequest(request) {
               request.params.longitude = res[0].longitude
               request.params.formatted_location = res[0].formattedAddress
               request.params.locationSearch = request.params.location;
-              countryCode = res[0].countryCode;
+              countryCode = res[0].countryCode ? res[0].countryCode : 'US';
             } else {
               // TODO throw exception?
               request.params.latitude = 0;
