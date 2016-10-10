@@ -7,16 +7,16 @@
 	</span>
 <% } %>
 
-<% if (params.units === 'si' && data.windSpeed < 0.894 || data.windSpeed < 2) { %>
+<% if (params.windUnit === 'm/s' && data.windSpeed < 0.894 || (params.windUnit === 'mph' && data.windSpeed < 2) || (params.windUnit === 'km/h' && data.windSpeed < 3.219)) { %>
 	<!--<span>with no wind.</span>-->
 <% } else { %>
 	<span>
 		with a
 		<%= Math.round(data.windSpeed) %>
 		<span><%= params.windUnit %>
-		<% if (params.units === 'si' && data.windSpeed < 13.9 || data.windSpeed < 32) { %>
+		<% if (params.windUnit === 'm/s' && data.windSpeed < 13.9 || (params.windUnit === 'mph' && data.windSpeed < 32) || (params.windUnit === 'km/h' && data.windSpeed < 51.49)) { %>
 			breeze
-		<% } else if (params.units === 'si' && data.windSpeed < 17.2 || data.windSpeed < 39) { %>
+		<% } else if (params.windUnit === 'm/s' && data.windSpeed < 17.2 || (params.windUnit === 'mph' && data.windSpeed < 39) || (params.windUnit === 'km/h' && data.windSpeed < 62.764)) { %>
 			wind
 		<% } else { %>
 			gale
