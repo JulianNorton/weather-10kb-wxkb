@@ -189,6 +189,29 @@ label {
   }
 }
 
+.btn-secondary {
+  background: lighten($brand-primary, 55%);
+  border: none;
+  color: $gray;
+  cursor: pointer;
+  font-size: .8em;
+  padding: .3em .4em;
+  &:hover, &:active, &:focus {
+    background-color: lighten($brand-primary, 40%);
+  }
+
+  &.current {
+    background: $brand-primary;
+    color: $gray-lighter;
+  }
+}
+
+.btn-wrap {
+  .btn-secondary, .btn {
+    margin-right: $unit-spacing;
+  }
+}
+
 .card {
   margin-bottom: $unit-spacing;
   border: $border;
@@ -368,9 +391,15 @@ svg .bolt {
 /* ---------------------------------------- */
 /* Utilities */
 
+// flex utilities
+
 .flex {
   display: flex;
   align-items: flex-start;
+}
+
+.f-1 {
+  flex: 1;
 }
 
 .wrap {
@@ -380,6 +409,12 @@ svg .bolt {
 .center {
   align-self: center;
 }
+
+.center-h {
+  justify-content: center;
+}
+
+// spacing utilties
 
 .p-a-1 {
   padding: $unit-spacing;
@@ -402,6 +437,8 @@ svg .bolt {
 .m-b-xs {
   margin-bottom: $unit-spacing / 2;
 }
+
+// 
 
 .nowrap {
   white-space: nowrap;

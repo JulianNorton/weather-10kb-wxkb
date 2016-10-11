@@ -13,11 +13,12 @@
   },
   "dependencies": {
     "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "dark-sky": "^1.0.9",
     "dateformat": "^1.0.12",
     "ejs": "^2.5.1",
     "express": "^4.13.3",
     "express-minify-html": "^0.6.0",
-    "dark-sky": "^1.0.9",
     "geoip-lite": "^1.1.8",
     "google-timezone-api": "^1.0.1",
     "moment-timezone": "^0.5.5",
