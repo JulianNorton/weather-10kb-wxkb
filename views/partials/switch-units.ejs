@@ -4,7 +4,7 @@
     <% for (var unitProp in params.defaultUnits) { %>
       <li>
         <label id="<%= unitProp %>-label" class="sr-only"><%= params.defaultUnits[unitProp].desc %><%= params.units === unitProp ? ' (current)' : '' %></label>
-        <button type="submit" value="<%= unitProp %>" class="btn-secondary<%= params.units === unitProp ? ' current' : '' %>" aria-labelledby="<%= unitProp %>-label" name="units"><span aria-hidden="true">°<%= params.defaultUnits[unitProp].scale %>, <%= params.defaultUnits[unitProp].speed %></span></button>
+        <button type="submit" value="<%= unitProp %>" class="btn-secondary<%= params.units === unitProp ? ' current' : '' %>" aria-labelledby="<%= unitProp %>-label" name="units"><span aria-hidden="true">º<%= params.defaultUnits[unitProp].scale %>, <%= params.defaultUnits[unitProp].speed %></span></button>
       </li>
     <% } %>
   </ul>
