@@ -39,6 +39,7 @@ function Weather10kbRequest(request) {
               request.params.latitude = 0;
               request.params.longitude = 0;
             }
+            request.params.countryCode = countryCode;
             resolve(countryCode);
           })
           .catch(function(err) {
@@ -61,6 +62,7 @@ function Weather10kbRequest(request) {
 
           request.params.latitude = location.latitude
           request.params.longitude = location.longitude
+          request.params.countryCode = location.country_code ? location.country_code : 'US';
 
           // set the location to coordinates since that's all we have
           request.params.location = request.params.latitude + ',' + request.params.longitude;
@@ -140,6 +142,9 @@ router.get('/:location?', function(request, response) {
     },
   };
 
+  // Codes of countries mostly using 12-hour clock
+  const twelveHourTime = ['AU', 'CA', 'CO', 'EG', 'IN', 'MY', 'NZ', 'PH', 'PK', 'SA', 'UK', 'US', 'VN'];
+
   // validate
     // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
     if (typeof request.query.location === 'string') {
@@ -211,6 +216,9 @@ router.get('/:location?', function(request, response) {
         args.params.scale = args.params.units === 'us' ? 'F' : 'C';
         args.params.windUnit = defaultUnits[args.params.units].speed;
       }
+
+      // Set format string for hours based on the most common clock format fo the current location
+      args.params.hoursFormat = twelveHourTime.includes(request.params.countryCode) ? 'h' : 'H';
 
       return response.render('pages/index', args);
     })
