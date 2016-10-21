@@ -1,0 +1,23 @@
+.forecast-secondary li:first-child {
+  border-top: 1px solid rgba(220, 220, 220, .5);
+  margin-top: .66em;
+  padding-top: .66em;
+}
+
+// card-separator
+.forecast-secondary li {
+  border-bottom: $border;
+  margin-bottom: .66em;
+  padding-bottom: .66em;
+
+  .data-secondary {
+    display: inline-block;
+    min-width: 2.5em;
+  }
+}
+
+.forecast-secondary li:last-child {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}

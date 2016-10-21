@@ -1,0 +1,10 @@
+.data-primary {
+  @extend .large;
+  margin-bottom: 0;
+  margin-top: .3em;
+}
+
+.data-secondary {
+  @extend .small;
+  @extend .muted;
+}
