@@ -1,0 +1,52 @@
+svg { // width: 1.5em inlined
+  @extend .center;
+  @extend .m-x-1;
+  min-width: 32px; // fallback
+  max-width: 72px; // fallback
+  min-width: 4rem;
+  max-width: 6rem;
+  max-height: 72px; // fallback
+  max-height: 6rem;
+  padding: .1em;
+  box-sizing: content-box;
+}
+
+.sun {
+  fill: #F5A623;
+}
+
+.moon {
+  fill: #1E256C;
+}
+
+.stars {
+  fill: $purple-fallback;
+  fill: $purple;
+}
+
+// cloudy & fog
+.cloud {
+  fill: #36383C;
+}
+
+// rain, drizzle, snow
+.rain {
+  fill: #2B598E;
+}
+
+// sleet, hail
+.hail {
+  fill: $blue-darker;
+}
+
+.wind {
+  fill: #6F8F9D;
+}
+
+.tornado {
+  fill: #003952;
+}
+
+.bolt {
+  fill: #F2E000;
+}

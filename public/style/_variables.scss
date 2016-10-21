@@ -1,0 +1,43 @@
+// Hex instead of RGBA for ie8 support
+$gray: #4e554e; // 7.2 contrast with background of $gray-lighter (#f8f8f8)
+$gray-lighter: #f8f8f8;
+$blue: #2b598e;
+$blue-darker: darken($blue, 10%);
+$blue-light: #77b5ed;
+$purple: rebeccapurple;
+// although I really want to use rebeccapurple
+$purple-fallback: #639;
+// Having trouble getting scss to output 'rebeccapurple' instead of #639.
+// #639 has better support
+// #3D00B5 is a possible, higher contrast alternative
+$purple-high-contrast: #3d00b5;
+
+// High contrast colors
+$black: #000;
+$white: #fff;
+$cyan: #0ff;
+$neon-green: #6f0;
+
+$text-secondary: $gray;
+$site-background: $gray-lighter;
+
+// Text shadow needs to be 'inbetween' color
+// because the <a> tag is sometimes on a gray background, and sometimes on a white background
+// This way reduces markup, while exploiting our eyes that can't see the small contrast
+// to allow letter descenders to have padding.
+// Deprecate this once 'text-decoration-skip' is supported. Further reading:
+// https://drafts.csswg.org/css-text-decor-3/#text-underline-position-property
+// https://drafts.csswg.org/css-text-decor-3/#text-decoration-skip-property
+$text-shadow: mix($site-background, $white);
+$brand-primary: $purple-fallback; // rebecca purple
+$brand-primary-darker: darken($purple-high-contrast, 5%); // slightly higher contrast than rebecca purple
+
+$unit-spacing: .5em;
+
+// rgba for non-critical styling
+$box-shadow: 0 1px 1px rgba(77, 77, 77, .3);
+
+$font-larger: 1.2em;
+$font-smaller: .8em;
+
+$border: 1px solid $gray-lighter;
