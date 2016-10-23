@@ -3,7 +3,6 @@
 @import 'base/reset',
 'base/typography',
 'base/structure',
-'base/utilities',
 'base/forms';
 
 @import 'components/animation',
@@ -15,4 +14,5 @@
 'components/icons',
 'components/status';
 
+@import 'base/utilities';
 @import 'base/high-contrast'; // Accessibility overrides
