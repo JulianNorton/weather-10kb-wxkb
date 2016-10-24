@@ -8,6 +8,14 @@ var opbeat = require('opbeat')
 
 var app = express();
 
+// Read the Certbot response from an environment variable; we'll set this later:
+const letsEncryptReponse = process.env.CERTBOT_RESPONSE;
+
+// Return the Let's Encrypt certbot response:
+app.get('/.well-known/acme-challenge/:content', function(req, res) {
+  res.send(letsEncryptReponse);
+});
+
 app.locals.moment = moment;
 
 app.use(compression());
