@@ -1,15 +1,15 @@
 <section class="card">
-  <h3 class="data-secondary">
+  <h3 class="small muted">
     <%= data.name %>
   </h3>
   <div class="flex wrap">
     <div>
-      <p class="data-primary"><%= data.daily.summary %></p>
+      <p class="forecast-primary"><%= data.daily.summary %></p>
       <p>
         <span class="small nowrap">
           High <%= Math.round(data.daily.temperatureMax) %>°
         </span>
-        <span class="data-secondary nowrap m-b-1">
+        <span class="small muted nowrap m-b-1">
           Low <%= Math.round(data.daily.temperatureMin) %>°
         </span>
       </p>
@@ -33,7 +33,7 @@
         }
     %>
     <li>
-      <span class="data-secondary"><%= hourlyTime.format('h')%><span class="small-caps"><%= hourlyTime.format('a') %></span></span>
+      <span class="small muted data-secondary"><%= hourlyTime.format(params.hoursFormat + (params.hoursFormat === 'H' ? ':mm' : ''))%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= hourlyTime.format('a') %></span><% } %></span>
       <span class="m-x-1"><%= Math.round(data.hourly[i].temperature) %>º</span>
       <span><%- include('../partials/summary', {data: data.hourly[i]}) %></span>
     </li>

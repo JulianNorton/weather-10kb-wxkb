@@ -18,8 +18,8 @@
 
   <body id="wxkb_io" class="container">
     <header class="flex wrap" style="justify-content: space-between">
-      <h1 class="m-a-1 data-secondary">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location and units</a></h1>
-      <h2 class="m-a-1 data-secondary" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h2>
+      <h1 class="m-a-1 small muted">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location and units</a></h1>
+      <h2 class="m-a-1 small muted" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h2>
     </header>
     <main>
 
@@ -31,7 +31,8 @@
       <article>
         <header class="card">
           <div>
-            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mm')%><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span>)</h3>
+            <h3 class="small muted">
+              Now (updated: <%= moment.unix(currently.time).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span><% } %>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <!--[if gte IE 9]><!-->
@@ -41,7 +42,7 @@
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
             </div>
-            <p class="data-primary"><%- include('../partials/summary', {data: currently}) %></p>
+            <p class="forecast-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
         </header>
         <%
@@ -54,8 +55,8 @@
             <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
         <% } %>
         <section class="card">
-          <h3 class="data-secondary">This week</h3>
-          <p class="data-primary">
+          <h3 class="small muted">This week</h3>
+          <p class="forecast-primary">
             <%= daily.summary %>
           </p>
         </section>

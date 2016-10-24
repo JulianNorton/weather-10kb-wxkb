@@ -1,0 +1,48 @@
+html {
+  // Prevent adjustments of font size after orientation changes in IE and iOS. */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+article,
+header,
+footer,
+ol,
+ul,
+li,
+p {
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+// HTML5 display-role reset for older browsers
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+// body typography is in typography.scss
+body {
+  background: $gray-lighter;
+  margin: 0;
+}

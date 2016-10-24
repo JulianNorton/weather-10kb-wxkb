@@ -1,0 +1,47 @@
+.btn {
+  background: $brand-primary;
+  border: $border;
+  border-bottom-right-radius: 2px;
+  border-color: $brand-primary;
+  border-left: 0;
+  border-top-right-radius: 2px;
+  color: $white;
+  height: 2em; //adjusts height of button
+  margin-left: -2px;
+  padding: .3em .6em;
+  transition: background-color ease-in-out 125ms;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $brand-primary-darker;
+    border-color: darken($brand-primary-darker, 10%);
+  }
+}
+
+.btn-secondary {
+  background: lighten($brand-primary, 55%);
+  border: 0;
+  color: $gray;
+  cursor: pointer;
+  font-size: .8em;
+  padding: .3em .4em;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: lighten($brand-primary, 40%);
+  }
+
+  &.current {
+    background: $brand-primary;
+    color: $gray-lighter;
+  }
+}
+
+.btn-wrap {
+  .btn-secondary,
+  .btn {
+    margin-right: $unit-spacing;
+  }
+}
