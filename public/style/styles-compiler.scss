@@ -264,6 +264,21 @@ svg .rain, svg .hail {
     }
 }
 
+.sleet1 {
+    fill: $blue-darker;
+    animation: sleetMove 2.5s ease-out infinite;
+}
+
+.sleet2 {
+    fill: $blue-darker;
+    animation: sleetMove 2.5s ease-out infinite 0.8s;
+}
+
+.sleet3 {
+    fill: $blue-darker;
+    animation: sleetMove 2.5s ease-out infinite 1.2s;
+}
+
 @keyframes rain {
     0% {
         opacity: 0;
@@ -302,6 +317,26 @@ svg .rain, svg .hail {
     transform: scale3d(1, 1, 1);
   }
 }
+
+@keyframes sleetMove {
+  100% {
+    transform: translate(0,0);
+  }
+
+  30% {
+    transform: translate(-5px, 15px);
+  }
+
+  50% {
+    transform: translate(-5px, 15px);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 
 
 /* ---------------------------------------- */
