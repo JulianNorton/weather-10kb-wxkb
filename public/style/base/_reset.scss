@@ -8,29 +8,6 @@ html {
   box-sizing: border-box;
 }
 
-a,
-a:visited {
-  border-bottom: 1px dotted $brand-primary;
-  color: $brand-primary;
-  text-decoration: none;
-  // tasteful descenders
-  text-shadow: -1px -1px 0 $text-shadow, // left top
-        1px -1px 0 $text-shadow, // right top
-        -1px 1px 0 $text-shadow, // left bottom
-        1px 1px 0 $text-shadow, // right bottom
-        0 2px 0 $text-shadow; // bottom bottom
-  transition: all linear 125ms;
-  transition-property: box-shadow, color, border-bottom;
- }
-
- a:hover,
- a:active,
- a:focus {
-  border-bottom: 1px solid $brand-primary-darker;
-  // box-shadow: 0px 1px 1px red;
-  color: $brand-primary-darker;
-}
-
 html,
 body,
 div,
@@ -64,15 +41,8 @@ ul {
   list-style: none;
 }
 
+// body typography is in typography.scss
 body {
   background: $gray-lighter;
-  // Default system fonts in different operating systems
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  font-size: calc(1em + .5vw);
-  line-height: 1.25;
   margin: 0;
-  // background: #E0EAFC; /* fallback for old browsers */
-  // background: -webkit-linear-gradient(to bottom, #fff , #CFDEF3);
-  // background: linear-gradient(to bottom, #fff , #CFDEF3);
 }

@@ -3,16 +3,15 @@
 @import 'base/reset',
 'base/typography',
 'base/structure',
-'base/utilities',
 'base/forms';
 
 @import 'components/animation',
-'components/btn',
+'components/buttons',
 'components/card',
 'components/change-location',
-'components/data',
 'components/forecast',
 'components/icons',
 'components/status';
 
+@import 'base/utilities'; // at bottom to improve specificity
 @import 'base/high-contrast'; // Accessibility overrides
