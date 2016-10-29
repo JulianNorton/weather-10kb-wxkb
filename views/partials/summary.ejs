@@ -21,9 +21,6 @@
 <% } %>
 
 <span>with
-<% if (isWindSpeedBelowMph(2)) { %>
-	no wind
-<% } else { %>
   a <%= Math.round(data.windSpeed) %>
   <span>
     <%= params.windUnit %>
@@ -60,7 +57,6 @@
           Hurricane Force
     <% } %>
 	</span>
-<% } %>
 </span>
 
 <% if (data.precipProbability > 5) { %>
