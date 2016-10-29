@@ -1,6 +1,7 @@
 /* Opbeat has to be on top */
 /* ~100 bytes additional on requests */
-const opbeat = require('opbeat').start();
+require('opbeat').start();
+
 const express = require('express');
 const DarkSky = require('dark-sky');
 const nodeFreegeoip = require('node-freegeoip');
@@ -9,7 +10,7 @@ const moment = require('moment-timezone');
 const objectMerge = require('object-merge');
 const timezone = require('google-timezone-api');
 
-const router = express.Router();
+const router = new express.Router();
 
 function Weather10kbRequest(request) {
   this.geocode = () => new Promise((resolve, reject) => {
@@ -100,9 +101,11 @@ function Weather10kbRequest(request) {
 }
 
 router.get('/:location?', (request, response) => {
+  let prefsCookiePrev;
+  let locParam = '';
+
+  // Preferences cookie name
   const prefsCookie = 'wxkb_preferences';
-  request.params.units = 'auto';
-  request.params.locationSearch = null;
 
   // Dark Sky units with their wind speed measurements
   // TODO: Read from config file?
@@ -132,14 +135,17 @@ router.get('/:location?', (request, response) => {
   // Codes of countries mostly using 12-hour clock
   const twelveHourTime = ['AU', 'CA', 'CO', 'EG', 'IN', 'MY', 'NZ', 'PH', 'PK', 'SA', 'UK', 'US', 'VN'];
 
-  // validate
-  // check for & handle a querystring variable in case the user submitted the location form rather than passing a url param
+  // Initialize params with default
+  request.params.units = 'auto';
+  request.params.locationSearch = null;
+
+  // validate: check for & handle a querystring variable
+  // (in case the user submitted the location form rather than passing a url param)
   if (typeof request.query.location === 'string') {
     return response.redirect(`/${encodeURIComponent(request.query.location)}`);
   }
 
   // Check for a cookie with units value
-  let prefsCookiePrev;
   if (prefsCookie in request.cookies
     && typeof request.cookies[prefsCookie] === 'object'
     && 'units' in request.cookies[prefsCookie]
@@ -153,10 +159,11 @@ router.get('/:location?', (request, response) => {
     request.params.units = request.query.units;
 
     // Update preferences cookie or create a new one
-    response.cookie(prefsCookie, objectMerge(prefsCookiePrev, { units: request.params.units }), { expires: 0 });
+    response.cookie(prefsCookie, objectMerge(
+      prefsCookiePrev, { units: request.params.units }
+    ), { expires: 0 });
 
     // Redirect to remove units query string from URL
-    let locParam = '';
     if (typeof request.params.location === 'string') {
       locParam = encodeURIComponent(request.params.location);
     } else if (typeof request.query.location === 'string') {
@@ -166,14 +173,15 @@ router.get('/:location?', (request, response) => {
     return response.redirect(`/${locParam}`);
   }
 
-  // check for & handle a querystring variable in case the user submitted the location/units form rather than passing a url param
+  // check for & handle a querystring variable
+  // (in case the user submitted the location/units form rather than passing a url param)
   if (typeof request.query.location === 'string') {
     return response.redirect(`/${encodeURIComponent(request.query.location)}`);
   }
 
   const wr = new Weather10kbRequest(request);
 
-  wr.geocode()
+  const view = wr.geocode()
   .then(wr.setTimeZone)
   .then(wr.getForecast)
   .then((data) => {
@@ -211,6 +219,8 @@ router.get('/:location?', (request, response) => {
   .catch(err => response.render('pages/error', {
     error: err instanceof Error ? err.toString() : JSON.stringify(err),
   }));
+
+  return view;
 });
 
 module.exports = router;
