@@ -21,42 +21,20 @@
 <% } %>
 
 <span>with
-  a <%= Math.round(data.windSpeed) %>
-  <span>
-    <%= params.windUnit %>
-    <%#= Wind Scale - Based on the Beaufort Scale %>
-    <% switch (true) {
-         case (isWindSpeedBelowMph(2)): %>
-          calm air
-          <% break; %>
-      <% case (isWindSpeedBelowMph(7)): %>
-          light breeze
-          <% break; %>
-      <% case (isWindSpeedBelowMph(12)): %>
-          breeze
-          <% break; %>
-      <% case (isWindSpeedBelowMph(25)): %>
-          wind
-          <% break; %>
-      <% case (isWindSpeedBelowMph(38)): %>
-          high wind
-          <% break; %>
-      <% case (isWindSpeedBelowMph(46)): %>
-          gale
-          <% break; %>
-      <% case (isWindSpeedBelowMph(54)): %>
-          strong gale
-          <% break; %>
-      <% case (isWindSpeedBelowMph(63)): %>
-          storm
-          <% break; %>
-      <% case (isWindSpeedBelowMph(72)): %>
-          violent storm
-          <% break; %>
-      <% default: %>
-          hurricane force
-    <% } %>
-	</span>
+<% if (isWindSpeedBelowMph(2)) { %>
+	no wind
+<% } else { %>
+	a <%= Math.round(data.windSpeed) %>
+		<span><%= params.windUnit %>
+		<% if (isWindSpeedBelowMph(32)) { %>
+			breeze
+		<% } else if (isWindSpeedBelowMph(39)) { %>
+			wind
+		<% } else { %>
+			gale
+		<% } %>
+		</span>
+<% } %>
 </span>
 
 <% if (data.precipProbability > 5) { %>
