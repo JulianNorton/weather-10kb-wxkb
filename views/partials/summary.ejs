@@ -26,8 +26,8 @@
     <%= params.windUnit %>
     <%#= Wind Scale - Based on the Beaufort Scale %>
     <% switch (true) {
-      case (isWindSpeedBelowMph(2)): %>
-          Calm
+         case (isWindSpeedBelowMph(2)): %>
+          Calm Air
           <% break; %>
       <% case (isWindSpeedBelowMph(7)): %>
           Light Breeze
@@ -53,7 +53,7 @@
       <% case (isWindSpeedBelowMph(72)): %>
           Violent Storm
           <% break; %>
-      <%  default: %>
+      <% default: %>
           Hurricane Force
     <% } %>
 	</span>
