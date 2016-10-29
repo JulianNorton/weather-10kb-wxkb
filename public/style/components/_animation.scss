@@ -33,6 +33,21 @@ svg .snow {
 
 }
 
+.sleet1 {
+  fill: $blue-darker;
+  animation: sleetMove 2.5s ease-out infinite;
+}
+
+.sleet2 {
+  fill: $blue-darker;
+  animation: sleetMove 2.5s ease-out infinite 0.8s;
+}
+
+.sleet3 {
+  fill: $blue-darker;
+  animation: sleetMove 2.5s ease-out infinite 1.2s;
+}
+
 svg .rain,
 svg .hail {
   animation: rain 5s ease-in infinite;
@@ -87,6 +102,25 @@ svg .bolt {
   40% {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes sleetMove {
+  0% {
+    transform: translate(0,0);
+  }
+
+  30% {
+    transform: translate(-5px, 15px);
+  }
+
+  50% {
+    transform: translate(-5px, 15px);
+    opacity: 0;
   }
 
   100% {
