@@ -41,5 +41,6 @@ Open source, General Public License v2. Basically do whatever you want with it. 
 
 
 ### Misc
+* [EJS template tutorial](http://www.embeddedjs.com/getting_started.html#create_template)
 * [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
 * Use [EditorConfig](http://editorconfig.org/) to maintain a consistent coding style between contributors. See [EditorConfig plugins](http://editorconfig.org/#download).
