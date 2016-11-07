@@ -41,7 +41,6 @@ Open source, General Public License v2. Basically do whatever you want with it. 
 
 
 ### Misc
-* Vote for wkxb on a-k-apart.com!
-  * https://a-k-apart.com/gallery/wxkb-io-A-super-fast-weat
+* [EJS template tutorial](http://www.embeddedjs.com/getting_started.html#create_template)
 * [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
 * Use [EditorConfig](http://editorconfig.org/) to maintain a consistent coding style between contributors. See [EditorConfig plugins](http://editorconfig.org/#download).
