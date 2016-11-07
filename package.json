@@ -3,7 +3,7 @@
   "version": "0.2.6",
   "description": "weather in 10kb",
   "engines": {
-    "node": "5.9.1"
+    "node": "6.9.x"
   },
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
-    "dark-sky": "^1.0.9",
+    "dark-sky": "^1.0.10",
     "dateformat": "^1.0.12",
     "ejs": "^2.5.1",
     "express": "^4.13.3",
