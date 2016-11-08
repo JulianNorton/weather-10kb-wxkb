@@ -6,7 +6,7 @@
   border-left: 0;
   border-top-right-radius: 2px;
   color: $white;
-  height: 2em; //adjusts height of button
+  min-height: 2em; //adjusts height of button
   margin-left: -2px;
   padding: .3em .6em;
   transition: background-color ease-in-out 125ms;
