@@ -3,8 +3,15 @@
   <form action="/" method="get">
     <label for="change-location">Enter a city, place, or zipcode</label>
     <span class="flex wrap m-b-xs">
-      <input type="search" id="change-location" name="location" placeholder="New York, NY" />
+      <% if (typeof error == "undefined") { %>
+        <%# If there's no page error %>
+        <input type="search" id="change-location" name="location" placeholder="<%- params.formatted_location %>"/>
+        <% } else { %>
+        <%# If this is the error page, don't use the location for the placeholder %>
+        <input type="search" id="change-location" name="location" placeholder="New York, NY"/>
+      <% } %>
       <button class="btn large" type="submit">Change location</button>
     </span>
   </form>
 </nav>
+  
