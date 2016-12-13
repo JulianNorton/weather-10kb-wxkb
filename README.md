@@ -1,5 +1,5 @@
 # http://wxkb.io/
-**Weather forecast in under 10kb** (excluding favicons) without any client side javascript.
+**Weather forecast in under 10kb** without any client side javascript.
 
 # Run wxkb.io locally
 1. [Install node.js](https://nodejs.org/en/download/)
