@@ -1,4 +1,4 @@
-# http://wxkb.io/
+# www.wxkb.io
 **Weather forecast in under 10kb** without any client side javascript.
 
 # Run wxkb.io locally
