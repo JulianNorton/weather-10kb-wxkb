@@ -14,7 +14,7 @@ You're welcome to add your own task, [check-out this list for inspiration](https
 If you’re suggesting a new idea, explain why you think it’d be useful to the project (not just to you!).
 You can expect a response from a maintainer within 7 days. If you haven’t heard anything by then, feel free to ping the thread.
 
-## Need help setting up the environment?
+# Want to run your own version?
 [Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Set-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
 
 <hr>
