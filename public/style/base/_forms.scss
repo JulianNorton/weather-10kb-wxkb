@@ -1,0 +1,10 @@
+// safari input needs this or it won't resize
+[type="search"] {
+  -webkit-appearance: textfield;
+  border-radius: 0; // normalize iOS safari rounded inputs
+}
+
+label {
+  display: block; // block instead of inline-block for older browser edge cases
+  margin-bottom: .4em;
+}

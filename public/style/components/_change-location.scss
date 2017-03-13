@@ -1,0 +1,17 @@
+// ID so sr-only <label> has a valid for='change-location' attribute
+#change-location {
+  @extend .large;
+  @extend .m-b-xs;
+  border-color: $brand-primary;
+  border-width: 1px;
+  flex: 1;
+  height: 2em; //adjusts height of search area
+  min-width: 60%;
+  padding: .3em .1em .3em .3em;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $brand-primary-darker;
+  }
+}

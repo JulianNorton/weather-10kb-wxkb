@@ -19,20 +19,21 @@
 
   <body id="wxkb_io" class="container">
     <header class="flex wrap" style="justify-content: space-between">
-      <h1 class="m-a-1 data-secondary">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h1>
-      <h2 class="m-a-1 data-secondary" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h2>
+      <h1 class="m-a-1 small muted">Weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location and units</a></h1>
+      <h2 class="m-a-1 small muted" style="margin-right: 1em;" title="wxkb.io automatically refreshes every 10 minutes.">wxkb.io</h2>
     </header>
     <main>
-      <%#
-      <section class="card">
-        <h4><a href="#">Winter storm warning in effect until 10pm.</a></h4>
-        <p class="status-subtitle">A potent winter storm system will move into east central colorado by later this morning. Heavy snow has developed along the front range…</p>
-      </section>
-      %>
+
+    <% if (typeof alerts == "undefined" || !(alerts instanceof Array)) { %>
+    <% } else { %>
+    <%- include('../partials/alert', {data: alerts})%>
+    <% } %>
+
       <article>
         <header class="card">
           <div>
-            <h3 class="data-secondary">Now (updated: <%= moment.unix(currently.time).format('h:mm')%><span class="small-caps"><%= moment.unix(currently.time).format('A') %></span>)</h3>
+            <h3 class="small muted">
+              Now (updated: <%= moment.unix(currently.time).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span><% } %>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <!--[if gte IE 9]><!-->
@@ -42,66 +43,28 @@
                 <%# IE8 and below see nothing :( %>
               <![endif]-->
             </div>
-            <p class="data-primary"><%- include('../partials/summary', {data: currently}) %></p>
+            <p class="forecast-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
         </header>
         <%
         var currentTime = moment.unix(currently.time);
-        var showTomorrow = currentTime.diff(currentTime.clone().add(1, 'days').startOf('day').subtract(6, 'hours')) > 0;
-        var dataIndex = showTomorrow ? 1 : 0;
-         %>
+        var tomorrowTime = currentTime.clone().add(1, 'days').startOf('day');
+        var showTomorrow = currentTime.diff(tomorrowTime.clone().subtract(6, 'hours')) >= 0;
+        %>
+        <%- include('../partials/daily', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <% if(showTomorrow) { %>
+            <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <% } %>
         <section class="card">
-          <h3 class="data-secondary">
-            <%= showTomorrow ? "Tomorrow" : "Today" %>
-          </h3>
-          <div class="flex wrap">
-            <div>
-              <p class="data-primary"><%= daily.data[dataIndex].summary %></p>
-              <p>
-                <span class="small nowrap">
-                  High <%= Math.round(daily.data[dataIndex].temperatureMax) %>°
-                </span>
-                <span class="data-secondary nowrap m-b-1">
-                  Low <%= Math.round(daily.data[dataIndex].temperatureMin) %>°
-                </span>
-              </p>
-            </div>
-            <!--[if gte IE 9]><!-->
-            <%- include('../../public/images/' + daily.data[dataIndex].icon + '.svg') %>
-            <!--<![endif]-->
-            <!--[if lte IE 8]>
-              <%# IE8 and below see nothing :( %>
-            <![endif]-->
-          </div>
-          <ul class="forecast-secondary">
-            <% for (var i = 1; i < 12; i++) { %>
-            <li>
-              <span class="data-secondary"><%= moment.unix(hourly.data[i].time).format('hA')%></span>
-              <span class="m-x-1"><%= Math.round(hourly.data[i].temperature) %>º</span>
-              <span><%- include('../partials/summary', {data: hourly.data[i]}) %></span>
-            </li>
-            <% } %>
-          </ul>
-        </section>
-        <section class="card">
-          <h3 class="data-secondary">This week</h3>
-          <p class="data-primary">
+          <h3 class="small muted">This week</h3>
+          <p class="forecast-primary">
             <%= daily.summary %>
           </p>
         </section>
       </article>
       <section class="card">
         <%- include('../partials/change-location')%>
-        <nav>
-          <h3 class="sr-only">Current units</h3>
-          <% if (params.scale === 'F') { %>
-          Imperial (°F)
-          <a class="small m-x-1" href="/<%= params.location %>/c">Switch to Metric units (°C &amp; m/s)</a>
-          <% } else {%>
-          Metric (°C)
-          <a class="small m-x-1" href="/<%= params.location %>">Switch to Imperial units (°F &amp; mph)</a>
-          <% } %>
-        </nav>
+        <%- include('../partials/switch-units')%>
       </section>
     </main>
     <hr class="sr-only" />

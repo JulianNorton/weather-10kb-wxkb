@@ -1,0 +1,14 @@
+.card {
+  background: $white; // fallback for old browsers
+  border: $border;
+  box-shadow: $box-shadow;
+  margin-bottom: $unit-spacing;
+  padding: $unit-spacing;
+
+  @media (min-width: 481px){
+    border-radius: 2px;
+    margin-left: $unit-spacing;
+    margin-right: $unit-spacing;
+  }
+}
+

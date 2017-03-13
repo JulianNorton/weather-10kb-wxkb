@@ -1,11 +1,20 @@
 var compression = require('compression');
 var express = require('express');
+var cookieParser = require('cookie-parser');
 var moment = require('moment-timezone');
 var minifyHTML = require('express-minify-html');
 var weather10kb = require('./weather10kb');
 var opbeat = require('opbeat')
 
 var app = express();
+
+// Read the Certbot response from an environment variable; we'll set this later:
+const letsEncryptReponse = process.env.CERTBOT_RESPONSE;
+
+// Return the Let's Encrypt certbot response:
+app.get('/.well-known/acme-challenge/:content', function(req, res) {
+  res.send(letsEncryptReponse);
+});
 
 app.locals.moment = moment;
 
@@ -22,6 +31,7 @@ app.use(minifyHTML({
   }
 }));
 app.use(express.static(__dirname + '/public'));
+app.use(cookieParser());
 app.use('/', weather10kb);
 // Add the Opbeat middleware after your regular middleware
 app.use(opbeat.middleware.express()) // injects opbeat, if error, registers in opbeat

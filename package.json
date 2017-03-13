@@ -3,7 +3,7 @@
   "version": "0.2.6",
   "description": "weather in 10kb",
   "engines": {
-    "node": "5.9.1"
+    "node": "6.9.x"
   },
   "main": "index.js",
   "scripts": {
@@ -13,11 +13,12 @@
   },
   "dependencies": {
     "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "dark-sky": "^1.0.10",
     "dateformat": "^1.0.12",
     "ejs": "^2.5.1",
     "express": "^4.13.3",
     "express-minify-html": "^0.6.0",
-    "dark-sky": "^1.0.7",
     "geoip-lite": "^1.1.8",
     "google-timezone-api": "^1.0.1",
     "moment-timezone": "^0.5.5",
@@ -37,6 +38,12 @@
   ],
   "license": "GPL-2.0",
   "devDependencies": {
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
     "gulp": "^3.9.1",
     "node-sass": "^3.9.0",
     "nodemon": "^1.10.2"
