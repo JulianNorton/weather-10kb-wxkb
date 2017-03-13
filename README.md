@@ -1,5 +1,5 @@
 # www.wxkb.io
-### **Weather forecast** website that's high performance, open-source, collaborative, and accessible.
+### **Weather forecast** site that's high performance, open-source, collaborative, and accessible.
 
 # How can you contribute?
 **Contributions are appreciated more than you realize.**
@@ -16,6 +16,8 @@ If you’re suggesting a new idea, explain why you think it’d be useful to the
 ## Need help setting up the environment?
 [Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Setting-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
 
+## [todo] Add this to contribution guide
+
 #### Accessibility (a11y)
   * https://tenon.io/testNow.php?url=http://wxkb.io/10018
   * https://a-k-apart.com/faq#a11y
@@ -27,12 +29,9 @@ If you’re suggesting a new idea, explain why you think it’d be useful to the
 #### Performance
   * https://developers.google.com/speed/pagespeed/insights/?url=wxkb.io
 
-
-### Misc
+## [todo, add to wiki] Misc 
 * [EJS template tutorial](http://www.embeddedjs.com/getting_started.html#create_template)
 * [EJS github repo](https://github.com/mde/ejs)
 * [Sublime text syntax package for `.ejs` files](https://packagecontrol.io/packages/EJS%202)
 * Use [EditorConfig](http://editorconfig.org/) to maintain a consistent coding style between contributors. See [EditorConfig plugins](http://editorconfig.org/#download).
-
-### Legal
-You are free to use, view, modify, and distribute Weather-10kb free of charge as long as you include the [license](https://github.com/JulianNorton/weather-10kb/blob/development/LICENSE.md).
+* You are free to use, view, modify, and distribute Weather-10kb free of charge as long as you include the [license](https://github.com/JulianNorton/weather-10kb/blob/development/LICENSE.md).
