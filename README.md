@@ -1,5 +1,5 @@
 # www.wxkb.io
-**Weather forecast in under 10kb** without any client side javascript.
+**Weather forecast** that's high performance, open-source, collaborative, and accessible.
 
 # How can you contribute?
 Contributions are appreciated more than you realize. 
@@ -32,7 +32,6 @@ If you’re suggesting a new idea, explain why you think it’d be useful to the
   * Ignore opbeat "isn't correctly configured", that's used only for wxkb.io production logging
 1. go to http://localhost:5000
   * It should show an error when loaded "Error: Unable to determine location based on IP address.", that's normal!
-1. [Submit any bugs, questions, or ideas you have!](https://github.com/JulianNorton/weather-10kb/issues)
 
 
 ## Modify & Compile CSS
