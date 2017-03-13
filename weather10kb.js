@@ -9,9 +9,7 @@ var moment        = require('moment-timezone')
 var objectMerge   = require('object-merge')
 var timezone      = require('google-timezone-api')
 
-
 var router = express.Router()
-
 
 function Weather10kbRequest(request) {
   this.geocode = function() {
