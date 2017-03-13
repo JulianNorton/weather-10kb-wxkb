@@ -1,6 +1,11 @@
 # www.wxkb.io
 **Weather forecast in under 10kb** without any client side javascript.
 
+# How can you contribute?
+Contributions are appreciated more than you realize. 
+Whether it’s coding, user interface design, graphic design, writing, or organizing, if you’re looking to help, there’s a task for you.
+You're welcome to add your own task, or [check-out this list for inspiration](https://opensource.guide/how-to-contribute/).
+
 # Run wxkb.io locally
 1. [Install node.js](https://nodejs.org/en/download/)
   * if you have [homebrew](http://brew.sh/), `brew install node`
