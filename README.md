@@ -14,7 +14,7 @@ You're welcome to add your own task, [check-out this list for inspiration](https
 If you’re suggesting a new idea, explain why you think it’d be useful to the project (not just to you!).
 
 ## Need help setting up the environment?
-[Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Setting-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
+[Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Set-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
 
 
 <hr>
