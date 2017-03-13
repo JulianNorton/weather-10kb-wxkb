@@ -15,3 +15,7 @@ If you’re suggesting a new idea, explain why you think it’d be useful to the
 
 ## Need help setting up the environment?
 [Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Setting-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
+
+
+
+You are free to use, view, modify, and distribute Weather-10kb free of charge as long as you include the [license](https://github.com/JulianNorton/weather-10kb/blob/development/LICENSE.md).
