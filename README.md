@@ -7,7 +7,7 @@ Whether it’s coding, user interface design, graphic design, writing, or organi
 You're welcome to add your own task, or [check-out this list for inspiration](https://opensource.guide/how-to-contribute/#do-you-like-planning-events).
 
 ## Found a bug?
-* File a bug report (try using issue and pull request templates)
+### [File a bug report](https://github.com/JulianNorton/weather-10kb/issues/new)
 Give context. Help others get quickly up to speed. If you’re running into an error, explain what you’re trying to do and how to reproduce it. 
 
 ## Have feedback or a suggestion?
