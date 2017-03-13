@@ -12,10 +12,10 @@ You're welcome to add your own task, [check-out this list for inspiration](https
 ## Have feedback or a suggestion?
 [Submit it here](https://github.com/JulianNorton/weather-10kb/issues) so we can prioritize it.
 If you’re suggesting a new idea, explain why you think it’d be useful to the project (not just to you!).
+You can expect a response from a maintainer within 7 days. If you haven’t heard anything by then, feel free to ping the thread.
 
 ## Need help setting up the environment?
 [Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Set-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
-
 
 <hr>
 You are free to use, view, modify, and distribute Weather-10kb free of charge as long as you include the [license](https://github.com/JulianNorton/weather-10kb/blob/development/LICENSE.md).
