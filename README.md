@@ -20,7 +20,8 @@ You can expect a response from a maintainer within 7 days. If you haven’t hear
 # Want to run your own version?
 [Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Set-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
 
-<hr>
+<hr/>
+
 You are free to use, view, modify, and distribute Weather-10kb free of charge as long as you include the [license](https://github.com/JulianNorton/weather-10kb/blob/development/LICENSE.md).
 
 # Backers
