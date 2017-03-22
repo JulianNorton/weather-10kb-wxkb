@@ -1,9 +1,6 @@
 # www.wxkb.io
 ### **Weather forecast** site that's high performance, open-source, collaborative, and accessible.
 
-[![OpenCollective](https://opencollective.com/weather-10kb/backers/badge.svg)](#backers) 
-[![OpenCollective](https://opencollective.com/weather-10kb/sponsors/badge.svg)](#sponsors)
-
 # How can you contribute?
 **Contributions are appreciated more than you realize.**
 Whether it’s coding, user interface design, graphic design, writing, or organizing, if you’re looking to help, there’s a task for you.
@@ -24,7 +21,8 @@ You can expect a response from a maintainer within 7 days. If you haven’t hear
 
 You are free to use, view, modify, and distribute Weather-10kb free of charge as long as you include the [license](https://github.com/JulianNorton/weather-10kb/blob/development/LICENSE.md).
 
-# Backers
+### Backers
+[![OpenCollective](https://opencollective.com/weather-10kb/backers/badge.svg)](#backers) 
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/weather-10kb#backer)]
 
@@ -59,8 +57,8 @@ Support us with a monthly donation and help us continue our activities. [[Become
 <a href="https://opencollective.com/weather-10kb/backer/28/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/backer/29/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/29/avatar.svg"></a>
 
-# Sponsors
-
+### Sponsors
+[![OpenCollective](https://opencollective.com/weather-10kb/sponsors/badge.svg)](#sponsors)
 Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/weather-10kb#sponsor)]
 
 <a href="https://opencollective.com/weather-10kb/sponsor/0/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/0/avatar.svg"></a>
