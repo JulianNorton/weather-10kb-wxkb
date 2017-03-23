@@ -1,5 +1,5 @@
 # www.wxkb.io
-### **Weather forecast** site that's high performance, open-source, collaborative, and accessible.
+### **Weather forecast** that's high performance, open-source, collaborative, and accessible.
 
 # How can you contribute?
 **Contributions are appreciated more than you realize.**
