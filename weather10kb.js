@@ -217,7 +217,7 @@ router.get('/:location?', function(request, response) {
 
       // Set format string for hours based on the most common clock format fo the current location
       args.params.hoursFormat = twelveHourTime.indexOf(request.params.countryCode) > -1 ? 'h' : 'H';
-
+      console.log(args.params.alerts)
       return response.render('pages/index', args);
     })
     .catch(function(err){
