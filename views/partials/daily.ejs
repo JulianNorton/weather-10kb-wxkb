@@ -32,12 +32,17 @@
         if(hourlyTime.diff(data.tomorrowTime) >= 0 && data.name == "Today") { // Is tomorrow but showing Today
             break;
         }
+
+        // Calcualte current and next hourly summary strings to determine if the hours should be collapsed
+        var hourlySummary = include('../partials/summary', {data: data.hourly[i]})
+        var nextHourlySummary = include('../partials/summary', {data: data.hourly[i + 1]})
+
         // If it's not the last hour of the "Today" report AND it's not the last hour of the "Tomorrow"
         // report AND the current hour's temperature is the same as next hour's temperature, then add
         // the current hour startime to the next hour and don't display this hour
         if(!(nextHourlyTime.diff(data.tomorrowTime) >= 0 && data.name == "Today")
           && !(nextHourlyTime.diff(data.tomorrowTime) < 0 && data.name == "Tomorrow")
-          && Math.round(data.hourly[i].temperature) === Math.round(data.hourly[i + 1].temperature)
+          && hourlySummary === nextHourlySummary
         ) {
           data.hourly[i + 1].startTime = data.hourly[i].startTime || data.hourly[i].time;
           continue;
@@ -48,7 +53,7 @@
         <%= data.hourly[i].startTime ? moment.unix(data.hourly[i].startTime).format(params.hoursFormat + (params.hoursFormat === 'H' ? ':mm' : '')) + '-' : '' %><%= hourlyTime.format(params.hoursFormat + (params.hoursFormat === 'H' ? ':mm' : ''))%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= hourlyTime.format('a') %></span><% } %>
       </span>
       <span class="m-x-1"><%= Math.round(data.hourly[i].temperature) %>º</span>
-      <span><%- include('../partials/summary', {data: data.hourly[i]}) %></span>
+      <span><%- hourlySummary %></span>
     </li>
     <% } %>
   </ul>
