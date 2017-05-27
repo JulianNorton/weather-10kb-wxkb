@@ -60,3 +60,17 @@ a:visited {
 a.target-blank:after {
   content: ' \0029C9';
 }
+
+// unstyled lists are the rule
+// discs are the exception
+.list-bullets {
+  list-style: disc;
+  // list-style-position: inside;
+  li {
+    margin-left: $unit-spacing * 2;
+    margin-bottom: $unit-spacing;
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
+}

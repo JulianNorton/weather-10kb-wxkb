@@ -30,7 +30,7 @@
     <% } %>
 
       <article>
-        <header class="card">
+        <header class="card card-block">
           <div>
             <h3 class="small muted">
               Now (updated: <%= moment.unix(currently.time).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span><% } %>)</h3>
@@ -52,14 +52,14 @@
         %>
         <%- include('../partials/daily', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
         <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
-        <section class="card">
+        <section class="card card-block">
           <h3 class="small muted">This week</h3>
           <p class="forecast-primary">
             <%= daily.summary %>
           </p>
         </section>
       </article>
-      <section class="card">
+      <section class="card card-block">
         <%- include('../partials/change-location')%>
         <%- include('../partials/switch-units')%>
       </section>

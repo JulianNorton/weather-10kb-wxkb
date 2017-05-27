@@ -1,9 +1,17 @@
-<% for (i=0; i < data.length; i++) { %>
-    <section class="card">
-
-        <h4><a href="<%= data[i].uri %>" rel="noopener" target="_blank"><%= data[i].title %> until <%= moment.utc(data[i].expires * 1000).format("h:mm a [on] dddd, MMMM Do") %></a></h4>
-        <p class="status-subtitle" style="text-transform:lowercase"><%= data[i].description.substr(0,139) %>&hellip;<a href="<%= data[i].uri %>" rel="noopener" target="_blank">continued</a></p>
-
-    </section>
-
-<% } %>
+<section class="card">
+  <header class="card-block card-alert">
+    <%# warning symbol == &#x26a0; == ⚠  %>
+    <h3 class="small m-a-0">⚠ Hazardous Weather Conditions</h3>
+  </header>
+  <div class="card-block">
+    <ul class="list-bullets">
+      <% for (i=0; i < data.length; i++) { %>
+        <li>
+          <a href="<%= data[i].uri %>" rel="noopener" target="_blank" class="target-blank">
+            <%= data[i].title %> until <%= moment.utc(data[i].expires * 1000).format("h:mm a [on] dddd, MMMM Do") %>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</section>
