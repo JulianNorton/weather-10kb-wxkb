@@ -7,7 +7,7 @@
     <ul class="list-bullets">
       <% for (i=0; i < data.length; i++) { %>
         <li>
-          <a href="<%= data[i].uri %>" rel="noopener" target="_blank" class="target-blank">
+          <a href="<%= data[i].uri %>" rel="noopener" target="_blank" title="Link opens in a new window" class="target-blank">
             <%= data[i].title %> until <%= moment.utc(data[i].expires * 1000).format("h:mm a [on] dddd, MMMM Do") %>
           </a>
         </li>
