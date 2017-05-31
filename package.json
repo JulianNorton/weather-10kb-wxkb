@@ -3,29 +3,30 @@
   "version": "0.2.6",
   "description": "weather in 10kb",
   "engines": {
-    "node": "6.9.x"
+    "node": ">=6.9.x"
   },
   "main": "index.js",
   "scripts": {
+    "test": "./node_modules/.bin/mocha",
     "start": "node index.js",
     "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "dependencies": {
-    "compression": "^1.6.2",
-    "cookie-parser": "^1.4.3",
-    "dark-sky": "^1.0.10",
-    "dateformat": "^1.0.12",
-    "ejs": "^2.5.1",
-    "express": "^4.13.3",
-    "express-minify-html": "^0.6.0",
-    "geoip-lite": "^1.1.8",
-    "google-timezone-api": "^1.0.1",
-    "moment-timezone": "^0.5.5",
+    "compression": "1.6.2",
+    "cookie-parser": "1.4.3",
+    "dark-sky": "1.0.10",
+    "dateformat": "1.0.12",
+    "ejs": "2.5.1",
+    "express": "4.13.3",
+    "express-minify-html": "0.6.0",
+    "geoip-lite": "1.1.8",
+    "google-timezone-api": "1.0.1",
+    "moment-timezone": "0.5.5",
     "node-freegeoip": "0.0.1",
-    "node-geocoder": "^3.14.0",
-    "object-merge": "^2.5.1",
-    "opbeat": "^3.17.2"
+    "node-geocoder": "3.14.0",
+    "object-merge": "2.5.1",
+    "opbeat": "3.17.2"
   },
   "repository": {
     "type": "git",
@@ -38,19 +39,19 @@
   ],
   "license": "GPL-2.0",
   "devDependencies": {
-    "babel-eslint": "^7.0.0",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "chai-http": "^3.0.0",
-    "eslint": "^3.8.1",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.4.1",
-    "gulp": "^3.9.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.4.2",
-    "node-sass": "^3.9.0",
-    "nodemon": "^1.10.2"
+    "babel-eslint": "7.0.0",
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "chai-http": "3.0.0",
+    "eslint": "3.8.1",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.4.1",
+    "gulp": "3.9.1",
+    "istanbul": "0.4.5",
+    "mocha": "3.4.2",
+    "node-sass": "3.9.0",
+    "nodemon": "1.10.2"
   }
 }
