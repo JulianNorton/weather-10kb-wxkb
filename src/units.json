@@ -1,0 +1,22 @@
+{
+  "ca": {
+    "scale": "C",
+    "speed": "km/h",
+    "desc": "Celsius, metric (km/h)"
+  },
+  "si": {
+    "scale": "C",
+    "speed": "m/s",
+    "desc": "Celsius, metric (m/s)"
+  },
+  "us": {
+    "scale": "F",
+    "speed": "mph",
+    "desc": "Fahrenheit, imperial"
+  },
+  "uk2": {
+    "scale": "C",
+    "speed": "mph",
+    "desc": "Celsius, imperial"
+  }
+}
