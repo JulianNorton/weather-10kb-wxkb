@@ -2,74 +2,69 @@
 
 // Opbeat has to be on top
 // ~100 bytes additional on requests
-const opbeat         = require('opbeat').start();
-const express        = require('express');
-const objectMerge    = require('object-merge');
+const opbeat = require('opbeat').start();
+const express = require('express');
+const objectMerge = require('object-merge');
 const WeatherRequest = require('./modules/WeatherRequest');
-const defaultUnits   = require('./units.json');
+const { cookieName, defaultUnits } = require('./config.json');
+const { getPrevCookie } = require('./routerHelper');
 
+
+const TWELVE_HOUR_COUNTRIES = new Set(['AU', 'CA', 'CO', 'EG', 'IN', 'MY', 'NZ', 'PH', 'PK', 'SA', 'UK', 'US', 'VN']);
 
 const router = express.Router();
 
-router.get('/:location?', (request, response) => {
-  const prefsCookie = 'wxkb_preferences';
-  request.params.units = 'auto';
-  request.params.locationSearch = null;
+router.get('/:location?', (req, res) => {
+  req.params.units = 'auto';
+  req.params.locationSearch = null;
 
-  // Codes of countries mostly using 12-hour clock
-  const twelveHourTime = ['AU', 'CA', 'CO', 'EG', 'IN', 'MY', 'NZ', 'PH', 'PK', 'SA', 'UK', 'US', 'VN'];
-
-  // Validate
   // Check for and handle a query string variable in case the user submitted the location form rather than passing a URL param
-  if (typeof request.query.location === 'string') {
-    return response.redirect('/' + encodeURIComponent(request.query.location));
+  if (typeof req.query.location === 'string') {
+    return res.redirect('/' + encodeURIComponent(req.query.location));
   }
 
   // Check for a cookie with units value
-  let prefsCookiePrev;
-  if (prefsCookie in request.cookies && typeof request.cookies[prefsCookie] === 'object'
-   && 'units' in request.cookies[prefsCookie] && request.cookies[prefsCookie].units in defaultUnits)
-  {
-    request.params.units = request.cookies[prefsCookie].units;
-    prefsCookiePrev = request.cookies[prefsCookie];
+  const prefsCookiePrev = getPrevCookie(req, cookieName);
+  if (prefsCookiePrev) {
+    req.params.units = prefsCookiePrev.units;
   }
 
   // Check query string variable for switching units
-  if (typeof request.query.units === 'string' && request.query.units.toLowerCase() in defaultUnits) {
-    request.params.units = request.query.units;
+  if (typeof req.query.units === 'string' && req.query.units.toLowerCase() in defaultUnits) {
+    req.params.units = req.query.units;
 
     // Update preferences cookie or create a new one
-    response.cookie(prefsCookie, objectMerge(prefsCookiePrev, { units: request.params.units }), { expires: 0 });
+    res.cookie(cookieName, objectMerge(prefsCookiePrev, { units: req.params.units }), { expires: 0 });
 
     // Redirect to remove units query string from URL
     let locParam = '';
-    if (typeof request.params.location === 'string') {
-      locParam = encodeURIComponent(request.params.location);
-    } else if (typeof request.query.location === 'string') {
-      locParam = '?location=' + encodeURIComponent(request.query.location);
+    if (typeof req.params.location === 'string') {
+      locParam = encodeURIComponent(req.params.location);
+    } else if (typeof req.query.location === 'string') {
+      locParam = '?location=' + encodeURIComponent(req.query.location);
     }
 
-    return response.redirect('/' + locParam);
+    return res.redirect('/' + locParam);
   }
 
-  const wr = new WeatherRequest(request);
+  const wr = new WeatherRequest(req);
 
   wr.geocode()
     .then(wr.setTimeZone)
     .then(wr.getForecast)
-    .then(responseData => {
-      if (typeof request.params.formatted_location === 'undefined' || request.params.formatted_location === ', ') {
-        request.params.formatted_location = request.params.location;
+    .then(resData => {
+      if (typeof req.params.formatted_location === 'undefined' || req.params.formatted_location === ', ') {
+        req.params.formatted_location = req.params.location;
       }
 
       // Remove extraneous country info if present
-      request.params.formatted_location = request.params.formatted_location.replace(/, USA/, '');
+      req.params.formatted_location = req.params.formatted_location.replace(/, USA/, '');
 
-      if (request.params.longitude == 0 && request.params.latitude == 0) {  // TODO: triple equals?
+      if (req.params.longitude == 0 && req.params.latitude == 0) {  // TODO: triple equals?
         throw 'Undetermined location.';
       }
 
-      const args = objectMerge(responseData, {params: request.params});
+      const args = objectMerge(resData, { params: req.params });
 
       // Default wind speed unit
       args.params.windUnit = 'km/h';
@@ -85,12 +80,12 @@ router.get('/:location?', (request, response) => {
       }
 
       // Set format string for hours based on the most common clock format of the current location
-      args.params.hoursFormat = twelveHourTime.indexOf(request.params.countryCode) > -1 ? 'h' : 'H';
-      return response.render('pages/index', args);
+      args.params.hoursFormat = TWELVE_HOUR_COUNTRIES.has(req.params.countryCode) ? 'h' : 'H';
+      return res.render('pages/index', args);
     })
     .catch(err => {
       const error = err instanceof Error ? err.toString() : JSON.stringify(err);
-      return response.render('pages/error', { error });
+      return res.render('pages/error', { error });
     });
   
 });

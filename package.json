@@ -7,7 +7,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
+    "test": "./node_modules/.bin/mocha test/unit/",
+    "test:watch": "npm test -- -w",
+    "test:all": "./node_modules/.bin/mocha",
     "start": "node index.js",
     "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""

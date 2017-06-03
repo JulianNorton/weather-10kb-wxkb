@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 const app = require('../../src/app');
 
 
-describe('Forecast', () => {
+describe('Forecast location', () => {
 
   it('should guess the user\'s location based on their IP address', done => {
     chai.request(app)
@@ -46,11 +46,6 @@ describe('Forecast', () => {
         throw err;
       });
   });
-
-});
-
-
-describe('Forecast location', () => {
 
   const locationTestCases = [
     {
