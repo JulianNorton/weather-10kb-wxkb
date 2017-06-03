@@ -76,11 +76,10 @@ function WeatherRequest(req) {
   };
 
   this.setTimeZone = () => {
-    timezone({ location: req.params.latitude + ',' + req.params.longitude })
+    return timezone({ location: req.params.latitude + ',' + req.params.longitude })
       .then(res => {
         req.params.tz = res.timeZoneId;
         moment.tz.setDefault(req.params.tz);
-        return res;
       });
   };
 

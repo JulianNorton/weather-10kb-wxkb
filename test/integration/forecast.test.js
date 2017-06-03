@@ -3,12 +3,11 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
+const moment = require('moment-timezone');
+const app = require('../../src/app');
 
 
 chai.use(chaiHttp);
-
-const app = require('../../src/app');
-
 
 describe('Forecast location', () => {
 
@@ -33,8 +32,25 @@ describe('Forecast location', () => {
       });
   });
 
+  it('should set the correct timezone for a location', () => {
+    return chai.request(app)
+      .get('/New%20York')  // in case location defaults to Los Angeles
+      .then(res => {
+        expect(res).to.have.status(200);
+        expect(moment().tz()).to.equal('America/New_York');
+        return chai.request(app).get('/Los%20Angeles');
+      })
+      .then(res => {
+        expect(res).to.have.status(200);
+        expect(moment().tz()).to.equal('America/Los_Angeles');
+      })
+      .catch(err => {
+        throw err;
+      });
+  });
+
   it('should display default units based on location', () => {
-    return chai.request.agent(app)
+    return chai.request.agent(app)  // agent retains cookies
       .get('/New%20York')
       .then(res => {
         expect(res).to.have.status(200);
@@ -120,8 +136,7 @@ describe('Forecast units', () => {
 
   unitsTestCases.forEach(testCase => {
     it(testCase.describe, () => {
-      // Using agent to persist the cookie during redirect
-      return chai.request.agent(app)
+      return chai.request.agent(app)  // agent retains cookies
         .get(`/New%20York?units=${testCase.setting}`)
         .then(res => {
           expect(res).to.have.status(200);
