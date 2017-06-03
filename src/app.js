@@ -1,12 +1,12 @@
 'use strict';
 
-const compression  = require('compression');
-const express      = require('express');
+const compression = require('compression');
+const express = require('express');
 const cookieParser = require('cookie-parser');
-const moment       = require('moment-timezone');
-const minifyHTML   = require('express-minify-html');
-const router       = require('./router');
-const opbeat       = require('opbeat');
+const moment = require('moment-timezone');
+const minifyHTML = require('express-minify-html');
+const router = require('./router');
+const opbeat = require('opbeat');
 
 
 const app = new express();
@@ -15,7 +15,7 @@ const app = new express();
 const letsEncryptReponse = process.env.CERTBOT_RESPONSE;
 
 // Return the Let's Encrypt certbot response:
-app.get('/.well-known/acme-challenge/:content', function(req, res) {
+app.get('/.well-known/acme-challenge/:content', (req, res) => {
   res.send(letsEncryptReponse);
 });
 
