@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/mern-starter
+    working_directory: ~/
     node:
       version: 6.7.0
     steps:
