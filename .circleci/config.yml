@@ -3,7 +3,16 @@ jobs:
   build:
     working_directory: ~/
     node:
-      version: 6.7.0
+      version: 8.1.0
     steps:
       - checkout
       - run:
+        name: update-npm
+        command: 'sudo npm install -g npm@latest'
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - .node_modules
+      - run:
+          name: test
+          command: npm test
