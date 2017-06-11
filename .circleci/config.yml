@@ -2,8 +2,8 @@ version: 2
 jobs:
   build:
     working_directory: ~/
-    node:
-      version: 8.1.0
+    docker:
+      - image: circleci/node:8.1.0
     steps:
       - checkout
       - run:
