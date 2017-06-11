@@ -7,9 +7,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/unit/",
+    "test": "mocha test/unit/",
     "test:watch": "npm test -- -w",
-    "test:all": "./node_modules/.bin/mocha",
+    "test:all": "nyc -r html --report-dir reports/coverage/html mocha",
+    "test:coverage": "nyc report",
     "start": "node index.js",
     "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
@@ -54,6 +55,7 @@
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
     "node-sass": "3.9.0",
-    "nodemon": "1.10.2"
+    "nodemon": "1.10.2",
+    "nyc": "^11.0.2"
   }
 }

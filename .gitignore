@@ -1,3 +1,9 @@
+# Dependencies
 node_modules/*
 
+# Test results
+.nyc_output/
+reports/
+
+# Misc
 .DS_Store
