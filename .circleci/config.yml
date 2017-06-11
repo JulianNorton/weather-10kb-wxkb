@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: remove-lock
-        command: rm ./package-lock.json
+          name: remove-lock
+          command: rm ./package-lock.json
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
