@@ -11,10 +11,24 @@ jobs:
           command: 'sudo npm install -g npm@latest'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+        name: install-packages
+        command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - .node_modules
       - run:
           name: test
-          command: npm test
+          command: './node_modules/.bin/nyc -r html --report-dir reports/coverage/html mocha --reporter=xunit --reporter-options output=reports/test-results.xml'
+      - run:
+          name: coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov > reports/coverage/coverage.lcov'
+      - store_test_results:
+          path: reports/test-results.xml
+      - store_artifacts:
+          path: reports/test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: reports/coverage/coverage.lcov
+          prefix: coverage
