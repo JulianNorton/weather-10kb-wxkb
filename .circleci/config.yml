@@ -9,6 +9,9 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
+      - run:
+          name: update-semver
+          command: 'sudo npm install -g semver'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
