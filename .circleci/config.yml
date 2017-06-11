@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/
+    working_directory: ~/weather-10kb
     docker:
       - image: circleci/node:8.1.0
     steps:
