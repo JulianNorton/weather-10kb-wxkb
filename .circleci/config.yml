@@ -1,14 +1,14 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/
+    working_directory: ~/weather-10kb
     docker:
-      - image: circleci/node:8.1.0
+      - image: circleci/node:latest
     steps:
       - checkout
       - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
+          name: remove-lock
+          command: rm ./package-lock.json
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
@@ -20,7 +20,7 @@ jobs:
             - .node_modules
       - run:
           name: test
-          command: './node_modules/.bin/nyc -r html --report-dir reports/coverage/html mocha --reporter=xunit --reporter-options output=reports/test-results.xml'
+          command: './node_modules/.bin/nyc -r html --report-dir reports/coverage/html ./node_modules/.bin/mocha --reporter=xunit --reporter-options output=reports/test-results.xml'
       - run:
           name: coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov > reports/coverage/coverage.lcov'
