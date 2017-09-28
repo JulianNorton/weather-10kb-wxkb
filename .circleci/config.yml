@@ -20,14 +20,14 @@ jobs:
             - .node_modules
 
       - run:
-          name: tests
+          name: run-tests
           command: 'npx nyc mocha'
 
       - run:
-          name: test
+          name: test-reporter
           command: './node_modules/.bin/nyc -r html --report-dir reports/coverage/html ./node_modules/.bin/mocha --reporter=xunit --reporter-options output=reports/test-results.xml'
       - run:
-          name: coverage
+          name: generate-coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov > reports/coverage/coverage.lcov'
       - store_test_results:
           path: reports/test-results.xml
