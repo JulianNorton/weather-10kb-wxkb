@@ -3,7 +3,7 @@
   "version": "0.2.6",
   "description": "weather in 10kb",
   "engines": {
-    "node": ">=6.9.x"
+    "node": ">=8.6.0"
   },
   "main": "index.js",
   "scripts": {
