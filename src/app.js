@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const moment = require('moment-timezone');
 const minifyHTML = require('express-minify-html');
 const router = require('./router');
-const opbeat = require('opbeat');
 
 
 const app = new express();
@@ -36,10 +35,6 @@ app.use(minifyHTML({
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
 app.use('/', router);
-
-// Add the Opbeat middleware after your regular middleware
-app.use(opbeat.middleware.express());  // injects opbeat, if error, registers in opbeat
-// https://opbeat.com/docs/articles/get-started-with-express/#express-errors
 
 app.set('port', process.env.PORT || 5000);
 app.set('view engine', 'ejs');
