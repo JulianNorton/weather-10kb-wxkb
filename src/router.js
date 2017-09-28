@@ -1,8 +1,6 @@
 'use strict';
 
-// Opbeat has to be on top
 // ~100 bytes additional on requests
-const opbeat = require('opbeat').start();
 const express = require('express');
 const objectMerge = require('object-merge');
 const WeatherRequest = require('./modules/WeatherRequest');
