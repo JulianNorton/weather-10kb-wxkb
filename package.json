@@ -25,6 +25,7 @@
     "express-minify-html": "0.6.0",
     "geoip-lite": "1.1.8",
     "google-timezone-api": "1.0.1",
+    "helmet": "^3.8.2",
     "moment-timezone": "0.5.5",
     "node-freegeoip": "0.0.1",
     "node-geocoder": "3.14.0",
