@@ -24,7 +24,7 @@ app.locals.moment = moment;
 app.use(compression());
 app.use(helmet({
   referrerPolicy: {
-    policy: 'strict-origin-when-cross-origin'
+    policy: "strict-origin-when-cross-origin"
   },
   contentSecurityPolicy: {
     directives: {
