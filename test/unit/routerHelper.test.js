@@ -6,7 +6,7 @@ const { cookieName } = require('../../src/config.json');
 const { getPrevCookie } = require('../../src/routerHelper');
 
 
-describe('Router helper', function () {
+describe('Router helper', () => {
 
   it('should return undefined for a non-existent cookie', () => {
     const req = { cookies: {} };
