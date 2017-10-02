@@ -8,50 +8,111 @@ const request = require('request');
 const expect = chai.expect;
 
 describe('TenonRequest', () => {
-  const expected = {foo: 'bar'};
+  var tenon;
 
-  before(() => {
+  beforeEach(() => {
+    tenon = new TenonRequest();
+
     sinon
       .stub(request, 'post')
-      .yields(null, null, JSON.stringify(expected));
+      .yields(null, null, JSON.stringify({ foo: 'bar' }));
   });
 
-  after(() => {
+  afterEach(() => {
     request.post.restore();
   });
 
-  it('should pass the expected result and no error to callback when given all required parameters', (done) => {
-    const options = {
-      key: 'abcdef',
-      src: '<html></html>'
-    }
+  const submitTestCases = [
+    {
+      describe: 'should pass the expected result and no error to callback when given all required parameters',
+      options: {
+        key: 'abcdef',
+        src: '<html></html>'
+      },
+      expectedError: null,
+      expectedResult: { foo: 'bar' }
+    },
+    {
+      describe: 'should pass an error and null result to callback if all required parameters are missing',
+      options: { endpoint: 'http://foo' },
+      expectedError: 'Some or all required parameters are missing: Please provide 1) key, and 2) src OR uri.',
+      expectedResult: null
+    },
+    {
+      describe: 'should pass an error and null result to callback if src or uri is provided, but no key',
+      options: { src: '<html></html>' },
+      expectedError: 'Some or all required parameters are missing: Please provide 1) key, and 2) src OR uri.',
+      expectedResult: null
+    },
+    {
+      describe: 'should pass an error and null result to callback if only the key is provided',
+      options: { key: 'abcde' },
+      expectedError: 'Some or all required parameters are missing: Please provide 1) key, and 2) src OR uri.',
+      expectedResult: null
+    },
+    {
+      describe: 'should pass an error and null result to callback if parameters are null',
+      options: null,
+      expectedError: 'Please provide a parameters object.',
+      expectedResult: null
+    },
+    {
+      describe: 'should pass an error and null result to callback if parameters are of the wrong type',
+      options: false,
+      expectedError: 'Please provide a parameters object.',
+      expectedResult: null
+    },
+  ];
 
-    const tenon = new TenonRequest();
-
-    tenon.submit(options, (error, result) => {
-      expect(error).to.equal(null);
-      expect(result).to.eql(expected);
-      done();
+  submitTestCases.forEach(testCase => {
+    it(testCase.describe, (done) => {
+      tenon.submit(testCase.options, (error, result) => {
+        expect(error).to.equal(testCase.expectedError);
+        expect(result).to.eql(testCase.expectedResult);
+        done();
+      });
     });
   });
 
-  it('should pass an error and null result to callback if required parameters are missing', (done) => {
-    const tenon = new TenonRequest();
+  const submitCallbackTestCases = [
+    {
+      describe: 'should pass the expected error and null result to callback if the request returns an error',
+      options: {
+        key: 'abcdef',
+        src: '<html></html>',
+        endpoint: null
+      },
+      bodyYield: null,
+      errorYield: 'error',
+      expectedError: 'error',
+      expectedResult: null,
+    },
+    {
+      describe: 'should pass the expected error and null result to callback if the response body is not valid JSON',
+      options: {
+        key: 'abcdef',
+        src: '<html></html>',
+      },
+      bodyYield: 'not json',
+      errorYield: null,
+      expectedError: 'Failed to parse Tenon.io response body.',
+      expectedResult: null,
+    },
+  ];
 
-    tenon.submit({}, (error, result) => {
-      expect(error).to.equal('Some of the required parameters were missing: 1) key, and 2) src OR uri.');
-      expect(result).to.equal(null);
-      done();
+  submitCallbackTestCases.forEach(testCase => {
+    it(testCase.describe, (done) => {
+      request.post.restore();
+      sinon
+        .stub(request, 'post')
+        .yields(testCase.errorYield, null, testCase.bodyYield);
+
+      tenon.submit(testCase.options, (error, result) => {
+        expect(error).to.equal(testCase.expectedError);
+        expect(result).to.equal(testCase.expectedResult);
+        done();
+      });
     });
   });
 
-  it('should pass an error and null result to callback if parameters are null or not an object', (done) => {
-    const tenon = new TenonRequest();
-
-    tenon.submit(null, (error, result) => {
-      expect(error).to.equal('Please provide a parameters object.');
-      expect(result).to.equal(null);
-      done();
-    });
-  });
 });

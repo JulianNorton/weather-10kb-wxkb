@@ -1,31 +1,34 @@
+/**
+ * A module for sending requests to the tenon.io API (automated accessibility testing).
+ */
 'use strict';
 
 const request = require('request');
+
 const tenonEndpoint = 'https://tenon.io/api/';
 const defaultOptions = {
   endpoint: tenonEndpoint
 };
 
-/**
- * Send requests to the tenon.io API for automated accessibility testing.
- */
-function TenonRequest() {
+class TenonRequest {
   /**
-   * Submit a tenon.io request to the given endpoint.
-   * Results are expected to be handled by a callback.
+   * Submit a tenon.io request.
+   * Pass the result, as well as any error message, to a callback function.
    *
    * Params can be any valid tenon.io request parameters.
-   * key and either src or uri are required.
+   * "key" and either "src" OR "uri" are required.
+   * In addition, specify the "endpoint" option to use an API endpoint not hosted on tenon.io.
+   *
    * @see https://tenon.io/documentation/understanding-request-parameters.php
    *
    * @param {object} params
    * @param {function} callback
    */
-  this.submit = (params, callback) => {
+  submit(params, callback) {
     try {
       params = this.validate(params);
-    } catch (error) {
-      return callback(error, null);
+    } catch (e) {
+      return callback(e, null);
     }
 
     request.post(params.endpoint, { form: params }, (error, response, body) => {
@@ -33,12 +36,11 @@ function TenonRequest() {
         return callback(error, null);
       }
 
-      let result;
-
+      let result = null;
       try {
         result = JSON.parse(body);
-      } catch (error) {
-        error = 'Failed to parse Tenon.io response body: ' + error;
+      } catch (e) {
+        error = 'Failed to parse Tenon.io response body.';
       }
 
       return callback(error, result);
@@ -52,13 +54,13 @@ function TenonRequest() {
    *
    * @return {object}
    */
-  this.validate = (options) => {
+  validate(options) {
     if (options === null || typeof options !== 'object') {
       throw 'Please provide a parameters object.';
     }
 
     if (!('key' in options) || (!('src' in options) && !('uri' in options))) {
-      throw 'Some of the required parameters were missing: 1) key, and 2) src OR uri.';
+      throw 'Some or all required parameters are missing: Please provide 1) key, and 2) src OR uri.';
     }
 
     if (!('endpoint' in options) || options.endpoint === null) {
