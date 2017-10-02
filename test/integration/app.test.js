@@ -9,6 +9,8 @@ chai.use(chaiHttp);
 
 const app = require('../../src/app');
 
+const tenonApiKey = process.env.TENON_API_KEY;
+
 describe('Weather10kb app', function () {
 
   // TODO: Optimize the output to make this test pass
@@ -22,27 +24,29 @@ describe('Weather10kb app', function () {
       });
   });
 
+  // Skip this test if no tenon API key is set in the environment
+  if (tenonApiKey) {
+    it('should pass tenon.io accessibility tests', done => {
+      chai.request(app)
+      .get('/')
+      .end((err, res) => {
+        const tenonConfig = {
+          docId: 'index',
+          endpoint: 'https://tenon.io/api/',
+          key: tenonApiKey,
+          level: 'AAA',
+          projectID: 'weather-10kb',
+          src: res.text,
+        };
+        const tenon = new TenonRequest();
 
-  it('should pass tenon.io accessibility tests', done => {
-    chai.request(app)
-    .get('/')
-    .end((err, res) => {
-      const tenonConfig = {
-        docId: 'index',
-        endpoint: 'https://tenon.io/api/',
-        key: process.env.TENON_API_KEY,
-        level: 'AAA',
-        projectID: 'weather-10kb',
-        src: res.text,
-      };
-      const tenon = new TenonRequest();
-
-      tenon.submit(tenonConfig, (error, result) => {
-        expect(result.code).to.equal('success');
-        expect(result.resultSummary.tests.failing).to.equal(0);
-        done();
+        tenon.submit(tenonConfig, (error, result) => {
+          expect(result.code).to.equal('success');
+          expect(result.resultSummary.tests.failing).to.equal(0);
+          done();
+        });
       });
-    });
-  }).timeout(5000);
+    }).timeout(5000);
+  }
 
 });
