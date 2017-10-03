@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const moment = require('moment-timezone');
 const minifyHTML = require('express-minify-html');
 const router = require('./router');
-const helmet = require("helmet");
+const helmet = require('helmet');
 
 
 const app = new express();
@@ -24,7 +24,7 @@ app.locals.moment = moment;
 app.use(compression());
 app.use(helmet({
   referrerPolicy: {
-    policy: "strict-origin-when-cross-origin"
+    policy: 'strict-origin-when-cross-origin'
   },
   contentSecurityPolicy: {
     directives: {
