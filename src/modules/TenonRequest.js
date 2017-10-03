@@ -74,7 +74,7 @@ class TenonRequest {
    * @return {boolean}
    */
   hasRequiredOptions(options) {
-    return (!options.hasOwnProperty('key') || !options.hasOwnProperty('src') && !options.hasOwnProperty('uri'));
+    return options.hasOwnProperty('key') && (options.hasOwnProperty('src') || options.hasOwnProperty('uri'));
   }
 
   /**
@@ -83,10 +83,8 @@ class TenonRequest {
    * @param {object} options
    */
   addDefaultOptions(options) {
-    for (let property in defaultOptions) {
-      if (!options.hasOwnProperty(property) || options[property] === null) {
-        options[property] = defaultOptions[property];
-      }
+    if (!options.hasOwnProperty('endpoint') || options.endpoint === null) {
+      options.endpoint = defaultOptions.endpoint;
     }
 
     return options;
