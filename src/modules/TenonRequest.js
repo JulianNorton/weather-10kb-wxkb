@@ -48,7 +48,7 @@ class TenonRequest {
   }
 
   /**
-   * Check if options is a valid object with the required parameters. Set defaults where applicable.
+   * Validate options.
    *
    * @param {object} options
    *
@@ -59,12 +59,34 @@ class TenonRequest {
       throw 'Please provide a parameters object.';
     }
 
-    if (!('key' in options) || (!('src' in options) && !('uri' in options))) {
+    if (!this.hasRequiredOptions(options)) {
       throw 'Some or all required parameters are missing: Please provide 1) key, and 2) src OR uri.';
     }
 
-    if (!('endpoint' in options) || options.endpoint === null) {
-      options.endpoint = tenonEndpoint;
+    return this.addDefaultOptions(options);
+  }
+
+  /**
+   * Check if all required properties are present in the object.
+   *
+   * @param {object} options
+   *
+   * @return {boolean}
+   */
+  hasRequiredOptions(options) {
+    return (!options.hasOwnProperty('key') || !options.hasOwnProperty('src') && !options.hasOwnProperty('uri'));
+  }
+
+  /**
+   * Provide default values for optional parameters that have not been set.
+   *
+   * @param {object} options
+   */
+  addDefaultOptions(options) {
+    for (let property in defaultOptions) {
+      if (!options.hasOwnProperty(property) || options[property] === null) {
+        options[property] = defaultOptions[property];
+      }
     }
 
     return options;

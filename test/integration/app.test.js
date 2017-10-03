@@ -26,7 +26,7 @@ describe('Weather10kb app', function () {
 
   it('should pass tenon.io accessibility tests', function(done) {
     if (!tenonApiKey) {
-      console.log('Set the TENON_API_KEY environment variable to run accessibility tests.')
+      console.log('Set the TENON_API_KEY environment variable to run accessibility tests.');
       this.skip();
     }
 

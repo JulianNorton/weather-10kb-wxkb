@@ -40,7 +40,7 @@ describe('TenonRequest', () => {
     },
     {
       describe: 'should pass an error and null result to callback if src or uri is provided, but no key',
-      options: { src: '<html></html>' },
+      options: { uri: 'http://foo/index.html' },
       expectedError: 'Some or all required parameters are missing: Please provide 1) key, and 2) src OR uri.',
       expectedResult: null
     },
@@ -64,7 +64,7 @@ describe('TenonRequest', () => {
     },
   ];
 
-  submitTestCases.forEach(testCase => {
+  submitTestCases.forEach((testCase) => {
     it(testCase.describe, (done) => {
       tenon.submit(testCase.options, (error, result) => {
         expect(error).to.equal(testCase.expectedError);
@@ -100,7 +100,7 @@ describe('TenonRequest', () => {
     },
   ];
 
-  submitCallbackTestCases.forEach(testCase => {
+  submitCallbackTestCases.forEach((testCase) => {
     it(testCase.describe, (done) => {
       request.post.restore();
       sinon
