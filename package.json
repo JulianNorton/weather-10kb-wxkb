@@ -7,11 +7,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/unit/",
+    "test": "nyc -r html --report-dir reports/coverage/html mocha",
     "test:watch": "npm test -- -w",
-    "test:all": "nyc -r html --report-dir reports/coverage/html mocha",
     "test:coverage": "nyc report",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
@@ -51,11 +50,11 @@
     "eslint-plugin-import": "2.0.1",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.4.1",
-    "gulp": "3.9.1",
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
     "node-sass": "3.9.0",
     "nodemon": "1.10.2",
-    "nyc": "^11.0.2"
+    "nyc": "^11.0.2",
+    "sinon": "^4.0.0"
   }
 }

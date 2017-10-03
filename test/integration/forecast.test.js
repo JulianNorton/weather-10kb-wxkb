@@ -47,7 +47,7 @@ describe('Forecast location', () => {
       .catch(err => {
         throw err;
       });
-  });
+  }).timeout(5000);
 
   it('should display default units based on location', () => {
     return chai.request.agent(app)  // agent retains cookies
