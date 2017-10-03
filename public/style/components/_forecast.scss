@@ -4,6 +4,11 @@
   margin-top: .3em;
 }
 
+.forecast-inline-secondary{
+  display: inline-block;
+  padding-right: 0.66em;
+}
+
 .forecast-secondary li:first-child {
   border-top: $border;
   border-top-color: rgba(220, 220, 220, .5);
