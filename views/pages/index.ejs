@@ -56,8 +56,8 @@
           var currentTime = moment.unix(currently.time);
           var tomorrowTime = currentTime.clone().add(1, 'days').startOf('day');
         %>
-        <%- include('../partials/daily', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
-        <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <%- include('../partials/today', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <%- include('../partials/tomorrow', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
         <section class="card card-block">
           <h3 class="small muted">This week</h3>
           <p class="forecast-primary">

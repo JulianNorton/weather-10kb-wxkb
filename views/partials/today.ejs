@@ -1,0 +1,32 @@
+<section class="card card-block">
+  <h3 class="small muted">
+    <%= data.name %>
+  </h3>
+  <div class="flex wrap">
+    <div>
+      <p>
+          <span class="small">Precipitation</span> 
+          <span class="forecast-inline-secondary">
+            <%= Math.round(data.daily.precipProbability * 100) %>% 
+          </span>
+          <span class="small">Humidity</span> 
+          <span class="forecast-inline-secondary">
+            <%= Math.round(data.daily.humidity * 100) %>%
+          </span>
+      </p>
+      <p>
+        <span class="small">High</span> <%= Math.round(data.daily.temperatureMax) %>° 
+        <span class="small forecast-inline-secondary"> at <%= moment.unix(data.daily.temperatureMaxTime).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(data.daily.temperatureMaxTime).format('a') %></span><% } %></span> 
+        <span class="small">Low</span> <%= Math.round(data.daily.temperatureMin) %>°
+        <span class="small forecast-inline-secondary"> at <%= moment.unix(data.daily.temperatureMinTime).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(data.daily.temperatureMinTime).format('a') %></span><% } %></span> 
+      </p>
+    </div>
+    <!--[if gte IE 9]><!-->
+      <%- include('../../public/images/' + data.daily.icon + '.svg') %>
+      <!--<![endif]-->
+      <!--[if lte IE 8]>
+    <%# IE8 and below see nothing :( %>
+    <![endif]-->
+  </div>
+  <%- include('../partials/hourly', {data: {name: "Today", daily: data.daily, hourly: data.hourly, tomorrowTime: data.tomorrowTime}})%>
+</section>

@@ -1,0 +1,25 @@
+<section class="card card-block">
+  <h3 class="small muted">
+    <%= data.name %>
+  </h3>
+  <div class="flex wrap">
+    <div>
+      <p class="forecast-primary">
+        <%= data.daily.summary %>
+      </p>
+      <p>
+        <span class="small">High</span>
+        <%= Math.round(data.daily.temperatureMax) %>°
+          <span class="small">Low</span>
+          <%= Math.round(data.daily.temperatureMin) %>°
+      </p>
+    </div>
+    <!--[if gte IE 9]><!-->
+    <%- include('../../public/images/' + data.daily.icon + '.svg') %>
+      <!--<![endif]-->
+      <!--[if lte IE 8]>
+        <%# IE8 and below see nothing :( %>
+      <![endif]-->
+  </div>
+  <%- include('../partials/hourly', {data: {name: "Tomorrow", daily: data.daily, hourly: data.hourly, tomorrowTime: data.tomorrowTime}})%>
+</section>
