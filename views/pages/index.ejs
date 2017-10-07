@@ -40,12 +40,10 @@
               Now (updated: <%= moment.unix(currently.time).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span><% } %>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
+              <%# This only shows the image if it's IE9 and above %>
               <!--[if gte IE 9]><!-->
               <%- include('../../public/images/' + currently.icon + '.svg') %>
               <!--<![endif]-->
-              <!--[if lte IE 8]>
-                <%# IE8 and below see nothing :( %>
-              <![endif]-->
             </div>
             <p class="forecast-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
@@ -86,7 +84,7 @@
           </li>
         </ul>
       </nav>
-      <!-- wxkb.io was orginally created by by Julian Norton and Ryan Williams licensed under GPL-2.0 -->
+      <%# wxkb.io was orginally created by by Julian Norton and Ryan Williams licensed under GPL-2.0 %>
     </footer>
   </body>
 </html>
