@@ -13,7 +13,6 @@
     <style><%- include('../../public/style/main.css') %></style>
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" sizes="48x48" href="/images/default/favicon.ico">
-    <link rel="manifest" href="/images/<%= currently.icon %>/manifest.json?v=<%= currently.icon %>">
     <link rel="mask-icon" href="/images/<%= currently.icon %>/safari-pinned-tab.svg?v=<%= currently.icon %>" color="#5bbad5">
     <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
     <script src="/sw-registration.js"></script>
@@ -21,7 +20,7 @@
 
   <body id="wxkb_io" class="container">
     <header class="flex wrap" style="justify-content: space-between">
-      <h1 class="m-a-1 small muted">wxkb.io &ndash; weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h1>
+      <h1 class="m-a-1 small muted" style="max-width:30em;">wxkb.io &ndash; weather for <%= params.formatted_location %> <a class="m-x-1 nowrap" href="#change-location">Change location</a></h1>
       <h2 class="m-a-1 small muted" style="margin-right: 1em;">
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSejNVYmzOFyvqscMk6QvoJcgom1AKkl5Ygjyyd8TQDgjAuRmA/viewform"
@@ -44,12 +43,10 @@
               Now (updated: <%= moment.unix(currently.time).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span><% } %>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
+              <%# This only shows the image if it's IE9 and above %>
               <!--[if gte IE 9]><!-->
               <%- include('../../public/images/' + currently.icon + '.svg') %>
               <!--<![endif]-->
-              <!--[if lte IE 8]>
-                <%# IE8 and below see nothing :( %>
-              <![endif]-->
             </div>
             <p class="forecast-primary"><%- include('../partials/summary', {data: currently}) %></p>
           </div>
@@ -58,8 +55,8 @@
           var currentTime = moment.unix(currently.time);
           var tomorrowTime = currentTime.clone().add(1, 'days').startOf('day');
         %>
-        <%- include('../partials/daily', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
-        <%- include('../partials/daily', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <%- include('../partials/today', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <%- include('../partials/tomorrow', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
         <section class="card card-block">
           <h3 class="small muted">This week</h3>
           <p class="forecast-primary">
@@ -90,7 +87,7 @@
           </li>
         </ul>
       </nav>
-      <!-- wxkb.io was orginally created by by Julian Norton and Ryan Williams licensed under GPL-2.0 -->
+      <%# wxkb.io was orginally created by by Julian Norton and Ryan Williams licensed under GPL-2.0 %>
     </footer>
   </body>
 </html>

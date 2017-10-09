@@ -18,12 +18,17 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - .node_modules
+
       - run:
-          name: test
-          command: './node_modules/.bin/nyc -r html --report-dir reports/coverage/html ./node_modules/.bin/mocha --reporter=xunit --reporter-options output=reports/test-results.xml'
+          name: run-tests
+          command: 'npx nyc mocha'
+
       - run:
-          name: coverage
-          command: './node_modules/.bin/nyc report --reporter=text-lcov > reports/coverage/coverage.lcov'
+          name: test-reporter
+          command: 'npx nyc -r html --report-dir reports/coverage/html mocha --reporter=xunit --reporter-options output=reports/test-results.xml'
+      - run:
+          name: generate-coverage
+          command: 'npx nyc report --reporter=text-lcov > reports/coverage/coverage.lcov'
       - store_test_results:
           path: reports/test-results.xml
       - store_artifacts:

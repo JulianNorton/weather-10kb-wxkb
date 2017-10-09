@@ -7,24 +7,24 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/unit/",
+    "test": "nyc -r html --report-dir reports/coverage/html mocha",
     "test:watch": "npm test -- -w",
-    "test:all": "nyc -r html --report-dir reports/coverage/html mocha",
     "test:coverage": "nyc report",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "dependencies": {
-    "compression": "1.6.2",
+    "compression": "1.7.1",
     "cookie-parser": "1.4.3",
     "dark-sky": "1.0.10",
     "dateformat": "1.0.12",
-    "ejs": "2.5.1",
-    "express": "4.13.3",
+    "ejs": "2.5.5",
+    "express": "4.16.0",
     "express-minify-html": "0.6.0",
     "geoip-lite": "1.1.8",
     "google-timezone-api": "1.0.1",
+    "helmet": "^3.8.2",
     "moment-timezone": "0.5.5",
     "node-freegeoip": "0.0.1",
     "node-geocoder": "3.14.0",
@@ -50,11 +50,11 @@
     "eslint-plugin-import": "2.0.1",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.4.1",
-    "gulp": "3.9.1",
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
     "node-sass": "3.9.0",
     "nodemon": "1.10.2",
-    "nyc": "^11.0.2"
+    "nyc": "^11.0.2",
+    "sinon": "^4.0.0"
   }
 }

@@ -15,7 +15,7 @@ If you’re suggesting a new idea, explain why you think it’d be useful to the
 You can expect a response from a maintainer within 7 days. If you haven’t heard anything by then, feel free to ping the thread.
 
 # Want to run your own version?
-[Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/Set-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
+[Check out the set-up documentation](https://github.com/JulianNorton/weather-10kb/wiki/⭐-Set-up-the-Weather-10kb-environment). If you get stuck, let us know so we can help!
 
 <hr/>
 
@@ -32,30 +32,6 @@ Support us with a monthly donation and help us continue our activities. [[Become
 <a href="https://opencollective.com/weather-10kb/backer/3/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/3/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/backer/4/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/4/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/backer/5/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/5/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/6/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/6/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/7/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/7/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/8/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/8/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/9/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/9/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/10/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/10/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/11/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/11/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/12/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/12/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/13/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/13/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/14/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/14/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/15/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/15/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/16/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/16/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/17/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/17/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/18/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/18/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/19/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/19/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/20/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/20/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/21/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/21/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/22/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/22/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/23/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/23/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/24/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/24/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/25/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/25/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/26/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/26/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/27/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/27/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/28/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/28/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/backer/29/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/29/avatar.svg"></a>
 
 
 Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/weather-10kb#sponsor)]
@@ -66,27 +42,3 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 <a href="https://opencollective.com/weather-10kb/sponsor/3/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/3/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/sponsor/4/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/4/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/sponsor/5/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/6/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/7/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/8/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/9/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/9/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/10/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/10/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/11/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/11/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/12/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/12/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/13/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/13/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/14/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/14/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/15/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/15/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/16/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/16/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/17/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/17/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/18/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/18/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/19/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/19/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/20/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/20/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/21/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/21/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/22/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/22/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/23/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/23/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/24/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/24/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/25/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/25/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/26/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/26/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/27/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/27/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/28/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/28/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/29/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/29/avatar.svg"></a>

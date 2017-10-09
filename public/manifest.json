@@ -3,31 +3,51 @@
   "name": "weather-10kb",
   "icons": [
     {
+<<<<<<< HEAD:manifest.json
       "src": "images/default/launcher-icon-48.png",
+=======
+      "src": "/images/default/launcher-icon-48.png",
+>>>>>>> 1813106c08ce5497983e3fef0ba933f57ca42c8b:public/manifest.json
       "sizes": "48x48",
       "type": "image/png",
       "density": 1.0
     },
     {
+<<<<<<< HEAD:manifest.json
       "src": "images/default/launcher-icon-72.png",
+=======
+      "src": "/images/default/launcher-icon-72.png",
+>>>>>>> 1813106c08ce5497983e3fef0ba933f57ca42c8b:public/manifest.json
       "sizes": "72x72",
       "type": "image/png",
       "density": 1.5
     },
     {
+<<<<<<< HEAD:manifest.json
       "src": "images/default/launcher-icon-96.png",
+=======
+      "src": "/images/default/launcher-icon-96.png",
+>>>>>>> 1813106c08ce5497983e3fef0ba933f57ca42c8b:public/manifest.json
       "sizes": "96x96",
       "type": "image/png",
       "density": 2.0
     },
     {
+<<<<<<< HEAD:manifest.json
       "src": "images/default/launcher-icon-144.png",
+=======
+      "src": "/images/default/launcher-icon-144.png",
+>>>>>>> 1813106c08ce5497983e3fef0ba933f57ca42c8b:public/manifest.json
       "sizes": "144x144",
       "type": "image/png",
       "density": 3.0
     },
     {
+<<<<<<< HEAD:manifest.json
       "src": "images/default/launcher-icon-192.png",
+=======
+      "src": "/images/default/launcher-icon-192.png",
+>>>>>>> 1813106c08ce5497983e3fef0ba933f57ca42c8b:public/manifest.json
       "sizes": "192x192",
       "type": "image/png",
       "density": 4.0
