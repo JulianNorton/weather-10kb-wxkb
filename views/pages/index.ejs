@@ -16,7 +16,7 @@
     <link rel="mask-icon" href="/images/<%= currently.icon %>/safari-pinned-tab.svg?v=<%= currently.icon %>" color="#5bbad5">
     <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
     <%# Code to register service worker that will take care of caching application files, enabling offline work. %>
-    <script src="/sw-registration.js"></script>
+    <script src="/sw-registration.js" async="true"></script>
   </head>
 
   <body id="wxkb_io" class="container">
