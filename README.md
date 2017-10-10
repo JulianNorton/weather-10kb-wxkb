@@ -41,4 +41,3 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 <a href="https://opencollective.com/weather-10kb/sponsor/2/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/2/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/sponsor/3/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/3/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/sponsor/4/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/weather-10kb/sponsor/5/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/5/avatar.svg"></a>
