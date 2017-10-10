@@ -31,6 +31,7 @@ Support us with a monthly donation and help us continue our activities. [[Become
 <a href="https://opencollective.com/weather-10kb/backer/2/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/2/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/backer/3/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/3/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/backer/4/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/4/avatar.svg"></a>
+<a href="https://opencollective.com/weather-10kb/backer/5/website" target="_blank"><img src="https://opencollective.com/weather-10kb/backer/5/avatar.svg"></a>
 
 
 Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/weather-10kb#sponsor)]
@@ -39,3 +40,5 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 <a href="https://opencollective.com/weather-10kb/sponsor/1/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/1/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/sponsor/2/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/2/avatar.svg"></a>
 <a href="https://opencollective.com/weather-10kb/sponsor/3/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/weather-10kb/sponsor/4/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/weather-10kb/sponsor/5/website" target="_blank"><img src="https://opencollective.com/weather-10kb/sponsor/5/avatar.svg"></a>
