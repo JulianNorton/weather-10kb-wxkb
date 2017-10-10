@@ -2,6 +2,7 @@ var CACHE_NAME = 'weather-10kb-cache-v1';
 var urlsToCache = [
   '/'
 ];
+var version = 'v1';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -44,8 +45,8 @@ self.addEventListener("fetch", function(event) {
           return response;
         }
 
-        function unableToResolve () {
-          console.log('WORKER: fetch request failed in both cache and network.');
+        function unableToResolve (error) {
+          console.log('WORKER: fetch request failed in both cache and network.', error);
           return new Response('<h1>Service Unavailable</h1>', {
             status: 503,
             statusText: 'Service Unavailable',
