@@ -46,10 +46,6 @@ app.use(minifyHTML({
   }
 }));
 app.use(express.static(__dirname + '/../public'));
-<<<<<<< HEAD
-app.use('/manifest.json', express.static(__dirname + '/../manifest.json'));
-=======
->>>>>>> 1813106c08ce5497983e3fef0ba933f57ca42c8b
 app.use(cookieParser());
 app.use('/', router);
 
