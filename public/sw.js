@@ -47,7 +47,8 @@ self.addEventListener("fetch", function(event) {
 
         function unableToResolve (error) {
           console.log('WORKER: fetch request failed in both cache and network.', error);
-          return new Response('<h1>Service Unavailable</h1>', {
+          const source = '<body style=\'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;\'><h2>There is no Internet connection</h2><p>Check your internet connection and try again.<p><p>Error code: 503, Service Unavaliable<p></body>';
+          return new Response(source, {
             status: 503,
             statusText: 'Service Unavailable',
             headers: new Headers({
