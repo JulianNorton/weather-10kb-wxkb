@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Weather forecast that's high performance, open-source, collaborative, and accessible.">
+<meta property="og:email" content="julian@juliannorton.com">
+<meta name="robots" content="Index, follow">
+<meta http-equiv="refresh" content="600">
+<meta name="theme-color" content="#639"/>
+<style><%- include('../../public/style/main.css') %></style>
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" sizes="48x48" href="/images/default/favicon.ico">
+<% if(locals.currently) {%>
+  <link rel="mask-icon" href="/images/<%= currently.icon %>/safari-pinned-tab.svg?v=<%= currently.icon %>" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/<%= currently.icon %>/favicon.ico?v=<%= currently.icon %>">
+<% } %>
+<%# Code to register service worker that will take care of caching application files, enabling offline work. %>
+<%# allows the script to run when the DOM is loaded, without delaying page load first. %>
+<script src="/sw-registration.js" defer="true"></script>
