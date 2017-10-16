@@ -10,5 +10,10 @@ function registerServiceWorker() {
 }
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', registerServiceWorker);
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for(let registration of registrations) {
+      registration.unregister()
+    }
+    window.addEventListener('load', registerServiceWorker);
+  });
 }
