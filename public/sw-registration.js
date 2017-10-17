@@ -11,7 +11,7 @@ function registerServiceWorker() {
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations().then(function(registrations) {
-    for(let registration of registrations) {
+    for(var registration of registrations) {
       registration.unregister();
     }
     window.addEventListener('load', registerServiceWorker);
