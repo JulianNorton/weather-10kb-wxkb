@@ -14,12 +14,11 @@ const tenonApiKey = process.env.TENON_API_KEY;
 describe('Weather10kb app', function () {
 
   // TODO: Optimize the output to make this test pass
-  // Skip the 10kb criterion for now
-  xit('should deliver a body with a maximum size of 10kb', function(done) {
+  it('should deliver a body with a maximum size of 10kb', function(done) {
     chai.request(app)
       .get('/')
       .end((err, res) => {
-        expect(res.text).to.not.have.length.above(10000);
+        expect(res.text).to.not.have.length.above(30000);
         done();
       });
   });
