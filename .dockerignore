@@ -1,0 +1,6 @@
+.git
+.circleci
+node_modules
+mockups
+Dockerfile
+.dockerignore
