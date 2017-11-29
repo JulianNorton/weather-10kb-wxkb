@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "nyc -r html --report-dir reports/coverage/html mocha",
+    "test": "snyk test && nyc -r html --report-dir reports/coverage/html mocha",
     "test:watch": "npm test -- -w",
     "test:coverage": "nyc report",
     "start": "nodemon index.js",
@@ -55,6 +55,7 @@
     "node-sass": "3.9.0",
     "nodemon": "1.10.2",
     "nyc": "^11.0.2",
-    "sinon": "^4.0.0"
+    "sinon": "^4.0.0",
+    "snyk": "^1.52.0"
   }
 }
