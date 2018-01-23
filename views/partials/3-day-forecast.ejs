@@ -1,0 +1,71 @@
+<section class="next-days-forecast">
+
+  <% for (var i = 1; i < 4; i++) { %>
+  <%
+    var windDirection = (function() {
+      var deg = daily.data[i].windBearing;
+
+      if (deg >= 11 && deg < 33) {
+        return 'NNE';
+      } else if (deg >= 33 && deg < 56) {
+        return 'ENE';
+      } else if (deg >= 56 && deg < 78) {
+        return 'E';
+      } else if (deg >= 78 && deg < 101) {
+        return 'ESE';
+      } else if (deg >= 101 && deg < 123) {
+        return 'ESE';
+      } else if (deg >= 123 && deg < 146) {
+        return 'SE';
+      } else if (deg >= 146 && deg < 168) {
+        return 'SSE';
+      } else if (deg >= 168 && deg < 191) {
+        return 'S';
+      } else if (deg >= 191 && deg < 213) {
+        return 'SSW';
+      } else if (deg >= 213 && deg < 236) {
+        return 'SW';
+      } else if (deg >= 236 && deg < 258) {
+        return 'WSW';
+      } else if (deg >= 258 && deg < 281) {
+        return 'W';
+      } else if (deg >= 281 && deg < 303) {
+        return 'WNW';
+      } else if (deg >= 303 && deg < 326) {
+        return 'NW';
+      } else if (deg >= 326 && deg < 348) {
+        return 'NNW';
+      } else {
+        return 'N'; 
+      }
+    })();
+  %>
+    <div class="card card-block">
+      <div class="forecast-header flex" style="align-items:center; margin-bottom:0.8em">
+        <div class="forecast-title">
+          <p class="forecast-primary"><%= moment.unix(daily.data[i].time).format('dddd') %></p>
+          <h3 class="small muted" style="color:#A5A4A5"><%= moment.unix(daily.data[i].time).format('MMM Do') %></h3>
+        </div>
+        <div class="forecast-temps flex">
+          <div style="color:#9C0214; flex-direction:column; align-items:center; margin-right: 0.5em" class="flex">
+            <span style="font-size: 1.2em; font-weight:500"><%= Math.round(daily.data[i].temperatureMax) %></span> <span style="font-size: 0.6em">High</span>
+          </div>
+          <div style="color:#4C91E2; flex-direction:column; align-items:center" class="flex">
+            <span style="font-size: 1.2em; font-weight:500"><%= Math.round(daily.data[i].temperatureMin) %></span> <span style="font-size: 0.6em">Low</span>
+          </div>
+        </div>
+      </div>
+      <p class="forecast-secondary"><%= daily.data[i].summary %></p>
+      <div class="weather-conditions flex">
+        <div class="precipation-risk flex" style="align-items:center">
+          <span class="small muted"><%= Math.round(daily.data[i].precipProbability * 100) %>%</span>
+        </div>
+        <div class="wind-conditions flex" style="align-items:center">
+          <span class="small muted"><%= windDirection %> <%= Math.round(daily.data[i].windSpeed) %> <%= params.windUnit %></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
+</section>
+
