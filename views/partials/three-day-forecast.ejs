@@ -1,4 +1,4 @@
-<section class="next-days-forecast">
+<section>
 
   <% for (var i = 2; i < 4; i++) { %>
   <%# //commented out with the '#'
@@ -47,10 +47,6 @@
       </h3>
       <p class="forecast-primary"><%= daily.data[i].summary %></p>
       <p>
-        <span class="small">High</span> <%= Math.round(daily.data[i].temperatureMax) %>°
-        <span class="small">Low</span> <%= Math.round(daily.data[i].temperatureMin) %>°
-      </p>
-      <p>
         <span class="small">Precipitation</span>
         <span class="forecast-inline-secondary"><%= Math.round(daily.data[i].precipProbability * 100) %>%</span>
         <span class="small">Wind <%# = windDirection %></span>
@@ -58,6 +54,10 @@
           <%= Math.round(daily.data[i].windSpeed) %>
           <span class="small"><%= params.windUnit %></span>
         </span>
+      </p>
+      <p>
+        <span class="small">High</span> <%= Math.round(daily.data[i].temperatureMax) %>°
+        <span class="small">Low</span> <%= Math.round(daily.data[i].temperatureMin) %>°
       </p>
     </section>
   <% } %>
