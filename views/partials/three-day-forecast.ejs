@@ -1,45 +1,5 @@
 <section>
-
   <% for (var i = 2; i < 4; i++) { %>
-  <%# //commented out with the '#'
-    var windDirection = (function() {
-      var deg = daily.data[i].windBearing;
-
-      if (deg >= 11 && deg < 33) {
-        return 'NNE';
-      } else if (deg >= 33 && deg < 56) {
-        return 'ENE';
-      } else if (deg >= 56 && deg < 78) {
-        return 'East';
-      } else if (deg >= 78 && deg < 101) {
-        return 'ESE';
-      } else if (deg >= 101 && deg < 123) {
-        return 'ESE';
-      } else if (deg >= 123 && deg < 146) {
-        return 'SE';
-      } else if (deg >= 146 && deg < 168) {
-        return 'SSE';
-      } else if (deg >= 168 && deg < 191) {
-        return 'South';
-      } else if (deg >= 191 && deg < 213) {
-        return 'SSW';
-      } else if (deg >= 213 && deg < 236) {
-        return 'SW';
-      } else if (deg >= 236 && deg < 258) {
-        return 'WSW';
-      } else if (deg >= 258 && deg < 281) {
-        return 'West';
-      } else if (deg >= 281 && deg < 303) {
-        return 'WNW';
-      } else if (deg >= 303 && deg < 326) {
-        return 'NW';
-      } else if (deg >= 326 && deg < 348) {
-        return 'NNW';
-      } else {
-        return 'North'; 
-      }
-    })();
-  %>
     <section class="card card-block">
       <h3 class="small muted">
         <%= moment.unix(daily.data[i].time).format('dddd') %>,
@@ -49,7 +9,6 @@
       <p>
         <span class="small">Precipitation</span>
         <span class="forecast-inline-secondary"><%= Math.round(daily.data[i].precipProbability * 100) %>%</span>
-        <span class="small">Wind <%# = windDirection %></span>
         <span class="forecast-inline-secondary">
           <%= Math.round(daily.data[i].windSpeed) %>
           <span class="small"><%= params.windUnit %></span>
@@ -59,5 +18,5 @@
         <span class="small">High</span> <%= Math.round(daily.data[i].temperatureMax) %>°
         <span class="small">Low</span> <%= Math.round(daily.data[i].temperatureMin) %>°
       </p>
-    </section>
   <% } %>
+</section>
