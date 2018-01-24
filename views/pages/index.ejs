@@ -22,8 +22,6 @@
     <%- include('../partials/alert', {data: alerts})%>
     <% } %>
 
-      <%- include('../partials/3-day-forecast') %>
-
       <article>
         <header class="card card-block">
           <div>
@@ -45,6 +43,7 @@
         %>
         <%- include('../partials/today', {data: {name: "Today", daily: daily.data[0], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
         <%- include('../partials/tomorrow', {data: {name: "Tomorrow", daily: daily.data[1], hourly: hourly.data, tomorrowTime: tomorrowTime}})%>
+        <%- include('../partials/three-day-forecast') %>
         <section class="card card-block">
           <h3 class="small muted">This week</h3>
           <p class="forecast-primary">
