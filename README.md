@@ -21,8 +21,6 @@ You can expect a response from a maintainer within 7 days. If you haven’t hear
 
 You are free to use, view, modify, and distribute Weather-10kb free of charge as long as you include the [license](https://github.com/JulianNorton/weather-10kb/blob/development/LICENSE.md).
 
-[![Known Vulnerabilities](https://snyk.io/test/github/juliannorton/weather-10kb/badge.svg)](https://snyk.io/test/github/juliannorton/weather-10kb)
-
 ## Support this project
 [![OpenCollective](https://opencollective.com/weather-10kb/backers/badge.svg)](#backers) [![OpenCollective](https://opencollective.com/weather-10kb/sponsors/badge.svg)](#sponsors)
  
