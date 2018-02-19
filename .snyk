@@ -1,4 +1,36 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.10.1
 ignore: {}
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - opbeat > stackman > debug:
+        patched: '2018-02-19T15:38:18.362Z'
+    - opbeat > debug:
+        patched: '2018-02-19T15:38:18.362Z'
+  'npm:minimatch:20160620':
+    - glob-watcher > gaze > globule > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - gaze > globule > glob > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - glob-stream > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - glob-stream > glob > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - gulp > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+    - gaze > globule > minimatch:
+        patched: '2018-02-19T15:38:18.362Z'
+  'npm:ms:20170412':
+    - opbeat > stackman > debug > ms:
+        patched: '2018-02-19T15:38:18.362Z'
+    - opbeat > debug > ms:
+        patched: '2018-02-19T15:38:18.362Z'

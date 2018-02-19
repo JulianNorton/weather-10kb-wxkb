@@ -12,23 +12,26 @@
     "test:coverage": "nyc report",
     "start": "nodemon index.js",
     "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "compression": "1.7.1",
     "cookie-parser": "1.4.3",
-    "dark-sky": "1.0.10",
+    "dark-sky": "^1.0.10",
     "dateformat": "1.0.12",
     "ejs": "2.5.5",
     "express": "4.16.0",
-    "express-minify-html": "0.6.0",
+    "express-minify-html": "^0.6.0",
     "geoip-lite": "1.1.8",
     "google-timezone-api": "1.0.1",
     "helmet": "^3.8.2",
-    "moment-timezone": "0.5.5",
+    "moment-timezone": "^0.5.5",
     "node-freegeoip": "0.0.1",
     "node-geocoder": "3.14.0",
-    "object-merge": "2.5.1"
+    "object-merge": "2.5.1",
+    "snyk": "^1.69.7"
   },
   "repository": {
     "type": "git",
@@ -55,7 +58,7 @@
     "node-sass": "3.9.0",
     "nodemon": "1.10.2",
     "nyc": "^11.0.2",
-    "sinon": "^4.0.0",
-    "snyk": "^1.52.0"
-  }
+    "sinon": "^4.0.0"
+  },
+  "snyk": true
 }
