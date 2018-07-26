@@ -1,4 +1,4 @@
-# www.wxkb.io
+# wxkb.juliannorton.com
 ### **Weather forecast** that's high performance, open-source, collaborative, and accessible.
 
 # How can you contribute?
