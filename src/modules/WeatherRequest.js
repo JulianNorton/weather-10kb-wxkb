@@ -41,6 +41,13 @@ function WeatherRequest(req) {
 
   function geocodeWithIp(ip) {
     return new Promise((resolve, reject) => {
+      // temporary short-circuit to avoid geoip throttling.
+      req.params.latitude = 40.7841;
+      req.params.longitude = -73.9661;
+      req.params.location = req.params.latitude + ',' + req.params.longitude;
+      req.params.formatted_location = 'nyc, ny';
+      resolve('ny');
+
       nodeFreegeoip.getLocation(ip, (err, location) => {
         if (err) return reject(err);
 
