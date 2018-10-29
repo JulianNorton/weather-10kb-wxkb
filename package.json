@@ -55,7 +55,7 @@
     "eslint-plugin-react": "6.4.1",
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
-    "node-sass": "3.9.0",
+    "node-sass": "^4.9.4",
     "nodemon": "1.10.2",
     "nyc": "^11.0.2",
     "sinon": "^4.0.0"
