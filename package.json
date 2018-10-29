@@ -7,14 +7,12 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "snyk test && nyc -r html --report-dir reports/coverage/html mocha",
+    "test": "nyc -r html --report-dir reports/coverage/html mocha",
     "test:watch": "npm test -- -w",
     "test:coverage": "nyc report",
     "start": "nodemon index.js",
     "build-css": "node-sass --include-path scss public/style/styles-compiler.scss public/style/main.css --output-style compressed",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "dependencies": {
     "compression": "1.7.1",
@@ -30,8 +28,7 @@
     "moment-timezone": "^0.5.5",
     "node-freegeoip": "0.0.1",
     "node-geocoder": "3.14.0",
-    "object-merge": "2.5.1",
-    "snyk": "^1.69.7"
+    "object-merge": "2.5.1"
   },
   "repository": {
     "type": "git",
@@ -55,10 +52,9 @@
     "eslint-plugin-react": "6.4.1",
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
-    "node-sass": "3.9.0",
+    "node-sass": "^4.9.4",
     "nodemon": "1.10.2",
     "nyc": "^11.0.2",
     "sinon": "^4.0.0"
-  },
-  "snyk": true
+  }
 }
