@@ -15,6 +15,8 @@ const geocoder = nodeGeocoder({
   formatter: null  // 'gpx', 'string', etc.
 });
 
+timezone.key(process.env.GOOGLE_TIMEZONE_API_KEY);
+
 function WeatherRequest(req) {
 
   function geocodeWithLocation() {
