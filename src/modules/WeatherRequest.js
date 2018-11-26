@@ -4,7 +4,7 @@ const DarkSky = require('dark-sky');
 const nodeFreegeoip = require('node-freegeoip');
 const nodeGeocoder = require('node-geocoder');
 const moment = require('moment-timezone');
-const timezone = require('google-timezone-api');
+var timezone = require('google-timezone-api');
 
 
 const geocoder = nodeGeocoder({
