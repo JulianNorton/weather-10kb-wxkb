@@ -4,7 +4,7 @@ const DarkSky = require('dark-sky');
 const nodeFreegeoip = require('node-freegeoip');
 const nodeGeocoder = require('node-geocoder');
 const moment = require('moment-timezone');
-var timezone = require('google-timezone-api');
+const timezone = require('google-timezone-api');
 
 
 const geocoder = nodeGeocoder({
@@ -14,9 +14,6 @@ const geocoder = nodeGeocoder({
   apiKey: process.env.GOOGLE_API_KEY,
   formatter: null  // 'gpx', 'string', etc.
 });
-
-// TODO, make this work: 
-//timezone.key(process.env.GOOGLE_API_KEY);
 
 function WeatherRequest(req) {
 
@@ -86,7 +83,10 @@ function WeatherRequest(req) {
   };
 
   this.setTimeZone = () => {
-    return timezone({ location: req.params.latitude + ',' + req.params.longitude })
+    return timezone({
+      key: process.env.GOOGLE_API_KEY,
+      location: req.params.latitude + ',' + req.params.longitude,
+    })
       .then(res => {
         req.params.tz = res.timeZoneId;
         moment.tz.setDefault(req.params.tz);
