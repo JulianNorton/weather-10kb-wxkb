@@ -6,14 +6,11 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - run:
-          name: remove-lock
-          command: rm ./package-lock.json
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: install-packages
-          command: npm install
+          command: yarn
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
