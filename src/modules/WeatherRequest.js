@@ -84,7 +84,7 @@ function WeatherRequest(req) {
 
   this.setTimeZone = () => {
     return timezone({
-      key: process.env.GOOGLE_API_KEY,
+      // key: process.env.GOOGLE_API_KEY,
       location: req.params.latitude + ',' + req.params.longitude,
     })
       .then(res => {
