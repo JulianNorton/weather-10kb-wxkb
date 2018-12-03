@@ -28,7 +28,7 @@
         %>
         <li>
             <span class="small muted data-secondary">
-            <%= data.hourly[i].startTime ? moment.unix(data.hourly[i].startTime).format(params.hoursFormat + (params.hoursFormat === 'H' ? ':mm' : '')) + '-' : '' %><%= hourlyTime.format(params.hoursFormat + (params.hoursFormat === 'H' ? ':mm' : ''))%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= hourlyTime.format('a') %></span>
+            <%= data.hourly[i].startTime ? moment.unix(data.hourly[i].startTime).fromNow() + ' and ' : '' %><%= hourlyTime.fromNow()%><% if (params.hoursFormat === 'h') { %>
             <% } %>
                 </span>
                 <span class="m-x-1"><%= Math.round(data.hourly[i].temperature) %>º</span>

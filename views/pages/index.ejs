@@ -19,7 +19,7 @@
         <header class="card card-block" id="weather-current">
           <div>
             <h3 class="small muted">
-              Now (updated: <%= moment.unix(currently.time).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(currently.time).format('a') %></span><% } %>)</h3>
+              Now (updated: <%= moment.unix(currently.time).fromNow()%>)</h3>
             <div class="flex wrap status-primary">
               <span class="center"><%= Math.round(currently.temperature) %>º<%= params.scale %></span>
               <%# This only shows the image if it's IE9 and above %>

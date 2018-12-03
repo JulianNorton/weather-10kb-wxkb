@@ -16,9 +16,9 @@
       </p>
       <p>
         <span class="small">High</span> <%= Math.round(data.daily.apparentTemperatureMax) %>°
-        <span class="small forecast-inline-secondary"> at <%= moment.unix(data.daily.apparentTemperatureMaxTime).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(data.daily.apparentTemperatureMaxTime).format('a') %></span><% } %></span>
+        <span class="small forecast-inline-secondary"> at <%= moment.unix(data.daily.apparentTemperatureMaxTime).fromNow()%></span>
         <span class="small">Low</span> <%= Math.round(data.daily.apparentTemperatureMin) %>°
-        <span class="small forecast-inline-secondary"> at <%= moment.unix(data.daily.apparentTemperatureMinTime).format(params.hoursFormat + ':mm')%><% if (params.hoursFormat === 'h') { %><span class="small-caps"><%= moment.unix(data.daily.apparentTemperatureMinTime).format('a') %></span><% } %></span>
+        <span class="small forecast-inline-secondary"> at <%= moment.unix(data.daily.apparentTemperatureMinTime).fromNow()%></span>
       </p>
     </div>
     <!--[if gte IE 9]><!-->
